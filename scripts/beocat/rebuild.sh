@@ -11,7 +11,7 @@ set -euo pipefail
 source "$(dirname "$0")/env.sh"
 cd "$CONFDET_REPO"
 source "$CONFDET_VENV/bin/activate"
-BUNDLE="$CONFDET_ROOT/transfer/manifests"
+BUNDLE="$CONFDET_TRANSFER/manifests"
 [ -d "$BUNDLE" ] || { echo "no $BUNDLE: run get_data.sh bundle first" >&2; exit 1; }
 
 rebuild() {   # <config> <dataset>

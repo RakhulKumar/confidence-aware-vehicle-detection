@@ -5,6 +5,7 @@
 #   CONFDET_SITE        beocat: configs/paths_local.yaml's beocat block supplies every path
 #   CONFDET_ROOT        data, runs, raw downloads, the transfer bundle (large: NOT your home folder)
 #   CONFDET_REPO        the git checkout of this repository
+#   CONFDET_TRANSFER    the copied transfer bundle (*.tar.gz + *.sha256)
 #   CONFDET_VENV        the Python virtual environment
 #   CONFDET_GPU_SHARE   off: the GPU is ours alone (no VRAM cap, no duty cycle)
 #   CONFDET_PYTHON_MODULE  environment module that provides Python 3.10 (check: `module spider Python`)
@@ -12,6 +13,7 @@
 export CONFDET_SITE=beocat
 export CONFDET_ROOT="${CONFDET_ROOT:-/bulk/$USER/confdet_project}"
 export CONFDET_REPO="${CONFDET_REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
+export CONFDET_TRANSFER="${CONFDET_TRANSFER:-$HOME/confdet_transfer}"   # where the bundle archives were copied
 export CONFDET_VENV="${CONFDET_VENV:-$CONFDET_ROOT/venv}"
 export CONFDET_GPU_SHARE=off
 export CONFDET_PYTHON_MODULE="${CONFDET_PYTHON_MODULE:-}"

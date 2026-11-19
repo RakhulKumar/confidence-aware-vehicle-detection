@@ -10,12 +10,12 @@ Windows copy.
 | What | From | To on Beocat |
 |---|---|---|
 | Code | GitHub (private repo) | `git clone` → `$CONFDET_REPO` |
-| Split manifests and per-file SHA256 lists | bundle `1_manifests.tar.gz` | `$CONFDET_ROOT/transfer/manifests/` |
+| Split manifests and per-file SHA256 lists | bundle `1_manifests.tar.gz` | `$CONFDET_TRANSFER/manifests/` |
 | AU-INV-PALS raw export | bundle `2_pals_raw.tar.gz` | `$CONFDET_ROOT/raw/AU-INV-PALS/` |
 | Weights of the trained models and the pilots | bundle `3_weights.tar.gz` | `outputs/…` and `$CONFDET_ROOT/runs/…` |
 | `outputs/` (cached predictions, results, digest) | bundle `4_outputs.tar.gz` | `$CONFDET_REPO/outputs/` |
 | BMD-45 images | Hugging Face `iisc-aim/BMD-45` | `$CONFDET_ROOT/raw/bmd45/` |
-| UA-DETRAC images and XML | official Google Drive links | `$CONFDET_ROOT/raw/ua_detrac/` |
+| UA-DETRAC images and XML, as on the PC's disk | bundle `5_ua_detrac_raw.tar.gz` | `$CONFDET_ROOT/raw/ua_detrac/` |
 
 Every machine-specific path comes from `configs/paths_local.yaml`. The block is chosen by
 `CONFDET_SITE`: `windows` when unset, and `beocat` as set by `scripts/beocat/env.sh`.
@@ -24,15 +24,14 @@ quota for the right large, non-home filesystem; the data needs about 250 GB.
 
 ## 1. Copy the bundle from the Windows PC
 
-The bundle is the four archives in `D:\confdet_project\transfer\`, plus their `.sha256` files.
-Copy them to `$CONFDET_ROOT/transfer/` with Globus, or with `scp`/`rsync` through the Beocat
-login node, for example:
+The bundle is the five archives in `D:\confdet_project\transfer\` (not `staging\`), plus their
+`.sha256` files, about 11 GB in all. UA-DETRAC is copied as it was on the PC's disk rather than
+downloaded with gdown, because Google Drive's download limits make that unreliable. Copy the
+archives to `$CONFDET_TRANSFER` (default `~/confdet_transfer`). From Windows PowerShell:
 
-```bash
-# on Beocat
-mkdir -p /bulk/$USER/confdet_project/transfer
-# on the PC (Git Bash):
-scp /d/confdet_project/transfer/*.tar.gz* <eid>@headnode.beocat.ksu.edu:/bulk/<eid>/confdet_project/transfer/
+```powershell
+ssh rakhul007@headnode.beocat.ksu.edu "mkdir -p ~/confdet_transfer"
+scp D:\confdet_project\transfer\*.tar.gz D:\confdet_project\transfer\*.sha256 rakhul007@headnode.beocat.ksu.edu:~/confdet_transfer/
 ```
 
 ## 2. Code
@@ -82,10 +81,9 @@ source scripts/beocat/env.sh && source "$CONFDET_VENV/bin/activate"
 
 ```bash
 hf auth login                              # once, interactive; the token stays in $HF_HOME
-bash scripts/beocat/get_data.sh bundle     # SHA256 of the 4 archives, then unpack
+bash scripts/beocat/get_data.sh bundle     # SHA256 of archives 1-4, then unpack
 bash scripts/beocat/get_data.sh bmd45      # BMD-45 train + val from Hugging Face
-# edit DETRAC_IDS in scripts/beocat/get_data.sh (official Google Drive file ids), then:
-bash scripts/beocat/get_data.sh detrac
+bash scripts/beocat/get_data.sh detrac     # SHA256 of 5_ua_detrac_raw, then unpack it
 ```
 
 ## 5. Rebuild the processed datasets and check identity

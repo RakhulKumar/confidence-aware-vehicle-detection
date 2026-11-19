@@ -1,32 +1,23 @@
 #!/usr/bin/env bash
-# Get every input on Beocat: the transfer bundle from the Windows PC, BMD-45 from Hugging Face,
-# UA-DETRAC from its Google Drive links. Stops at the first error.
+# Get every input on Beocat: the transfer bundle from the Windows PC (including UA-DETRAC, copied as
+# it was on the PC's disk) and BMD-45 from Hugging Face. Stops at the first error.
 #
 #   bash scripts/beocat/get_data.sh bundle    # verify SHA256 of the 4 archives, then unpack them
 #   bash scripts/beocat/get_data.sh bmd45     # BMD-45 train + val (needs `hf auth login` once, interactively)
-#   bash scripts/beocat/get_data.sh detrac    # UA-DETRAC images + XML annotations (needs the Drive file ids below)
+#   bash scripts/beocat/get_data.sh detrac    # UA-DETRAC: verify SHA256 of 5_ua_detrac_raw.tar.gz, then unpack it
 #   bash scripts/beocat/get_data.sh all
 #
 # The bundle (built on the Windows PC in D:\confdet_project\transfer\) must first be copied to
-# $CONFDET_ROOT/transfer/ (scp / rsync / Globus): 1_manifests, 2_pals_raw, 3_weights, 4_outputs,
-# each as .tar.gz plus .tar.gz.sha256.
+# $CONFDET_TRANSFER (default ~/confdet_transfer; scp / rsync / Globus): 1_manifests, 2_pals_raw, 3_weights, 4_outputs,
+# 5_ua_detrac_raw, each as .tar.gz plus .tar.gz.sha256. (UA-DETRAC is not downloaded with gdown:
+# Google Drive's download limits make that unreliable.)
 set -euo pipefail
 source "$(dirname "$0")/env.sh"
 cd "$CONFDET_REPO"
 WHAT="${1:-all}"
 RAW="$CONFDET_ROOT/raw"
-TRANSFER="$CONFDET_ROOT/transfer"
+TRANSFER="$CONFDET_TRANSFER"
 mkdir -p "$RAW" "$TRANSFER"
-
-# ---- UA-DETRAC Google Drive file ids: FILL IN before running `detrac` ------------------------------
-# The official UA-DETRAC release links (images and XML annotations, train and test). Each id is the
-# part after /d/ in https://drive.google.com/file/d/<id>/view .
-DETRAC_IDS=(
-  # "<id of DETRAC-train-data.zip>"
-  # "<id of DETRAC-test-data.zip>"
-  # "<id of DETRAC-Train-Annotations-XML.zip>"
-  # "<id of DETRAC-Test-Annotations-XML.zip>"
-)
 
 bundle() {
   cd "$TRANSFER"
@@ -54,25 +45,16 @@ bmd45() {
 }
 
 detrac() {
-  source "$CONFDET_VENV/bin/activate"
-  if [ ${#DETRAC_IDS[@]} -eq 0 ]; then
-    echo "fill in DETRAC_IDS in $0 (the official Google Drive file ids) first" >&2; exit 1
-  fi
-  local D="$RAW/ua_detrac"
-  mkdir -p "$D/_zips" "$D/_unzipped" "$D/DETRAC-Images" "$D/DETRAC-Annos"
-  for id in "${DETRAC_IDS[@]}"; do
-    (cd "$D/_zips" && gdown --continue "$id")
-  done
-  for z in "$D"/_zips/*.zip; do unzip -q -n "$z" -d "$D/_unzipped"; done
-  # bring the unpacked folders into the layout the converter reads (configs/paths_local.yaml raw_ua_detrac):
-  #   DETRAC-Images/MVI_xxxxx/img00001.jpg   DETRAC-Annos/DETRAC-{Train,Test}-Annotations-XML/MVI_xxxxx.xml
-  find "$D/_unzipped" -type d -name 'MVI_*' -prune -exec mv -n {} "$D/DETRAC-Images/" \;
-  find "$D/_unzipped" -type d -name 'DETRAC-*-Annotations-XML' -prune -exec mv -n {} "$D/DETRAC-Annos/" \;
-  local n_seq n_tr n_te
-  n_seq=$(find "$D/DETRAC-Images" -mindepth 1 -maxdepth 1 -type d | wc -l)
-  n_tr=$(find "$D/DETRAC-Annos/DETRAC-Train-Annotations-XML" -name '*.xml' | wc -l)
-  n_te=$(find "$D/DETRAC-Annos/DETRAC-Test-Annotations-XML" -name '*.xml' | wc -l)
-  echo "UA-DETRAC: $n_seq image sequences, $n_tr train XML, $n_te test XML (the Windows copy had 60 train + 40 test)"
+  cd "$TRANSFER"
+  [ -f 5_ua_detrac_raw.tar.gz ] || { echo "missing $TRANSFER/5_ua_detrac_raw.tar.gz: copy it from the Windows PC first" >&2; exit 1; }
+  sha256sum -c 5_ua_detrac_raw.tar.gz.sha256
+  [ ! -e "$RAW/ua_detrac" ] || { echo "$RAW/ua_detrac exists: refusing to unpack over it" >&2; exit 1; }
+  tar -xzf 5_ua_detrac_raw.tar.gz -C "$RAW"                                # -> raw/ua_detrac/{DETRAC-Images,DETRAC-Annos}
+  cd "$CONFDET_REPO"
+  local n_tr n_te
+  n_tr=$(find "$RAW/ua_detrac/DETRAC-Annos/DETRAC-Train-Annotations-XML" -name '*.xml' | wc -l)
+  n_te=$(find "$RAW/ua_detrac/DETRAC-Annos/DETRAC-Test-Annotations-XML" -name '*.xml' | wc -l)
+  echo "UA-DETRAC in $RAW/ua_detrac: $n_tr train XML, $n_te test XML (the Windows copy: 60 + 40)"
   [ "$n_tr" -eq 60 ] && [ "$n_te" -eq 40 ] || { echo "unexpected sequence counts: stop" >&2; exit 1; }
 }
 
