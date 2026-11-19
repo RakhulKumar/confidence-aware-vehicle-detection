@@ -18,7 +18,8 @@
 #   BATCH         train only: the architecture's batch from configs/beocat_batch.yaml
 #   MAX_RESTARTS  default 40
 #SBATCH --job-name=confdet
-#SBATCH --gres=gpu:l40s:1
+#SBATCH --partition=killable.q
+#SBATCH --gres=gpu:l40s:1,killable:1
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8

@@ -36,7 +36,9 @@ if [ -z "${TORCH_CUDA:-}" ]; then
     echo "No nvidia-smi here (login node?). Run this inside a GPU session, or set TORCH_CUDA (e.g. cu128)." >&2
     exit 1
   fi
-  DRIVER_CUDA=$(nvidia-smi | sed -n 's/.*CUDA Version: *\([0-9]*\)\.\([0-9]*\).*/\1\2/p' | head -1)
+  # older drivers print "CUDA Version: 12.8", newer ones "CUDA UMD Version: 13.4"
+  DRIVER_CUDA=$(nvidia-smi | sed -n 's/.*CUDA[A-Z ]* Version: *\([0-9]*\)\.\([0-9]*\).*/\1\2/p' | head -1)
+  [ -n "$DRIVER_CUDA" ] || { echo "could not read the CUDA version from nvidia-smi: set TORCH_CUDA" >&2; exit 1; }
   echo "driver supports CUDA ${DRIVER_CUDA:0:2}.${DRIVER_CUDA:2}"
   if   [ "$DRIVER_CUDA" -ge 130 ]; then TORCH_CUDA=cu130
   elif [ "$DRIVER_CUDA" -ge 128 ]; then TORCH_CUDA=cu128

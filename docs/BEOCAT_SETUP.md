@@ -19,8 +19,8 @@ Windows copy.
 
 Every machine-specific path comes from `configs/paths_local.yaml`. The block is chosen by
 `CONFDET_SITE`: `windows` when unset, and `beocat` as set by `scripts/beocat/env.sh`.
-`CONFDET_ROOT` defaults to `/bulk/$USER/confdet_project`. Check Beocat's current storage guide and
-quota for the right large, non-home filesystem; the data needs about 250 GB.
+`CONFDET_ROOT` defaults to `/homes/$USER/confdet` (home: 1 TB limit, not purged, free; `/fastscratch`
+purges files unused for 30 days and `/bulk` costs $45/TB/year). The data needs about 250 GB.
 
 ## 1. Copy the bundle from the Windows PC
 
@@ -126,7 +126,8 @@ bash scripts/beocat/submit_all.sh --parallel   # or: only the queue's own depend
 ```
 
 - **Template:** every job uses `scripts/beocat/train_job.sbatch`.
-- **Resources:** one L40S (`--gres=gpu:l40s:1`) and `--requeue`.
+- **Resources:** one L40S on killable nodes (`--gres=gpu:l40s:1,killable:1`) and `--requeue`; a
+  preempted job is requeued by Slurm and resumes from `last.pt`.
 - **Time limits:** set with `TIME_TRAIN` (default `24:00:00`) and `TIME_PREDICT` (`04:00:00`).
 - **GPU share:** off (`CONFDET_GPU_SHARE=off`).
 - **Resuming:** training runs `04 --resume`, as on the Windows PC. Fifteen minutes before the time
