@@ -185,7 +185,8 @@ def now() -> str:
 # ---------------------------------------------------------------------------
 def free_gb(drive: str) -> float:
     import shutil
-    root = drive if drive.endswith(("\\", "/")) else drive + "\\"
+    is_letter = len(drive) == 2 and drive[1] == ":"          # "C:" -> "C:\\"; POSIX paths as given
+    root = drive + "\\" if is_letter else drive
     return shutil.disk_usage(root).free / 2 ** 30
 
 
@@ -193,7 +194,7 @@ def disk_check(job: dict, drives=("C:", "D:"), min_free_gb: float = 50.0, free_f
     """A job may start only if, after writing its estimated output (`est_output_gb` on
     `output_drive`, default D:), every drive keeps at least `min_free_gb` free."""
     est = float(job.get("est_output_gb", 0) or 0)
-    target = str(job.get("output_drive", "D:")).upper()
+    target = str(job.get("output_drive", "D:" if "D:" in drives else drives[0])).upper()
     for d in drives:
         left = free_fn(d) - (est if d.upper() == target else 0.0)
         if left < min_free_gb:

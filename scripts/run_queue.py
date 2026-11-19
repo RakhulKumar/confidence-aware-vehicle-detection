@@ -35,6 +35,8 @@ from confdet.utils.jobqueue import (  # noqa: E402
     set_status, status_table, verify, write_heartbeat,
 )
 
+# drives the disk check watches: C: and D: on the Windows PC, the data root elsewhere (Beocat)
+DISK_DRIVES = ("C:", "D:") if os.name == "nt" else (os.environ.get("CONFDET_ROOT") or str(Path.home()),)
 _CURRENT = {"job": None, "pid": None}
 
 
@@ -59,7 +61,7 @@ def run_one(job: dict, q: dict, qpath: Path, logs: Path, python: str) -> bool:
             time.sleep(30)
     else:
         resumed = job["status"] == "running"
-        ok_disk, why = disk_check(job)
+        ok_disk, why = disk_check(job, drives=DISK_DRIVES)
         if not ok_disk:
             set_status(q, job["id"], "held", note=f"held by the disk check {now()}: {why}")
             save_queue(q, qpath)
