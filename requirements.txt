@@ -1,0 +1,29 @@
+# Core (everything except training/prediction runs on these alone;
+# scripts/00_selftest.py and the test suite need nothing else)
+numpy>=1.26
+scipy>=1.11
+pyyaml>=6.0
+Pillow>=10.0
+matplotlib>=3.8
+
+# Video inference only (scripts/11)
+opencv-python>=4.9
+
+# Detectors: YOLO26 / YOLOv8 / RT-DETR through one API.
+# The first run used ultralytics 8.4.154.
+ultralytics>=8.3
+
+# PyTorch: install separately with the wheel index matching your CUDA, e.g.
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+# then confirm:  python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
+
+# BMD-45 download (scripts/download_bmd45.py)
+huggingface_hub>=0.24
+
+# Tests (optional: `python tests/run_tests.py` works without it)
+pytest>=8.0
+
+# UA-DETRAC download on Beocat from the Google Drive links (scripts/beocat/get_data.sh; v0.6 migration)
+gdown>=5.2
+
+# Exact versions: requirements-lock.txt (Windows PC record) and requirements-beocat.txt (Beocat install)

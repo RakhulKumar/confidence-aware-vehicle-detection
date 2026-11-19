@@ -1,0 +1,100 @@
+# Data -- never commit datasets; see data/README.md for acquisition
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Outputs -- generated, not source
+outputs/*
+!outputs/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Large model weights (pretrained checkpoints downloaded by Ultralytics)
+*.pt
+*.pth
+
+# Logs
+*.log
+
+# ---------------------------------------------------------------------------
+# v0.6 (19 Nov): Beocat migration -- code only; data, runs, weights, caches and
+# credentials never go to GitHub (they move in the transfer bundle instead)
+# ---------------------------------------------------------------------------
+# data and run folders, wherever they appear
+raw/
+processed/
+runs/
+confdet_data/
+transfer/
+weights/
+logs/
+handoff_*/
+handoff_*.zip
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# model weights and cached arrays
+*.pt
+*.pth
+*.onnx
+*.engine
+*.safetensors
+*.npz
+*.npy
+
+# caches
+*.cache
+.cache/
+.ruff_cache/
+.mypy_cache/
+.hypothesis/
+.coverage
+htmlcov/
+
+# virtual environments
+.venv*/
+venv*/
+
+# tokens and credentials (log in with `hf auth login` / `gh auth login`; tokens stay outside the repo)
+.env
+.env.*
+*.token
+*_token
+*_token.txt
+token.txt
+hf_token*
+.huggingface/
+.netrc
+.git-credentials
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+credentials*
+secrets*
+.claude/settings.local.json

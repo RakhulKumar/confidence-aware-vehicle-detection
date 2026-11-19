@@ -1,0 +1,168 @@
+# The ORIGINAL arrangement from the research plan, kept for comparison:
+#
+#   development dataset = AU-INV-PALS (non-augmented export)
+#   transfer dataset    = BMD-45
+#
+# Expect scripts/03 to flag the development test role as UNDERPOWERED for
+# occlusion-stratified analysis: this dataset has almost no vehicle-on-vehicle
+# occlusion. What this run is still good for: the detector's plain accuracy on your
+# own data with a leak-free split, RQ3's global metrics, and the controlled
+# occlusion probe (scripts/09), which is the only occlusion evidence this dataset
+# can give. Use configs/experiment.yaml for RQ1, RQ2, RQ3-by-occlusion and RQ5.
+
+project:
+  seed: 42
+  device: cuda              # passed to Ultralytics
+  output_dir: outputs
+  processed_dir: "${paths.processed_dir}"    # (moved off C: in v0.5) materialised roles live in <processed_dir>/<experiment>/<dataset>/.
+                                    # Kept OUTSIDE the OneDrive project folder: Roboflow file names plus that
+                                    # path exceed Windows' 260-character limit (found in the first real run).
+                                    # Use any short folder on the same drive as data/raw.
+
+experiment:
+  name: pals_dev            # outputs/<name>/...
+  development: pals
+  transfer: [bmd45]
+
+# ---------------------------------------------------------------------------
+# Datasets.
+#   label_format   bbox     every label line is "<class> <cx> <cy> <w> <h>"
+#                  polygon  lines may be boxes OR Roboflow polygons (converted to boxes)
+#                  This is declared per dataset and never guessed.
+#   roles          how on-disk splits become pipeline roles. Each rule pools the
+#                  listed on-disk splits and deals whole leakage groups (copies of one
+#                  source image, video segments, cameras) into roles by fraction:
+#                    fit    detector training          val   early stopping
+#                    calib  post-hoc layer fitting     test  every reported number
+#   group_regex    optional regex on the file name whose group "group" (or first
+#                  group) identifies a camera/site; images sharing it stay together.
+#   class_map      this dataset's class names -> evaluation.common_classes (null = no
+#                  counterpart). Only used across datasets (RQ4).
+# ---------------------------------------------------------------------------
+datasets:
+  bmd45:
+    root: "${paths.raw_bmd45_pals_dev}"
+    label_format: bbox
+    group_regex: null       # scripts/02 prints example file names; if a camera id is
+                            # visible in them, put a regex here and re-run scripts/02
+    roles:
+      # Transfer target here: never trained on. A slice re-fits the post-hoc layer,
+      # the rest is the test set.
+      - from: [val]
+        to: {calib: 0.3, test: 0.7}
+    class_map:
+      Hatchback: car
+      Sedan: car
+      SUV: car
+      MUV: car
+      Bus: bus
+      Mini-bus: bus
+      Truck: truck
+      Three-wheeler: three_wheeler
+      Two-wheeler: two_wheeler
+      LCV: light_truck
+      Tempo-traveller: van
+      Van: van
+      Bicycle: null
+
+  pals:
+    root: "${paths.raw_pals}"            # the NON-augmented Roboflow export
+    label_format: polygon
+    video_segment_frames: 30              # frames of one video stay together in runs of this length
+    roles:
+      # Roboflow's own train/valid/test assignment is ignored on purpose (it splits
+      # video frames at random); all images are pooled and re-split by leakage group.
+      - from: [train, val, test]
+        to: {fit: 0.60, val: 0.10, calib: 0.15, test: 0.15}
+    class_map:
+      AutoRikshaw: three_wheeler
+      Bike: two_wheeler
+      Bus: bus
+      Car: car
+      Maxi Cab: van
+      Mini Truck: light_truck
+      Truck: truck
+
+occlusion:
+  proxy: bottom_y                          # bottom_y | area   (docs/theoretical_foundations.md, section 1)
+  bucket_edges: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+  occluded_threshold: 0.2                  # "occluded" = severity >= this
+
+# ---------------------------------------------------------------------------
+# Stage 1 -- detectors. scripts/04..07 take --detector; default is `active`.
+# batch: the first run used 16 at imgsz 960 and overflowed a 16 GB card (20.5 GB
+# reserved, 6.6 s/iteration). 8 fits; training stops with an explanation if a
+# batch overflows the card again.
+# ---------------------------------------------------------------------------
+detectors:
+  active: yolo26
+  abort_on_vram_overflow: true
+  models:
+    yolo26:
+      family: yolo
+      weights: yolo26m.pt
+      imgsz: 960
+      epochs: 150
+      patience: 40
+      batch: 8
+    yolov8:
+      family: yolo
+      weights: yolov8m.pt
+      imgsz: 960
+      epochs: 150
+      patience: 40
+      batch: 8
+    rtdetr:
+      family: rtdetr
+      weights: rtdetr-l.pt
+      imgsz: 960
+      epochs: 150
+      patience: 40
+      batch: 4
+      optimizer: AdamW                     # with optimizer "auto" Ultralytics ignores lr0
+      lr0: 0.0001
+
+prediction:
+  conf_floor: 0.001                        # raw candidates are collected down to this confidence
+  nms_iou: 0.7
+  max_det: 300
+
+# ---------------------------------------------------------------------------
+# Stage 3 -- post-hoc layer (fitted on the calib role only)
+# ---------------------------------------------------------------------------
+posthoc:
+  alpha: 0.05                              # headline target miss rate (find >= 95% of vehicles)
+  alpha_grid: [0.03, 0.05, 0.10, 0.15, 0.20]
+  context_conf: null                       # detections at/above this define occlusion context;
+                                           # null = the detector's operating threshold
+  context_edges: [0.0, 0.05, 0.30, 1.0]    # Mondrian strata over occlusion context
+  duplicate_iou: 0.5
+  min_group_size: 100                      # smaller strata are merged with a neighbour
+  calibrator_fraction: 0.5                 # share of calib images used for the candidate score;
+                                           # the rest fit the conformal thresholds
+
+# ---------------------------------------------------------------------------
+# Stage 4 -- evaluation
+# ---------------------------------------------------------------------------
+evaluation:
+  iou_match_threshold: 0.5
+  confidence_bins: 10
+  # How "a vehicle was found" is decided. Every listed mode is analysed into its own folder;
+  # the FIRST is the primary one (headline numbers, deployed rule).
+  #   class_agnostic  any box on the vehicle counts. This is what "silently missed" means.
+  #   coarse          classes merged through common_classes (Hatchback/Sedan/SUV/MUV -> car ...)
+  #   native          the dataset's own fine-grained classes. In the first real run 47% of
+  #                   native-mode "misses" were a detected vehicle given the wrong fine class.
+  matching_modes: [class_agnostic, native]
+  # The detector's operating threshold: "max_f1" picks each detector's F1-optimal threshold on
+  # the calib role (a fixed 0.25 gave RT-DETR 9 false alarms per image and the YOLOs 3.4), or
+  # give one number to force the same threshold on every detector.
+  standard_operating_threshold: max_f1
+  extra_fp_per_image_budgets: [0.1, 0.25, 0.5, 1.0]
+  sweep_thresholds: [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50,
+                     0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+  bootstrap_replicates: 500                # image-level resamples behind every interval
+  min_occluded_objects: 200                # below this, occlusion-stratified results are flagged
+  min_bucket_n: 30                         # buckets below this are marked unreliable
+  min_recall_at_floor: 0.5                 # below this, a dataset is flagged as unusable
+  common_classes: [car, three_wheeler, two_wheeler, bus, truck, light_truck, van]

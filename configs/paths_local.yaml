@@ -1,0 +1,38 @@
+# Machine-specific paths: the ONLY place they live (v0.6, 19 Nov, Beocat migration).
+#
+# Experiment configs refer to them as "${paths.<key>}"; utils/io_utils.load_config substitutes them
+# from the block named by the environment variable CONFDET_SITE (unset = windows, which reproduces
+# the paths used on the Windows PC exactly). Values may use environment variables ($VAR / ${VAR});
+# a variable that is not set is an error, never an empty string.
+#
+#   processed_dir     materialised roles: <processed_dir>/<experiment>/<dataset>/
+#   runs_dir          training runs (weights, last.pt) of v0.6 models
+#   queue             the job queue file used by scripts/run_queue.py (Windows only)
+#   raw_bmd45         BMD-45 export holding the `val` split (bmd_dev roles)
+#   raw_bmd45_train   BMD-45 export holding the `train` split (appended to bmd_v06 fit)
+#   raw_bmd45_pals_dev  BMD-45 root of the legacy PALS-as-development config
+#   raw_pals          AU-INV-PALS non-augmented Roboflow export
+#   raw_ua_detrac     UA-DETRAC (DETRAC-Images/, DETRAC-Annos/)
+
+windows:
+  processed_dir: D:/confdet_project/confdet_data
+  runs_dir: D:/confdet_project/runs
+  queue: D:/confdet_project/queue/v06_jobs.yaml
+  raw_bmd45: C:/Users/rakhul007/OneDrive - Kansas State University/KSU/ITS/Occlusion/confidence-aware-vehicle-detection-v2/confidence-aware-vehicle-detection/data/raw/bmd45
+  raw_bmd45_train: D:/confdet_project/raw/bmd45
+  raw_bmd45_pals_dev: data/raw/bmd45
+  raw_pals: data/raw/AU-INV-PALS
+  raw_ua_detrac: D:/confdet_project/raw/ua_detrac
+
+# Beocat (K-State HPC). CONFDET_ROOT is set by scripts/beocat/env.sh (default /bulk/$USER/confdet_project).
+# BMD-45 is downloaded once from Hugging Face with both splits into one folder, so raw_bmd45 and
+# raw_bmd45_train are the same export there.
+beocat:
+  processed_dir: ${CONFDET_ROOT}/confdet_data
+  runs_dir: ${CONFDET_ROOT}/runs
+  queue: ${CONFDET_ROOT}/queue/v06_jobs.yaml
+  raw_bmd45: ${CONFDET_ROOT}/raw/bmd45
+  raw_bmd45_train: ${CONFDET_ROOT}/raw/bmd45
+  raw_bmd45_pals_dev: ${CONFDET_ROOT}/raw/bmd45
+  raw_pals: ${CONFDET_ROOT}/raw/AU-INV-PALS
+  raw_ua_detrac: ${CONFDET_ROOT}/raw/ua_detrac

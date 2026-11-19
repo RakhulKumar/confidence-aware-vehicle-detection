@@ -1,0 +1,288 @@
+# PRE-SPECIFIED 18 Nov 2026, before any final-model predictions existed (decision of 18 Nov):
+#   headline rule = Mondrian conformal on the Gilg IoU-aware score (bivariate Beta on confidence and
+#   max IoU with any higher-scoring box), current 3 context strata (posthoc.context_edges),
+#   primary 1-alpha = 0.90, also 0.95 and the full alpha_grid; mondrian_confidence and every Phase 1
+#   baseline reported alongside; the quantile-strata variant (Phase 1b item 4) is an appendix ablation.
+# GPU share 18 Nov: duty_cycle 0.8, memory_fraction 0.45, batch sizes unchanged.
+# v0.6 final-training experiment (decisions of 13-14 Nov 2026). GENERATED from configs/experiment.yaml;
+# differs only in: experiment.name, project.runs_dir, the derive: block, and detectors.
+# The materialised data is built ONLY by `scripts/02b_derive_experiment.py --build --config this-file`:
+# bmd45 = every role of bmd_dev hard-linked unchanged (identity of the 10,194 val assignments verified
+# 14 Nov 2026) + all 35,792 BMD-45 train images appended to fit. scripts/02 refuses this config.
+# Batch per architecture measured under the 0.45 VRAM cap (14 Nov 2026): YOLO26m 4 (6.06 GB peak),
+# YOLOv8m 6 (5.38 GB), RT-DETR-L 3 (5.32 GB); same batch for every seed. patience 10 (decided 14 Nov).
+# BMD-45 has no camera IDs: results on it are same-camera-population; UA-DETRAC is the new-camera test.
+project:
+  seed: 42
+  device: cuda
+  output_dir: outputs
+  processed_dir: "${paths.processed_dir}"
+  runs_dir: "${paths.runs_dir}"
+experiment:
+  name: bmd_v06
+  development: bmd45
+  transfer:
+  - pals
+datasets:
+  bmd45:
+    root: "${paths.raw_bmd45}"
+    label_format: bbox
+    group_regex: null
+    roles:
+    - from:
+      - val
+      to:
+        fit: 0.6
+        val: 0.1
+        calib: 0.15
+        test: 0.15
+    class_map:
+      Hatchback: car
+      Sedan: car
+      SUV: car
+      MUV: car
+      Bus: bus
+      Mini-bus: bus
+      Truck: truck
+      Three-wheeler: three_wheeler
+      Two-wheeler: two_wheeler
+      LCV: light_truck
+      Tempo-traveller: van
+      Van: van
+      Bicycle: null
+  pals:
+    root: "${paths.raw_pals}"
+    label_format: polygon
+    video_segment_frames: 30
+    roles:
+    - from:
+      - train
+      - val
+      - test
+      to:
+        calib: 0.5
+        test: 0.5
+    class_map:
+      AutoRikshaw: three_wheeler
+      Bike: two_wheeler
+      Bus: bus
+      Car: car
+      Maxi Cab: van
+      Mini Truck: light_truck
+      Truck: truck
+occlusion:
+  proxy: bottom_y
+  bucket_edges:
+  - 0.0
+  - 0.2
+  - 0.4
+  - 0.6
+  - 0.8
+  - 1.0
+  occluded_threshold: 0.2
+detectors:
+  active: yolo26
+  abort_on_vram_overflow: true
+  gpu_share:
+    memory_fraction: 0.45
+    duty_cycle: 0.8
+  models:
+    yolo26:
+      family: yolo
+      weights: yolo26m.pt
+      imgsz: 960
+      epochs: 100
+      patience: 10
+      batch: 4
+      workers: 4
+    yolo26_s1:
+      family: yolo
+      weights: yolo26m.pt
+      imgsz: 960
+      epochs: 100
+      patience: 10
+      batch: 4
+      workers: 4
+      train_args:
+        seed: 1
+    yolo26_s2:
+      family: yolo
+      weights: yolo26m.pt
+      imgsz: 960
+      epochs: 100
+      patience: 10
+      batch: 4
+      workers: 4
+      train_args:
+        seed: 2
+    rtdetr:
+      family: rtdetr
+      weights: rtdetr-l.pt
+      imgsz: 960
+      epochs: 100
+      patience: 10
+      batch: 3
+      workers: 4
+      optimizer: AdamW
+      lr0: 0.0001
+    rtdetr_s1:
+      family: rtdetr
+      weights: rtdetr-l.pt
+      imgsz: 960
+      epochs: 100
+      patience: 10
+      batch: 3
+      workers: 4
+      optimizer: AdamW
+      lr0: 0.0001
+      train_args:
+        seed: 1
+    rtdetr_s2:
+      family: rtdetr
+      weights: rtdetr-l.pt
+      imgsz: 960
+      epochs: 100
+      patience: 10
+      batch: 3
+      workers: 4
+      optimizer: AdamW
+      lr0: 0.0001
+      train_args:
+        seed: 2
+    yolov8:
+      family: yolo
+      weights: yolov8m.pt
+      imgsz: 960
+      epochs: 100
+      patience: 10
+      batch: 6
+      workers: 4
+    # Evidential (Beta head, models/evidential_yolo.py, corrected prior p ~ 0.01) x3 seeds: released 18 Nov after
+    # the Phase 2 pilot met the pre-specified AP gate (class-agnostic AP50 gap -0.0002). Same settings as yolo26.
+    yolo26_evid:
+      family: yolo_evidential
+      weights: yolo26m.pt
+      imgsz: 960
+      epochs: 100
+      patience: 10
+      batch: 4
+      workers: 4
+    yolo26_evid_s1:
+      family: yolo_evidential
+      weights: yolo26m.pt
+      imgsz: 960
+      epochs: 100
+      patience: 10
+      batch: 4
+      workers: 4
+      train_args:
+        seed: 1
+    yolo26_evid_s2:
+      family: yolo_evidential
+      weights: yolo26m.pt
+      imgsz: 960
+      epochs: 100
+      patience: 10
+      batch: 4
+      workers: 4
+      train_args:
+        seed: 2
+prediction:
+  conf_floor: 0.001
+  nms_iou: 0.7
+  max_det: 300
+posthoc:
+  alpha: 0.1
+  alpha_grid:
+  - 0.03
+  - 0.05
+  - 0.1
+  - 0.15
+  - 0.2
+  context_conf: null
+  context_edges:
+  - 0.0
+  - 0.05
+  - 0.3
+  - 1.0
+  duplicate_iou: 0.5
+  score_features: full_strict
+  min_group_size: 100
+  calibrator_fraction: 0.5
+evaluation:
+  iou_match_threshold: 0.5
+  confidence_bins: 10
+  matching_modes:
+  - class_agnostic
+  - native
+  standard_operating_threshold: max_f1
+  extra_fp_per_image_budgets:
+  - 0.1
+  - 0.25
+  - 0.5
+  - 1.0
+  sweep_thresholds:
+  - 0.05
+  - 0.1
+  - 0.15
+  - 0.2
+  - 0.25
+  - 0.3
+  - 0.35
+  - 0.4
+  - 0.45
+  - 0.5
+  - 0.55
+  - 0.6
+  - 0.65
+  - 0.7
+  - 0.75
+  - 0.8
+  - 0.85
+  - 0.9
+  - 0.95
+  bootstrap_replicates: 500
+  min_occluded_objects: 200
+  min_bucket_n: 30
+  min_recall_at_floor: 0.5
+  common_classes:
+  - car
+  - three_wheeler
+  - two_wheeler
+  - bus
+  - truck
+  - light_truck
+  - van
+derive:
+  bmd45:
+    source_processed: "${paths.processed_dir}/bmd_dev/bmd45"
+    keep_roles:
+      fit: fit
+      val: val
+      calib: calib
+      test: test
+    append:
+      root: "${paths.raw_bmd45_train}"
+      label_format: bbox
+      split: train
+      role: fit
+  pals:
+    source_processed: "${paths.processed_dir}/bmd_dev/pals"
+    keep_roles:
+      calib: calib
+      test: test
+
+headline:
+  rule: mondrian_gilg_iou_aware
+  score: gilg_iou_aware
+  strata: posthoc.context_edges
+  primary_alpha: 0.1
+  also_alpha:
+  - 0.05
+  full_alpha_grid: true
+  reported_alongside:
+  - mondrian_confidence
+  - phase1_baselines
+  appendix:
+  - quantile_strata_ablation
+  prespecified: 2026-11-18, before any final-model predictions

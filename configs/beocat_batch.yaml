@@ -1,0 +1,23 @@
+# Training batch size on Beocat's L40S (48 GB), one value per ARCHITECTURE.
+#
+# PLACEHOLDERS: each `batch` is chosen by a short measured trial on Beocat (largest batch that trains
+# without VRAMOverflowError, with headroom) and then fixed for every seed of that architecture.
+# scripts/beocat/submit_all.sh refuses to submit while any batch it needs is null.
+# Record the trial (date, node, GPU memory reserved) next to the value when you fill it in.
+#
+# The Windows PC used: yolo26 4, rtdetr 3, yolov8 6, yolo26_evid 4 (16 GB GPU shared with another
+# project). A resumed Beocat run keeps the batch stored in its last.pt.
+
+architectures:
+  yolo26:
+    batch: null
+    detectors: [yolo26, yolo26_s1, yolo26_s2, yolo26_rev]
+  rtdetr:
+    batch: null
+    detectors: [rtdetr, rtdetr_s1, rtdetr_s2, rtdetr_rev]
+  yolov8:
+    batch: null
+    detectors: [yolov8]
+  yolo26_evid:
+    batch: null
+    detectors: [yolo26_evid, yolo26_evid_s1, yolo26_evid_s2]
