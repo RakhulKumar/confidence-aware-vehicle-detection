@@ -63,6 +63,21 @@ def main():
             for f in ("manifest.json", "data.yaml"):
                 shutil.copy2(bdir / f, out / f)
     ok = report.get("rebuild", {}).get("n_problems", 0) == 0
+    if args.verify_only and (out / "manifest.json").exists():
+        # A converter run on this machine (02c for UA-DETRAC) writes the local raw path into
+        # manifest.json -> source.root. It is provenance only (nothing reads it). Everything else must
+        # be identical; then the transferred manifest is put in place, as for the rebuilt datasets.
+        local = json.loads((out / "manifest.json").read_text(encoding="utf-8"))
+        moved = json.loads((bdir / "manifest.json").read_text(encoding="utf-8"))
+        roots = {"local": (local.get("source") or {}).get("root"), "transferred": (moved.get("source") or {}).get("root")}
+        for m in (local, moved):
+            if isinstance(m.get("source"), dict):
+                m["source"] = {k: v for k, v in m["source"].items() if k != "root"}
+        if local != moved:
+            raise SystemExit(f"{exp}/{ds}: manifest.json differs from the transferred one beyond source.root -- stop")
+        report["source_root"] = roots
+        log.info(f"{exp}/{ds}: manifest.json identical apart from source.root {roots}; transferred copy put in place")
+        shutil.copy2(bdir / "manifest.json", out / "manifest.json")
     if not args.check_only:
         v = verify_tree(out, expected)
         report["verify"] = {k: (v[k][:50] if isinstance(v[k], list) else v[k]) for k in v}
