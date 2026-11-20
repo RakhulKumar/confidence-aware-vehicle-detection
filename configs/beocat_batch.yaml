@@ -7,17 +7,31 @@
 #
 # The Windows PC used: yolo26 4, rtdetr 3, yolov8 6, yolo26_evid 4 (16 GB GPU shared with another
 # project). A resumed Beocat run keeps the batch stored in its last.pt.
+#
+# TRIAL 2026-11-19, node warlock25 (killable.q), NVIDIA L40S 44.42 GiB usable (torch), driver 610.57.04,
+# torch 2.14.0+cu130, ultralytics 8.4.154, CONFDET_GPU_SHARE=off. bmd_v06 fit/val roles, imgsz 960,
+# 300 iterations per batch through detector_factory.train() (VRAM guard on), candidates {8,16,24,32},
+# kept = largest with peak reserved <= 85% of the card (>= 15% headroom) and no VRAMOverflowError/OOM.
+# Epoch time = s/iter (iterations 50-300) x iterations per epoch; validation (1,026 images) not included.
+# Script and raw results: $CONFDET_ROOT/trials/batch_trial.py, batch_trial_results.jsonl.
+#   arch         batch: peak reserved GiB (% of card), train min/epoch
+#   yolo26          8: 10.5 (24%) 16.3*  16: 20.5 (46%) 13.7  24: 30.3 (68%) 12.7  32: 40.2 (91%) 12.4 -> 24
+#   rtdetr          8: 11.9 (27%) 19.5   16: 23.3 (52%) 17.4  24: 34.5 (78%) 17.1  32: 43.7 (98%)  9.0 -> 24
+#   yolov8          8:  6.8 (15%)  8.7   16: 12.9 (29%)  7.8  24: 19.0 (43%)  7.8  32: 25.3 (57%)  8.2 -> 32
+#   yolo26_evid     8: 10.7 (24%) 11.4   16: 20.8 (47%) 10.7  24: 30.9 (70%) 10.7  32: 40.8 (92%) 10.7 -> 24
+#   (* first run: built the label cache and shared the node with the resume test; rtdetr 32's time is
+#    unreliable at 98% memory. Neither affects the choice.)
 
 architectures:
   yolo26:
-    batch: null
+    batch: 24
     detectors: [yolo26, yolo26_s1, yolo26_s2, yolo26_rev]
   rtdetr:
-    batch: null
+    batch: 24
     detectors: [rtdetr, rtdetr_s1, rtdetr_s2, rtdetr_rev]
   yolov8:
-    batch: null
+    batch: 32
     detectors: [yolov8]
   yolo26_evid:
-    batch: null
+    batch: 24
     detectors: [yolo26_evid, yolo26_evid_s1, yolo26_evid_s2]
