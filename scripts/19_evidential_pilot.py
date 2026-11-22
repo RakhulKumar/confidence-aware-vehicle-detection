@@ -164,7 +164,10 @@ def analyse(cfg, det_name: str, log) -> None:
            "ap50_gap_to_yolo26_family_mean": agn["ap50"] - float(fam_agn.mean()) if len(fam_agn) else None,
            "n_vehicles_with_candidate": int(prop.sum()), "associations": res, "uncertainty_split": split,
            "by_annotated_occlusion": by_bucket,
-           "note": "pilot trained with batch 4 / patience 10 under the GPU share; the yolo26 family used batch 8 / patience 25"}
+           "note": ("pilot trained with batch 4 / patience 10 under the GPU share; the yolo26 family used batch 8 / patience 25"
+                    if det_name.startswith("yolo26_evid_pilot") else
+                    "final v0.6 model, trained on Beocat (L40S) with the same batch and patience as the yolo26 family "
+                    "(configs/beocat_batch.yaml; patience 10)")}
     save_results(out, results_dir(cfg, det_name, "class_agnostic") / "evidential_pilot.json")
     log.info(f"{det_name}: AP50 agnostic {agn['ap50']:.4f} (yolo26 family {out['yolo26_family_ap50_class_agnostic_mean']}) | "
              f"aware {nat['ap50']:.4f} | rho(alea, epi) {split['spearman_aleatoric_vs_epistemic']:.3f} | "

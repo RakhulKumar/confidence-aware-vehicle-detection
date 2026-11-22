@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """v0.6 interim report: NMS pilot, evidential pilot, UA-DETRAC, queue status -> outputs/v06_interim_report.md.
 
-  python scripts/21_interim_report.py [--queue <paths_local.yaml: queue>]
+  python scripts/21_interim_report.py [--queue <paths_local.yaml: queue> | --queue none]
+         [--experiment bmd_dev] [--evid yolo26_evid_pilot_b[,more]] [--out FILE]
 
-Reads only result files (no GPU, seconds). Every number is copied from:
+  Defaults reproduce the bmd_dev report. For the final models:
+    --experiment bmd_v06 --evid yolo26_evid,yolo26_evid_s1,yolo26_evid_s2 --queue none
+  reads the same files under outputs/bmd_v06/ and writes outputs/bmd_v06/interim_report.md.
+
+Reads only result files (no GPU, seconds). Every number is copied from (bmd_dev = --experiment):
   outputs/bmd_dev/yolo26/class_agnostic/results/nms_pilot.json
   outputs/bmd_dev/yolo26_evid_pilot_b/class_agnostic/results/evidential_pilot.json
   outputs/bmd_dev/<det>/class_agnostic/results/ua_detrac_transfer.json
@@ -66,14 +71,14 @@ def nms_section():
     return out
 
 
-def evid_section():
-    d = load(R / "yolo26_evid_pilot_b" / "class_agnostic" / "results" / "evidential_pilot.json")
+def evid_section(det="yolo26_evid_pilot_b"):
+    d = load(R / det / "class_agnostic" / "results" / "evidential_pilot.json")
     if not d:
-        return ["## b) Evidential pilot", "", "_evidential_pilot.json not found: the job has not finished._", ""]
+        return [f"## b) Evidential pilot ({det})", "", "_evidential_pilot.json not found: the job has not finished._", ""]
     a = d["associations"]
     s = d["uncertainty_split"]
     gap = d.get("ap50_gap_to_yolo26_family_mean")
-    out = ["## b) Evidential pilot (YOLO26, Beta evidence head, current fit set)", "",
+    out = [f"## b) Evidential pilot ({det}: YOLO26, Beta evidence head, current fit set)", "",
            f"AP50 class-agnostic {f(d['ap50_class_agnostic'], 4)} vs yolo26 family mean "
            f"{f(d['yolo26_family_ap50_class_agnostic_mean'], 4)} (gap {f(gap, 4)}); class-aware {f(d['ap50_class_aware'], 4)}. "
            f"Threshold {f(d['threshold_max_f1_calib'], 2)}: recall {f(d['recall_at_threshold'])}, "
@@ -95,9 +100,9 @@ def evid_section():
     return out
 
 
-def evid_rarity_section():
-    d = load(R / "yolo26_evid_pilot_b" / "class_agnostic" / "results" / "evidential_rarity_diag_calib.json")
-    out = ["### evidential: rarity diagnostic (calib)", ""]
+def evid_rarity_section(det="yolo26_evid_pilot_b"):
+    d = load(R / det / "class_agnostic" / "results" / "evidential_rarity_diag_calib.json")
+    out = [f"### evidential: rarity diagnostic (calib, {det})", ""]
     if not d:
         return out + ["_evidential_rarity_diag_calib.json not found (scripts/22_evid_rarity_diag.py)._", ""]
     out += [f"Calib role only, {d['n_vehicles_with_box']} vehicles with a box, threshold {f(d['threshold'], 2)}. "
@@ -170,13 +175,26 @@ def queue_section(qpath):
     return ["## Queue status", "", "```", st.strip(), "```", ""]
 
 
+def _arg(name, default=None):
+    return sys.argv[sys.argv.index(name) + 1] if name in sys.argv else default
+
+
 def main():
-    qpath = sys.argv[sys.argv.index("--queue") + 1] if "--queue" in sys.argv else site_paths()["queue"]
-    lines = [f"# v0.6 interim report ({datetime.now():%Y-%m-%d %H:%M})", "",
+    global R
+    exp = _arg("--experiment", "bmd_dev")
+    R = OUT / exp
+    evid = [e for e in _arg("--evid", "yolo26_evid_pilot_b").split(",") if e]
+    qpath = _arg("--queue") or site_paths()["queue"]
+    title = "# v0.6 interim report" + ("" if exp == "bmd_dev" else f": experiment `{exp}`")
+    lines = [f"{title} ({datetime.now():%Y-%m-%d %H:%M})", "",
              "Written automatically by scripts/21_interim_report.py when jobs a) to c) finished; numbers are copied from "
              "the result files named in the script. Interpretation is left to review.", ""]
-    lines += nms_section() + evid_section() + evid_rarity_section() + detrac_section() + queue_section(qpath)
-    out = Path(sys.argv[sys.argv.index("--out") + 1]) if "--out" in sys.argv else OUT / "v06_interim_report.md"
+    lines += nms_section()
+    for det in evid:
+        lines += evid_section(det) + evid_rarity_section(det)
+    lines += detrac_section() + ([] if qpath.lower() == "none" else queue_section(qpath))
+    default_out = OUT / "v06_interim_report.md" if exp == "bmd_dev" else R / "interim_report.md"
+    out = Path(_arg("--out")) if "--out" in sys.argv else default_out
     tmp = out.with_name(out.name + ".tmp")
     tmp.write_text("\n".join(lines), encoding="utf-8")
     tmp.replace(out)
