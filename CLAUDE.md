@@ -4,13 +4,13 @@
 
 A post-hoc reliability layer around a frozen vehicle detector, and the evaluation of five research questions about occlusion-driven missed detections. Read `docs/AUDIT.md` (what went wrong in v0.1 and why the code is shaped this way) and `docs/theoretical_foundations.md` (every formula) before changing anything under `src/confdet/uq`, `calibration` or `evaluation`.
 
-## This machine
+## This machine (the Windows PC)
 
-- Use the Python of the v1 folder's virtual environment (put `Occlusion/confidence-aware-vehicle-detection-v1/.venv/Scripts` first on PATH): it has torch 2.14.0+cu130 with CUDA. The default `python` has CPU-only torch.
+- **Training, prediction and dataset building run on Beocat** (`docs/BEOCAT_SETUP.md`, `CONFDET_SITE=beocat`). Since 21 Nov 2026 the PC has no BMD-45 or UA-DETRAC data, no processed roles, no GPU environment and no job queue or scheduled tasks; do not run `02`/`02b`/`02c`/`04`/`05` here.
+- Use the Anaconda environment `C:\Users\rakhul007\Anaconda3\envs\its\python.exe` (Python 3.10, torch 2.14.0+cpu, ultralytics 8.4.154): CPU only. The test suite and the self-test pass on it; analysis that reads `outputs/` (`06`, `07`, `08`, `12`, `run_all.sh --analysis-only`) runs on it. The v1 folder's `.venv` (CUDA torch) was deleted.
 - `python3` can be the Microsoft Store stub; `scripts/run_all.sh` falls back to `python`.
-- Materialised data lives in `D:/confdet_project/confdet_data` (`project.processed_dir`), outside OneDrive (260-character path limit; OneDrive locks files while syncing) and off C: (space). Moved there from `C:/confdet_data` in v0.5 as plain copies, so they are no longer hard links into the OneDrive raw data. Raw-file access inside this package goes through `utils.paths.long_path`.
-- Other desktop applications hold 10-13 GB of the 16 GB GPU. Batch 8 fitted in the first run (10.6 GB reserved).
-- Long runs must be launched detached; a session-bound background task is killed after two hours.
+- Kept on the PC: `outputs/` (cached predictions, results, best.pt of the bmd_dev models), `data/raw/AU-INV-PALS`, and `D:\confdet_project\transfer\` archives 1–4 (manifests, PALS raw, weights, outputs; SHA256 files beside them). Cleanup log: `D:\confdet_project\logs\cleanup_2026-11-21.log`.
+- Paths of this machine are the `windows` block of `configs/paths_local.yaml` (the default site). Raw-file access inside this package goes through `utils.paths.long_path` (OneDrive's 260-character path limit).
 
 ## First commands of every session
 
