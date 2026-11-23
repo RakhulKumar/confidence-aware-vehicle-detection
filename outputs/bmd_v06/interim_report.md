@@ -1,4 +1,4 @@
-# v0.6 interim report: experiment `bmd_v06` (2026-11-22 15:53)
+# v0.6 interim report: experiment `bmd_v06` (2026-11-23 09:34)
 
 Written automatically by scripts/21_interim_report.py when jobs a) to c) finished; numbers are copied from the result files named in the script. Interpretation is left to review.
 
@@ -52,9 +52,7 @@ Per vehicle (its matched candidate), Spearman and partial Spearman controlling b
 
 Uncertainty split: Spearman(aleatoric, epistemic) = 0.811; rho(epistemic, rarity) - rho(aleatoric, rarity) = 0.349 [0.339, 0.357]; rho(aleatoric, o_j) - rho(epistemic, o_j) = -0.028 [-0.037, -0.017].
 
-Gate for evidential x3 (decided 14 Nov): AP50 within 0.02 of baseline -> **met**; usable uncertainty split -> for review (the two parts must not be near-collinear and must differ in what they follow).
-
-RT-DETR feasibility: its class scores come from the decoder's score head trained with a varifocal/focal loss inside DETRLoss; the same Beta head means doubling that head's outputs and replacing the varifocal term, with the Hungarian matcher kept on p = alpha/S. Feasible, more invasive than YOLO26; not attempted in this pilot.
+These are the final v0.6 evidential models (one of three seeds); the pilot's gate and the RT-DETR feasibility note do not apply to them.
 
 ### evidential: rarity diagnostic (calib, yolo26_evid)
 
@@ -99,9 +97,7 @@ Per vehicle (its matched candidate), Spearman and partial Spearman controlling b
 
 Uncertainty split: Spearman(aleatoric, epistemic) = 0.844; rho(epistemic, rarity) - rho(aleatoric, rarity) = 0.316 [0.306, 0.324]; rho(aleatoric, o_j) - rho(epistemic, o_j) = -0.028 [-0.037, -0.019].
 
-Gate for evidential x3 (decided 14 Nov): AP50 within 0.02 of baseline -> **met**; usable uncertainty split -> for review (the two parts must not be near-collinear and must differ in what they follow).
-
-RT-DETR feasibility: its class scores come from the decoder's score head trained with a varifocal/focal loss inside DETRLoss; the same Beta head means doubling that head's outputs and replacing the varifocal term, with the Hungarian matcher kept on p = alpha/S. Feasible, more invasive than YOLO26; not attempted in this pilot.
+These are the final v0.6 evidential models (one of three seeds); the pilot's gate and the RT-DETR feasibility note do not apply to them.
 
 ### evidential: rarity diagnostic (calib, yolo26_evid_s1)
 
@@ -146,9 +142,7 @@ Per vehicle (its matched candidate), Spearman and partial Spearman controlling b
 
 Uncertainty split: Spearman(aleatoric, epistemic) = 0.812; rho(epistemic, rarity) - rho(aleatoric, rarity) = 0.334 [0.325, 0.343]; rho(aleatoric, o_j) - rho(epistemic, o_j) = -0.018 [-0.027, -0.007].
 
-Gate for evidential x3 (decided 14 Nov): AP50 within 0.02 of baseline -> **met**; usable uncertainty split -> for review (the two parts must not be near-collinear and must differ in what they follow).
-
-RT-DETR feasibility: its class scores come from the decoder's score head trained with a varifocal/focal loss inside DETRLoss; the same Beta head means doubling that head's outputs and replacing the varifocal term, with the Hungarian matcher kept on p = alpha/S. Feasible, more invasive than YOLO26; not attempted in this pilot.
+These are the final v0.6 evidential models (one of three seeds); the pilot's gate and the RT-DETR feasibility note do not apply to them.
 
 ### evidential: rarity diagnostic (calib, yolo26_evid_s2)
 
@@ -205,6 +199,23 @@ Calib role only, 15643 vehicles with a box, threshold 0.45. Hypothesis: evidence
 | 0.95 | recalibrated:mondrian_confidence | 0.929 [0.902, 0.957] | 33.62 | NO | 0.985 / 0.942 / 0.863 / 0.728 / 0.188 | 0.785 | 3043 |
 | 0.95 | recalibrated:mondrian_gilg_iou_aware | 0.928 [0.900, 0.956] | 28.33 | NO | 0.984 / 0.941 / 0.857 / 0.714 / 0.184 | 0.785 | 3043 |
 
+Why the recalibrated Mondrian rules are not certifiable (yolo26; UA-DETRAC calib, per o_hat group; a group is certifiable only if its smallest certifiable miss rate (never proposed + 1) / (n + 1) is at most the target alpha):
+
+| target | rule | o_hat group | calib n | never proposed | min certifiable alpha | target alpha | certifiable |
+|---|---|---|---|---|---|---|---|
+| 0.90 | recalibrated:mondrian_confidence | 0.00-0.05 | 24667 | 907 (0.037) | 0.037 | 0.1 | yes |
+| 0.90 | recalibrated:mondrian_confidence | 0.05-0.30 | 3544 | 51 (0.014) | 0.015 | 0.1 | yes |
+| 0.90 | recalibrated:mondrian_confidence | 0.30-1.00 | 2151 | 300 (0.139) | 0.140 | 0.1 | NO |
+| 0.90 | recalibrated:mondrian_gilg_iou_aware | 0.00-0.05 | 24667 | 907 (0.037) | 0.037 | 0.1 | yes |
+| 0.90 | recalibrated:mondrian_gilg_iou_aware | 0.05-0.30 | 3544 | 51 (0.014) | 0.015 | 0.1 | yes |
+| 0.90 | recalibrated:mondrian_gilg_iou_aware | 0.30-1.00 | 2151 | 300 (0.139) | 0.140 | 0.1 | NO |
+| 0.95 | recalibrated:mondrian_confidence | 0.00-0.05 | 24667 | 907 (0.037) | 0.037 | 0.05 | yes |
+| 0.95 | recalibrated:mondrian_confidence | 0.05-0.30 | 3544 | 51 (0.014) | 0.015 | 0.05 | yes |
+| 0.95 | recalibrated:mondrian_confidence | 0.30-1.00 | 2151 | 300 (0.139) | 0.140 | 0.05 | NO |
+| 0.95 | recalibrated:mondrian_gilg_iou_aware | 0.00-0.05 | 24667 | 907 (0.037) | 0.037 | 0.05 | yes |
+| 0.95 | recalibrated:mondrian_gilg_iou_aware | 0.05-0.30 | 3544 | 51 (0.014) | 0.015 | 0.05 | yes |
+| 0.95 | recalibrated:mondrian_gilg_iou_aware | 0.30-1.00 | 2151 | 300 (0.139) | 0.140 | 0.05 | NO |
+
 **yolov8**: 5625 test frames, 40 sequences, 66700 vehicles. Recall at the frozen threshold 0.47: 0.768 [0.716, 0.819] (6.95 false alarms/image); at the confidence floor 0.941.
 
 | target | rule (setting:rule) | coverage | flags/image | certifiable | coverage by annotated occlusion bucket | lowest o_hat stratum | n in top bucket |
@@ -222,6 +233,23 @@ Calib role only, 15643 vehicles with a box, threshold 0.45. Hypothesis: evidence
 | 0.95 | recalibrated:mondrian_confidence | 0.930 [0.903, 0.957] | 35.69 | NO | 0.986 / 0.947 / 0.863 / 0.718 / 0.186 | 0.783 | 3043 |
 | 0.95 | recalibrated:mondrian_gilg_iou_aware | 0.929 [0.902, 0.956] | 29.94 | NO | 0.986 / 0.945 / 0.856 / 0.700 / 0.181 | 0.783 | 3043 |
 
+Why the recalibrated Mondrian rules are not certifiable (yolov8; UA-DETRAC calib, per o_hat group; a group is certifiable only if its smallest certifiable miss rate (never proposed + 1) / (n + 1) is at most the target alpha):
+
+| target | rule | o_hat group | calib n | never proposed | min certifiable alpha | target alpha | certifiable |
+|---|---|---|---|---|---|---|---|
+| 0.90 | recalibrated:mondrian_confidence | 0.00-0.05 | 24704 | 981 (0.040) | 0.040 | 0.1 | yes |
+| 0.90 | recalibrated:mondrian_confidence | 0.05-0.30 | 3549 | 50 (0.014) | 0.014 | 0.1 | yes |
+| 0.90 | recalibrated:mondrian_confidence | 0.30-1.00 | 2109 | 321 (0.152) | 0.153 | 0.1 | NO |
+| 0.90 | recalibrated:mondrian_gilg_iou_aware | 0.00-0.05 | 24704 | 981 (0.040) | 0.040 | 0.1 | yes |
+| 0.90 | recalibrated:mondrian_gilg_iou_aware | 0.05-0.30 | 3549 | 50 (0.014) | 0.014 | 0.1 | yes |
+| 0.90 | recalibrated:mondrian_gilg_iou_aware | 0.30-1.00 | 2109 | 321 (0.152) | 0.153 | 0.1 | NO |
+| 0.95 | recalibrated:mondrian_confidence | 0.00-0.05 | 24704 | 981 (0.040) | 0.040 | 0.05 | yes |
+| 0.95 | recalibrated:mondrian_confidence | 0.05-0.30 | 3549 | 50 (0.014) | 0.014 | 0.05 | yes |
+| 0.95 | recalibrated:mondrian_confidence | 0.30-1.00 | 2109 | 321 (0.152) | 0.153 | 0.05 | NO |
+| 0.95 | recalibrated:mondrian_gilg_iou_aware | 0.00-0.05 | 24704 | 981 (0.040) | 0.040 | 0.05 | yes |
+| 0.95 | recalibrated:mondrian_gilg_iou_aware | 0.05-0.30 | 3549 | 50 (0.014) | 0.014 | 0.05 | yes |
+| 0.95 | recalibrated:mondrian_gilg_iou_aware | 0.30-1.00 | 2109 | 321 (0.152) | 0.153 | 0.05 | NO |
+
 **rtdetr**: 5625 test frames, 40 sequences, 66700 vehicles. Recall at the frozen threshold 0.69: 0.708 [0.654, 0.764] (5.14 false alarms/image); at the confidence floor 0.941.
 
 | target | rule (setting:rule) | coverage | flags/image | certifiable | coverage by annotated occlusion bucket | lowest o_hat stratum | n in top bucket |
@@ -238,3 +266,20 @@ Calib role only, 15643 vehicles with a box, threshold 0.45. Hypothesis: evidence
 | 0.95 | recalibrated:global_confidence | 0.930 [0.903, 0.956] | 89.65 | yes | 0.990 / 0.946 / 0.836 / 0.672 / 0.178 | 0.743 | 3043 |
 | 0.95 | recalibrated:mondrian_confidence | 0.923 [0.895, 0.951] | 86.23 | NO | 0.983 / 0.916 / 0.819 / 0.697 / 0.217 | 0.767 | 3043 |
 | 0.95 | recalibrated:mondrian_gilg_iou_aware | 0.920 [0.892, 0.948] | 49.99 | NO | 0.983 / 0.915 / 0.806 / 0.643 / 0.204 | 0.767 | 3043 |
+
+Why the recalibrated Mondrian rules are not certifiable (rtdetr; UA-DETRAC calib, per o_hat group; a group is certifiable only if its smallest certifiable miss rate (never proposed + 1) / (n + 1) is at most the target alpha):
+
+| target | rule | o_hat group | calib n | never proposed | min certifiable alpha | target alpha | certifiable |
+|---|---|---|---|---|---|---|---|
+| 0.90 | recalibrated:mondrian_confidence | 0.00-0.05 | 24888 | 778 (0.031) | 0.031 | 0.1 | yes |
+| 0.90 | recalibrated:mondrian_confidence | 0.05-0.30 | 3485 | 38 (0.011) | 0.011 | 0.1 | yes |
+| 0.90 | recalibrated:mondrian_confidence | 0.30-1.00 | 1989 | 276 (0.139) | 0.139 | 0.1 | NO |
+| 0.90 | recalibrated:mondrian_gilg_iou_aware | 0.00-0.05 | 24888 | 778 (0.031) | 0.031 | 0.1 | yes |
+| 0.90 | recalibrated:mondrian_gilg_iou_aware | 0.05-0.30 | 3485 | 38 (0.011) | 0.011 | 0.1 | yes |
+| 0.90 | recalibrated:mondrian_gilg_iou_aware | 0.30-1.00 | 1989 | 276 (0.139) | 0.139 | 0.1 | NO |
+| 0.95 | recalibrated:mondrian_confidence | 0.00-0.05 | 24888 | 778 (0.031) | 0.031 | 0.05 | yes |
+| 0.95 | recalibrated:mondrian_confidence | 0.05-0.30 | 3485 | 38 (0.011) | 0.011 | 0.05 | yes |
+| 0.95 | recalibrated:mondrian_confidence | 0.30-1.00 | 1989 | 276 (0.139) | 0.139 | 0.05 | NO |
+| 0.95 | recalibrated:mondrian_gilg_iou_aware | 0.00-0.05 | 24888 | 778 (0.031) | 0.031 | 0.05 | yes |
+| 0.95 | recalibrated:mondrian_gilg_iou_aware | 0.05-0.30 | 3485 | 38 (0.011) | 0.011 | 0.05 | yes |
+| 0.95 | recalibrated:mondrian_gilg_iou_aware | 0.30-1.00 | 1989 | 276 (0.139) | 0.139 | 0.05 | NO |

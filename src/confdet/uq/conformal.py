@@ -131,6 +131,24 @@ def miss_aware_quantile(scores: np.ndarray, proposed: np.ndarray, alpha: float) 
     return GroupThreshold(t, n, n_unprop, True, min_alpha)
 
 
+def certifiability_by_group(thr: "ConformalThresholds") -> list[dict]:
+    """Why a (Mondrian) rule is or is not certifiable, one row per merged group:
+    o_hat range of the group, calib objects n, objects never proposed, the group's
+    smallest certifiable miss rate (n_unproposed + 1) / (n + 1) against the target alpha.
+    Reads the fitted thresholds only; changes nothing.
+    """
+    e = thr.context_edges
+    rows = []
+    for g, gt in enumerate(thr.groups):
+        strata = [s for s, m in enumerate(thr.group_of_stratum) if m == g]
+        rows.append({"group": g, "o_hat_lo": float(e[min(strata)]), "o_hat_hi": float(e[max(strata) + 1]),
+                     "n_calib": int(gt.n), "n_never_proposed": int(gt.n_unproposed),
+                     "share_never_proposed": float(gt.n_unproposed / gt.n) if gt.n else None,
+                     "min_certifiable_alpha": float(gt.min_alpha), "target_alpha": float(thr.alpha),
+                     "certifiable": bool(gt.achievable), "reason": gt.reason})
+    return rows
+
+
 def stratum_indices(context: np.ndarray, edges: list[float]) -> np.ndarray:
     e = np.asarray(edges, dtype=float)
     idx = np.searchsorted(e, np.asarray(context, dtype=float), side="right") - 1

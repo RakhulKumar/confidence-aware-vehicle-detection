@@ -1,0 +1,224 @@
+{
+  "criterion": "mean recovery of all misses over the extra-false-alarm budget range, held-out calib folds (5-fold CV by image), averaged over folds; higher is better",
+  "n_folds": 5,
+  "fold_seed": 42,
+  "std_threshold": 0.7,
+  "budgets": [
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "occluded_threshold": 0.2,
+  "duplicate_iou": 0.5,
+  "n_calib_images": 1539,
+  "chosen": "full_strict",
+  "ranking": [
+    "full_strict",
+    "full",
+    "z_dup",
+    "z_ctx",
+    "z_only"
+  ],
+  "table": {
+    "z_only": {
+      "feature_set": "confidence",
+      "n_folds_fitted": 5,
+      "cv_mean_recovery": 0.2255170518580035,
+      "cv_mean_recovery_sd_over_folds": 0.014269981584418976,
+      "cv_mean_recovery_occluded": 0.21393958446475225,
+      "folds": [
+        {
+          "fold": 0,
+          "n_images": 301,
+          "mean_recovery": 0.2200268817204301,
+          "mean_recovery_occluded": 0.2145833333333333
+        },
+        {
+          "fold": 1,
+          "n_images": 302,
+          "mean_recovery": 0.23728395061728397,
+          "mean_recovery_occluded": 0.2246969696969697
+        },
+        {
+          "fold": 2,
+          "n_images": 305,
+          "mean_recovery": 0.23624371859296484,
+          "mean_recovery_occluded": 0.2001923076923077
+        },
+        {
+          "fold": 3,
+          "n_images": 327,
+          "mean_recovery": 0.23091334894613583,
+          "mean_recovery_occluded": 0.21428571428571427
+        },
+        {
+          "fold": 4,
+          "n_images": 304,
+          "mean_recovery": 0.2031173594132029,
+          "mean_recovery_occluded": 0.21593959731543624
+        }
+      ]
+    },
+    "z_dup": {
+      "feature_set": "z_dup",
+      "n_folds_fitted": 5,
+      "cv_mean_recovery": 0.27569123334715795,
+      "cv_mean_recovery_sd_over_folds": 0.019230776813468915,
+      "cv_mean_recovery_occluded": 0.2333579849680521,
+      "folds": [
+        {
+          "fold": 0,
+          "n_images": 301,
+          "mean_recovery": 0.2525537634408602,
+          "mean_recovery_occluded": 0.21363636363636368
+        },
+        {
+          "fold": 1,
+          "n_images": 302,
+          "mean_recovery": 0.3034567901234568,
+          "mean_recovery_occluded": 0.2590909090909091
+        },
+        {
+          "fold": 2,
+          "n_images": 305,
+          "mean_recovery": 0.28203517587939697,
+          "mean_recovery_occluded": 0.21211538461538462
+        },
+        {
+          "fold": 3,
+          "n_images": 327,
+          "mean_recovery": 0.2762295081967213,
+          "mean_recovery_occluded": 0.22557142857142853
+        },
+        {
+          "fold": 4,
+          "n_images": 304,
+          "mean_recovery": 0.2641809290953545,
+          "mean_recovery_occluded": 0.25637583892617444
+        }
+      ]
+    },
+    "z_ctx": {
+      "feature_set": "z_ctx",
+      "n_folds_fitted": 5,
+      "cv_mean_recovery": 0.22691265763549265,
+      "cv_mean_recovery_sd_over_folds": 0.013073585425030796,
+      "cv_mean_recovery_occluded": 0.23591441209796918,
+      "folds": [
+        {
+          "fold": 0,
+          "n_images": 301,
+          "mean_recovery": 0.2221774193548387,
+          "mean_recovery_occluded": 0.24071969696969692
+        },
+        {
+          "fold": 1,
+          "n_images": 302,
+          "mean_recovery": 0.23765432098765432,
+          "mean_recovery_occluded": 0.24757575757575762
+        },
+        {
+          "fold": 2,
+          "n_images": 305,
+          "mean_recovery": 0.23618090452261303,
+          "mean_recovery_occluded": 0.22250000000000006
+        },
+        {
+          "fold": 3,
+          "n_images": 327,
+          "mean_recovery": 0.23237704918032787,
+          "mean_recovery_occluded": 0.23085714285714287
+        },
+        {
+          "fold": 4,
+          "n_images": 304,
+          "mean_recovery": 0.20617359413202935,
+          "mean_recovery_occluded": 0.23791946308724832
+        }
+      ]
+    },
+    "full": {
+      "feature_set": "occlusion_aware",
+      "n_folds_fitted": 5,
+      "cv_mean_recovery": 0.2792319717073407,
+      "cv_mean_recovery_sd_over_folds": 0.01787108815108184,
+      "cv_mean_recovery_occluded": 0.2722926404691505,
+      "folds": [
+        {
+          "fold": 0,
+          "n_images": 301,
+          "mean_recovery": 0.2579301075268817,
+          "mean_recovery_occluded": 0.2598484848484849
+        },
+        {
+          "fold": 1,
+          "n_images": 302,
+          "mean_recovery": 0.3064197530864197,
+          "mean_recovery_occluded": 0.29863636363636364
+        },
+        {
+          "fold": 2,
+          "n_images": 305,
+          "mean_recovery": 0.2807788944723618,
+          "mean_recovery_occluded": 0.24980769230769231
+        },
+        {
+          "fold": 3,
+          "n_images": 327,
+          "mean_recovery": 0.2807377049180328,
+          "mean_recovery_occluded": 0.2597142857142857
+        },
+        {
+          "fold": 4,
+          "n_images": 304,
+          "mean_recovery": 0.2702933985330073,
+          "mean_recovery_occluded": 0.29345637583892614
+        }
+      ]
+    },
+    "full_strict": {
+      "feature_set": "full_strict",
+      "n_folds_fitted": 5,
+      "cv_mean_recovery": 0.28234681851586385,
+      "cv_mean_recovery_sd_over_folds": 0.019915490263831114,
+      "cv_mean_recovery_occluded": 0.27986293136393803,
+      "folds": [
+        {
+          "fold": 0,
+          "n_images": 301,
+          "mean_recovery": 0.2586021505376344,
+          "mean_recovery_occluded": 0.26723484848484846
+        },
+        {
+          "fold": 1,
+          "n_images": 302,
+          "mean_recovery": 0.312283950617284,
+          "mean_recovery_occluded": 0.306969696969697
+        },
+        {
+          "fold": 2,
+          "n_images": 305,
+          "mean_recovery": 0.2846105527638191,
+          "mean_recovery_occluded": 0.2546153846153846
+        },
+        {
+          "fold": 3,
+          "n_images": 327,
+          "mean_recovery": 0.28466042154566745,
+          "mean_recovery_occluded": 0.27485714285714286
+        },
+        {
+          "fold": 4,
+          "n_images": 304,
+          "mean_recovery": 0.27157701711491444,
+          "mean_recovery_occluded": 0.2956375838926174
+        }
+      ]
+    }
+  },
+  "detector": "rtdetr_s2",
+  "matching": "class_agnostic",
+  "written_at_utc": "2026-11-23T15:29:16.720330+00:00",
+  "note": "computed from calib predictions only; test predictions had not been loaded"
+}

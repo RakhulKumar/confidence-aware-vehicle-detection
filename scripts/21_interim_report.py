@@ -12,6 +12,7 @@ Reads only result files (no GPU, seconds). Every number is copied from (bmd_dev 
   outputs/bmd_dev/yolo26/class_agnostic/results/nms_pilot.json
   outputs/bmd_dev/yolo26_evid_pilot_b/class_agnostic/results/evidential_pilot.json
   outputs/bmd_dev/<det>/class_agnostic/results/ua_detrac_transfer.json
+  outputs/bmd_dev/<det>/class_agnostic/results/ua_detrac_certifiability.json   (scripts/20b; table skipped if absent)
   outputs/bmd_dev/comparison/class_agnostic/ua_detrac_proxy_validation.json
 A section whose file is missing says so instead of inventing numbers.
 """
@@ -89,8 +90,11 @@ def evid_section(det="yolo26_evid_pilot_b"):
     out += table(["association", "Spearman", "partial (size)"], rows)
     out += [f"Uncertainty split: Spearman(aleatoric, epistemic) = {f(s['spearman_aleatoric_vs_epistemic'])}; "
             f"rho(epistemic, rarity) - rho(aleatoric, rarity) = {f(s['rarity_diff_epi_minus_alea'])}{ci(s['rarity_diff_ci'])}; "
-            f"rho(aleatoric, o_j) - rho(epistemic, o_j) = {f(s['occlusion_diff_alea_minus_epi'])}{ci(s['occlusion_diff_ci'])}.", "",
-            f"Gate for evidential x3 (decided 14 Nov): AP50 within 0.02 of baseline -> "
+            f"rho(aleatoric, o_j) - rho(epistemic, o_j) = {f(s['occlusion_diff_alea_minus_epi'])}{ci(s['occlusion_diff_ci'])}.", ""]
+    if not det.startswith("yolo26_evid_pilot"):
+        return out + ["These are the final v0.6 evidential models (one of three seeds); the pilot's gate and the RT-DETR "
+                      "feasibility note do not apply to them.", ""]
+    out += [f"Gate for evidential x3 (decided 14 Nov): AP50 within 0.02 of baseline -> "
             f"**{'met' if gap is not None and gap >= -0.02 else 'NOT met'}**; usable uncertainty split -> for review "
             f"(the two parts must not be near-collinear and must differ in what they follow).", "",
             "RT-DETR feasibility: its class scores come from the decoder's score head trained with a varifocal/focal "
@@ -163,7 +167,27 @@ def detrac_section():
                              f"{f(worst['coverage'])}" if worst else "n/a", f"{top['n']}"])
         out += table(["target", "rule (setting:rule)", "coverage", "flags/image", "certifiable",
                       "coverage by annotated occlusion bucket", "lowest o_hat stratum", "n in top bucket"], rows)
+        out += certifiability_table(det)
     return out
+
+
+def certifiability_table(det):
+    """Per o_hat group of the recalibrated Mondrian rules: why certifiable or not (scripts/20b)."""
+    c = load(R / det / "class_agnostic" / "results" / "ua_detrac_certifiability.json")
+    if not c:
+        return []
+    rows = []
+    for a in ("0.1", "0.05"):
+        for k, groups in c["by_alpha"].get(a, {}).items():
+            if not k.startswith("recalibrated:"):
+                continue
+            for g in groups:
+                rows.append([f"{1 - float(a):.2f}", k, f"{g['o_hat_lo']:.2f}-{g['o_hat_hi']:.2f}", g["n_calib"],
+                             f"{g['n_never_proposed']} ({f(g['share_never_proposed'])})", f(g["min_certifiable_alpha"]),
+                             f"{g['target_alpha']:g}", "yes" if g["certifiable"] else "NO"])
+    return [f"Why the recalibrated Mondrian rules are not certifiable ({det}; UA-DETRAC calib, per o_hat group; a group is "
+            "certifiable only if its smallest certifiable miss rate (never proposed + 1) / (n + 1) is at most the target alpha):", ""] + \
+        table(["target", "rule", "o_hat group", "calib n", "never proposed", "min certifiable alpha", "target alpha", "certifiable"], rows)
 
 
 def queue_section(qpath):

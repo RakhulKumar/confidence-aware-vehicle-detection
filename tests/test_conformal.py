@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from confdet.evaluation.stats import logistic_irls, sigmoid  # noqa: E402
 from confdet.uq.calibrator import fit_calibrator  # noqa: E402
 from confdet.uq.conformal import (  # noqa: E402
-    NEG_INF, ConformalThresholds, coverage, fit_thresholds, keep_mask, merge_small_strata,
+    NEG_INF, ConformalThresholds, certifiability_by_group, coverage, fit_thresholds, keep_mask, merge_small_strata,
     miss_aware_quantile, rank_transform,
 )
 
@@ -190,3 +190,18 @@ def test_occlusion_aware_score_does_no_harm_when_context_is_uninformative():
 def test_calibrator_refuses_to_fit_on_too_little_data():
     with pytest.raises(ValueError, match="too little calibration data"):
         fit_calibrator(np.full(30, 0.5), np.zeros(30), np.zeros(30), np.ones(30, bool))
+
+
+def test_certifiability_by_group_names_the_stratum_that_cannot_be_certified():
+    # 200 objects in o_hat [0, 0.3): all proposed; 150 in [0.3, 1): 30 never proposed (20%)
+    ctx = np.r_[np.full(200, 0.1), np.full(150, 0.6)]
+    prop = np.ones(350, bool); prop[200:230] = False
+    thr = fit_thresholds(np.linspace(0.1, 0.9, 350), prop, ctx, 0.10, context_edges=[0.0, 0.3, 1.0], min_group_size=100)
+    rows = certifiability_by_group(thr)
+    assert [(r["o_hat_lo"], r["o_hat_hi"], r["n_calib"], r["n_never_proposed"]) for r in rows] == [(0.0, 0.3, 200, 0), (0.3, 1.0, 150, 30)]
+    assert rows[0]["certifiable"] and rows[0]["min_certifiable_alpha"] == pytest.approx(1 / 201)
+    assert not rows[1]["certifiable"] and rows[1]["min_certifiable_alpha"] == pytest.approx(31 / 151)
+    assert rows[1]["min_certifiable_alpha"] > rows[1]["target_alpha"]
+    # a merged group reports the full o_hat range of its strata
+    thr = fit_thresholds(np.linspace(0.1, 0.9, 350), prop, ctx, 0.10, context_edges=[0.0, 0.3, 1.0], min_group_size=300)
+    assert [(r["o_hat_lo"], r["o_hat_hi"], r["n_calib"]) for r in certifiability_by_group(thr)] == [(0.0, 1.0, 350)]
