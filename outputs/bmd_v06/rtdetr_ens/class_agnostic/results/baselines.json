@@ -1,0 +1,5494 @@
+{
+  "detector": "rtdetr_ens",
+  "matching": "class_agnostic",
+  "operating_threshold": 0.68,
+  "delta": 0.05,
+  "calibrated_on": {
+    "images": 801,
+    "vehicles": 8364,
+    "note": "calib threshold half, the same images our conformal thresholds use"
+  },
+  "by_alpha": {
+    "0.03": {
+      "target_coverage": 0.97,
+      "rules": {
+        "crc_fnr": {
+          "calibration": {
+            "method": "crc_fnr",
+            "alpha": 0.03,
+            "n_images": 801,
+            "achievable": true,
+            "min_attainable_bound": 0.008558403789836428,
+            "threshold": 0.33813321590423584,
+            "calib_risk": 0.028748537563855463,
+            "bound": 0.029959574300060132
+          },
+          "threshold": 0.33813321590423584,
+          "achievable": true,
+          "coverage": 0.9678742310321258,
+          "coverage_ci": [
+            0.9629650538203414,
+            0.9725883756984098
+          ],
+          "system_recall": 0.9678742310321258,
+          "mean_image_fnr": 0.033082101633648164,
+          "mean_image_fnr_ci": [
+            0.028435245322156258,
+            0.038138450096593224
+          ],
+          "flags_per_image": 6.3698896820246595,
+          "flagged_false_per_image": 5.542504866969501,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9722984776640878,
+              "coverage_ci": [
+                0.967653250915163,
+                0.9767030319209029
+              ],
+              "system_coverage": 0.9722984776640878
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.970724907063197,
+              "coverage_ci": [
+                0.9622822470263735,
+                0.9789228248980932
+              ],
+              "system_coverage": 0.970724907063197
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9563729683490163,
+              "coverage_ci": [
+                0.9405381637919327,
+                0.9675540765391015
+              ],
+              "system_coverage": 0.9563729683490163
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.9099099099099099,
+              "coverage_ci": [
+                0.8815594220614611,
+                0.9382716049382716
+              ],
+              "system_coverage": 0.9099099099099099
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.9022801302931596,
+              "coverage_ci": [
+                0.8671738663592387,
+                0.9333963511369645
+              ],
+              "system_coverage": 0.9022801302931596
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9721910970765,
+              "coverage_ci": [
+                0.9668395006416095,
+                0.9769341319194155
+              ],
+              "system_coverage": 0.9721910970765
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.975340876124166,
+              "coverage_ci": [
+                0.9700189079004138,
+                0.9808474873341535
+              ],
+              "system_coverage": 0.975340876124166
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.943796394485684,
+              "coverage_ci": [
+                0.9330807559455274,
+                0.9547261408364364
+              ],
+              "system_coverage": 0.943796394485684
+            }
+          ]
+        },
+        "seqcrc_box_count_recall": {
+          "calibration": {
+            "method": "seqcrc_box_count_recall",
+            "alpha": 0.03,
+            "n_images": 801,
+            "achievable": true,
+            "route": "re-implementation of the cods 0.2 confidence step (cods.od.cp does not import)",
+            "threshold": 0.6140316128730774,
+            "calib_risk": 0.028567700994124444,
+            "bound": 0.029778963212336258
+          },
+          "threshold": 0.6140316128730774,
+          "achievable": true,
+          "coverage": 0.9177282048095445,
+          "coverage_ci": [
+            0.911833170346847,
+            0.9231248557837975
+          ],
+          "system_recall": 0.9177282048095445,
+          "mean_image_fnr": 0.08050530682126804,
+          "mean_image_fnr_ci": [
+            0.07433018550939713,
+            0.08676591345809515
+          ],
+          "flags_per_image": 0.9402985074626866,
+          "flagged_false_per_image": 0.63659961064244,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9329506696614258,
+              "coverage_ci": [
+                0.9271739557895778,
+                0.9388268537797182
+              ],
+              "system_coverage": 0.9329506696614258
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9093866171003717,
+              "coverage_ci": [
+                0.8969212939428624,
+                0.9221632235338919
+              ],
+              "system_coverage": 0.9093866171003717
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.8708297690333618,
+              "coverage_ci": [
+                0.8491480663373748,
+                0.8926120230647142
+              ],
+              "system_coverage": 0.8708297690333618
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.777027027027027,
+              "coverage_ci": [
+                0.7378837719298246,
+                0.8157695564729543
+              ],
+              "system_coverage": 0.777027027027027
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.762214983713355,
+              "coverage_ci": [
+                0.7065706007406392,
+                0.814111111111111
+              ],
+              "system_coverage": 0.762214983713355
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9326678211266171,
+              "coverage_ci": [
+                0.9252624992678491,
+                0.9390251106164413
+              ],
+              "system_coverage": 0.9326678211266171
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9257325210327821,
+              "coverage_ci": [
+                0.9158710291942596,
+                0.9355251659639274
+              ],
+              "system_coverage": 0.9257325210327821
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8561329091551785,
+              "coverage_ci": [
+                0.8408523381521701,
+                0.8705922474956443
+              ],
+              "system_coverage": 0.8561329091551785
+            }
+          ]
+        },
+        "seqcrc_box_count_threshold": {
+          "calibration": {
+            "method": "seqcrc_box_count_threshold",
+            "alpha": 0.03,
+            "n_images": 801,
+            "achievable": true,
+            "route": "re-implementation of the cods 0.2 confidence step (cods.od.cp does not import)",
+            "threshold": 0.467797189950943,
+            "calib_risk": 0.02871410736579276,
+            "bound": 0.029925187032418952
+          },
+          "threshold": 0.467797189950943,
+          "achievable": true,
+          "coverage": 0.9517181383210092,
+          "coverage_ci": [
+            0.9466167081058923,
+            0.9563739427854523
+          ],
+          "system_recall": 0.9517181383210092,
+          "mean_image_fnr": 0.047626272273616106,
+          "mean_image_fnr_ci": [
+            0.042443392043047326,
+            0.052913264768889336
+          ],
+          "flags_per_image": 3.36145360155743,
+          "flagged_false_per_image": 2.702790395846853,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.960319440978288,
+              "coverage_ci": [
+                0.9552619722493503,
+                0.9653389741530976
+              ],
+              "system_coverage": 0.960319440978288
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9488847583643123,
+              "coverage_ci": [
+                0.9379680137592737,
+                0.9589374338159288
+              ],
+              "system_coverage": 0.9488847583643123
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9264328485885372,
+              "coverage_ci": [
+                0.9081318433951483,
+                0.9421957789613957
+              ],
+              "system_coverage": 0.9264328485885372
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.8558558558558559,
+              "coverage_ci": [
+                0.8182836620926244,
+                0.8882426955467335
+              ],
+              "system_coverage": 0.8558558558558559
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.8697068403908795,
+              "coverage_ci": [
+                0.8238184584178498,
+                0.9059233449477352
+              ],
+              "system_coverage": 0.8697068403908795
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9601711317102984,
+              "coverage_ci": [
+                0.954153428673926,
+                0.9650678588253876
+              ],
+              "system_coverage": 0.9601711317102984
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9605454017986655,
+              "coverage_ci": [
+                0.9539103175650935,
+                0.9668291293338528
+              ],
+              "system_coverage": 0.9605454017986655
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.9116295510781195,
+              "coverage_ci": [
+                0.8991604721824705,
+                0.9240751091699666
+              ],
+              "system_coverage": 0.9116295510781195
+            }
+          ]
+        },
+        "pac": {
+          "calibration": {
+            "method": "pac",
+            "alpha": 0.03,
+            "delta": 0.05,
+            "n_objects": 8364,
+            "k_star": 225,
+            "achievable": true,
+            "threshold": 0.31145593523979187,
+            "calib_misses": 225
+          },
+          "threshold": 0.31145593523979187,
+          "achievable": true,
+          "coverage": 0.970546200211272,
+          "coverage_ci": [
+            0.9657018199310478,
+            0.975015063941697
+          ],
+          "system_recall": 0.970546200211272,
+          "mean_image_fnr": 0.030436300786538337,
+          "mean_image_fnr_ci": [
+            0.02602730371553356,
+            0.035345517146798934
+          ],
+          "flags_per_image": 7.269305645684621,
+          "flagged_false_per_image": 6.414016872160935,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9744613592879128,
+              "coverage_ci": [
+                0.9702050923531537,
+                0.9787182102566672
+              ],
+              "system_coverage": 0.9744613592879128
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9730483271375465,
+              "coverage_ci": [
+                0.9649615319122586,
+                0.9807068206820682
+              ],
+              "system_coverage": 0.9730483271375465
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.960650128314799,
+              "coverage_ci": [
+                0.9459663658736669,
+                0.9718088468448627
+              ],
+              "system_coverage": 0.960650128314799
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.9234234234234234,
+              "coverage_ci": [
+                0.8961317948901709,
+                0.9497719471481638
+              ],
+              "system_coverage": 0.9234234234234234
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.9055374592833876,
+              "coverage_ci": [
+                0.8690363787836712,
+                0.9361489311217572
+              ],
+              "system_coverage": 0.9055374592833876
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.974024651115412,
+              "coverage_ci": [
+                0.9685900995022616,
+                0.9783724575606666
+              ],
+              "system_coverage": 0.974024651115412
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9779518421816072,
+              "coverage_ci": [
+                0.9731353970024266,
+                0.9834353445944207
+              ],
+              "system_coverage": 0.9779518421816072
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.9494521032166844,
+              "coverage_ci": [
+                0.9387666973744818,
+                0.9595931021204722
+              ],
+              "system_coverage": 0.9494521032166844
+            }
+          ]
+        },
+        "global_confidence": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.3456963002681732,
+                "achievable": true,
+                "n": 8364
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.9671907040328093,
+          "coverage_ci": [
+            0.9623889756507948,
+            0.9719298193153868
+          ],
+          "system_recall": 0.9671907040328093,
+          "mean_image_fnr": 0.033828187748087025,
+          "mean_image_fnr_ci": [
+            0.029153702469434797,
+            0.038821459987074834
+          ],
+          "flags_per_image": 6.142115509409474,
+          "flagged_false_per_image": 5.321868916288125,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9717161633807504,
+              "coverage_ci": [
+                0.9668231031802832,
+                0.9762234961200231
+              ],
+              "system_coverage": 0.9717161633807504
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9697955390334573,
+              "coverage_ci": [
+                0.9615017726394245,
+                0.9779736729165731
+              ],
+              "system_coverage": 0.9697955390334573
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9555175363558597,
+              "coverage_ci": [
+                0.9401997106665255,
+                0.9667221297836939
+              ],
+              "system_coverage": 0.9555175363558597
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.9076576576576577,
+              "coverage_ci": [
+                0.8790958666434647,
+                0.935791709140333
+              ],
+              "system_coverage": 0.9076576576576577
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.9022801302931596,
+              "coverage_ci": [
+                0.8671738663592387,
+                0.9333963511369645
+              ],
+              "system_coverage": 0.9022801302931596
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9717836406234084,
+              "coverage_ci": [
+                0.9665081838386808,
+                0.9766205765016577
+              ],
+              "system_coverage": 0.9717836406234084
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9741804467653031,
+              "coverage_ci": [
+                0.9687899509126124,
+                0.9796035344719951
+              ],
+              "system_coverage": 0.9741804467653031
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.9427359490986215,
+              "coverage_ci": [
+                0.9319585171399687,
+                0.9533693217382643
+              ],
+              "system_coverage": 0.9427359490986215
+            }
+          ]
+        },
+        "mondrian_confidence": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.4057353734970093,
+                "achievable": true,
+                "n": 4997
+              },
+              {
+                "threshold": 0.40180668234825134,
+                "achievable": true,
+                "n": 1817
+              },
+              {
+                "threshold": 0.1424207240343094,
+                "achievable": true,
+                "n": 1550
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.9670042875784503,
+          "coverage_ci": [
+            0.9618597768423274,
+            0.971599506120892
+          ],
+          "system_recall": 0.9670042875784503,
+          "mean_image_fnr": 0.034483411830848215,
+          "mean_image_fnr_ci": [
+            0.02979892644466532,
+            0.03936515387865183
+          ],
+          "flags_per_image": 8.666450356911097,
+          "flagged_false_per_image": 7.848150551589876,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9673904001331004,
+              "coverage_ci": [
+                0.9624360660033703,
+                0.9719264628466142
+              ],
+              "system_coverage": 0.9673904001331004
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9711895910780669,
+              "coverage_ci": [
+                0.962725670242059,
+                0.9788892728198492
+              ],
+              "system_coverage": 0.9711895910780669
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9726261762189906,
+              "coverage_ci": [
+                0.9587884028761303,
+                0.9825877746341363
+              ],
+              "system_coverage": 0.9726261762189906
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.9346846846846847,
+              "coverage_ci": [
+                0.9100823326055313,
+                0.958101580796253
+              ],
+              "system_coverage": 0.9346846846846847
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.9478827361563518,
+              "coverage_ci": [
+                0.9219306404464523,
+                0.9720154127481714
+              ],
+              "system_coverage": 0.9478827361563518
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9660792502801263,
+              "coverage_ci": [
+                0.9606152339340214,
+                0.9710523142026168
+              ],
+              "system_coverage": 0.9660792502801263
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9689585146504207,
+              "coverage_ci": [
+                0.9628393634894646,
+                0.9750346509240246
+              ],
+              "system_coverage": 0.9689585146504207
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.9678331565924355,
+              "coverage_ci": [
+                0.957779395166488,
+                0.9762704915019609
+              ],
+              "system_coverage": 0.9678331565924355
+            }
+          ]
+        },
+        "global_occlusion_aware": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.05036911168036233,
+                "achievable": true,
+                "n": 8364
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.9675013981234077,
+          "coverage_ci": [
+            0.962680333315932,
+            0.9721735335487868
+          ],
+          "system_recall": 0.9675013981234077,
+          "mean_image_fnr": 0.03333325284228123,
+          "mean_image_fnr_ci": [
+            0.02874031064527021,
+            0.03832933901858322
+          ],
+          "flags_per_image": 4.804672290720312,
+          "flagged_false_per_image": 3.981181051265412,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9720489143998003,
+              "coverage_ci": [
+                0.96729559488474,
+                0.9764951024075723
+              ],
+              "system_coverage": 0.9720489143998003
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9697955390334573,
+              "coverage_ci": [
+                0.9609046279387788,
+                0.9780551863904124
+              ],
+              "system_coverage": 0.9697955390334573
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9563729683490163,
+              "coverage_ci": [
+                0.9405381637919327,
+                0.9675540765391015
+              ],
+              "system_coverage": 0.9563729683490163
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.9076576576576577,
+              "coverage_ci": [
+                0.8782694562735296,
+                0.9366118505796479
+              ],
+              "system_coverage": 0.9076576576576577
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.9022801302931596,
+              "coverage_ci": [
+                0.8671738663592387,
+                0.9333963511369645
+              ],
+              "system_coverage": 0.9022801302931596
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9717836406234084,
+              "coverage_ci": [
+                0.966548453323855,
+                0.976581101614435
+              ],
+              "system_coverage": 0.9717836406234084
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9750507687844503,
+              "coverage_ci": [
+                0.9694398820308786,
+                0.9806206756055545
+              ],
+              "system_coverage": 0.9750507687844503
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.9434429126899965,
+              "coverage_ci": [
+                0.9327669154125151,
+                0.9541752813585724
+              ],
+              "system_coverage": 0.9434429126899965
+            }
+          ]
+        },
+        "global_gilg_iou_aware": {
+          "calibration": {
+            "certifiable": true
+          },
+          "achievable": true,
+          "coverage": 0.9678120922140061,
+          "coverage_ci": [
+            0.9629744732562731,
+            0.9723023886970821
+          ],
+          "system_recall": 0.9678120922140061,
+          "mean_image_fnr": 0.033212710699174225,
+          "mean_image_fnr_ci": [
+            0.02863910108053916,
+            0.03817065190075436
+          ],
+          "flags_per_image": 3.72939649578196,
+          "flagged_false_per_image": 2.902660609993511,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9724648531736129,
+              "coverage_ci": [
+                0.9679110300671132,
+                0.9769390775029131
+              ],
+              "system_coverage": 0.9724648531736129
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9702602230483272,
+              "coverage_ci": [
+                0.9613292233304989,
+                0.978575291983299
+              ],
+              "system_coverage": 0.9702602230483272
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9555175363558597,
+              "coverage_ci": [
+                0.9403149760329255,
+                0.9671790544301087
+              ],
+              "system_coverage": 0.9555175363558597
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.9076576576576577,
+              "coverage_ci": [
+                0.8782694562735296,
+                0.9366118505796479
+              ],
+              "system_coverage": 0.9076576576576577
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.9022801302931596,
+              "coverage_ci": [
+                0.8671738663592387,
+                0.9333963511369645
+              ],
+              "system_coverage": 0.9022801302931596
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9719873688499542,
+              "coverage_ci": [
+                0.9665466797515873,
+                0.9766756259153359
+              ],
+              "system_coverage": 0.9719873688499542
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9756309834638817,
+              "coverage_ci": [
+                0.9703370478881425,
+                0.9811445560008994
+              ],
+              "system_coverage": 0.9756309834638817
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.943796394485684,
+              "coverage_ci": [
+                0.9331721001653673,
+                0.9542521149197979
+              ],
+              "system_coverage": 0.943796394485684
+            }
+          ]
+        }
+      }
+    },
+    "0.05": {
+      "target_coverage": 0.95,
+      "rules": {
+        "crc_fnr": {
+          "calibration": {
+            "method": "crc_fnr",
+            "alpha": 0.05,
+            "n_images": 801,
+            "achievable": true,
+            "min_attainable_bound": 0.008558403789836428,
+            "threshold": 0.4908737540245056,
+            "calib_risk": 0.048597122535121634,
+            "bound": 0.049783410412259886
+          },
+          "threshold": 0.4908737540245056,
+          "achievable": true,
+          "coverage": 0.948238364506307,
+          "coverage_ci": [
+            0.9430585765070085,
+            0.9534315164626953
+          ],
+          "system_recall": 0.948238364506307,
+          "mean_image_fnr": 0.05107095790843299,
+          "mean_image_fnr_ci": [
+            0.04585536074330026,
+            0.056418111249207696
+          ],
+          "flags_per_image": 2.9578195976638546,
+          "flagged_false_per_image": 2.335496430889033,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9574910573163631,
+              "coverage_ci": [
+                0.9520552290311419,
+                0.9628254963079318
+              ],
+              "system_coverage": 0.9574910573163631
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.945631970260223,
+              "coverage_ci": [
+                0.9346942008245899,
+                0.9561976302201332
+              ],
+              "system_coverage": 0.945631970260223
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9230111206159111,
+              "coverage_ci": [
+                0.904103950292378,
+                0.9392489413222855
+              ],
+              "system_coverage": 0.9230111206159111
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.8445945945945946,
+              "coverage_ci": [
+                0.8114074365372098,
+                0.8782076059850373
+              ],
+              "system_coverage": 0.8445945945945946
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.8501628664495114,
+              "coverage_ci": [
+                0.8037201453790239,
+                0.8885416666666667
+              ],
+              "system_coverage": 0.8501628664495114
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.95670775185902,
+              "coverage_ci": [
+                0.95044396740569,
+                0.9619842814330072
+              ],
+              "system_coverage": 0.95670775185902
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9588047577603713,
+              "coverage_ci": [
+                0.9517928972648155,
+                0.9653717787059494
+              ],
+              "system_coverage": 0.9588047577603713
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.9059738423471191,
+              "coverage_ci": [
+                0.8924605377800099,
+                0.91829153907694
+              ],
+              "system_coverage": 0.9059738423471191
+            }
+          ]
+        },
+        "seqcrc_box_count_recall": {
+          "calibration": {
+            "method": "seqcrc_box_count_recall",
+            "alpha": 0.05,
+            "n_images": 801,
+            "achievable": true,
+            "route": "re-implementation of the cods 0.2 confidence step (cods.od.cp does not import)",
+            "threshold": 0.6708238124847412,
+            "calib_risk": 0.048774602782669714,
+            "bound": 0.0499606693627412
+          },
+          "threshold": 0.6708238124847412,
+          "achievable": true,
+          "coverage": 0.893804759833468,
+          "coverage_ci": [
+            0.8876792626300926,
+            0.8997598968480832
+          ],
+          "system_recall": 0.893804759833468,
+          "mean_image_fnr": 0.1033331380109017,
+          "mean_image_fnr_ci": [
+            0.09665048061211572,
+            0.10979746530906963
+          ],
+          "flags_per_image": 0.12654120700843607,
+          "flagged_false_per_image": 0.07268007787151201,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9134015472922385,
+              "coverage_ci": [
+                0.907167333938806,
+                0.9196341116474581
+              ],
+              "system_coverage": 0.9134015472922385
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.879182156133829,
+              "coverage_ci": [
+                0.8654406559697971,
+                0.8939913127413127
+              ],
+              "system_coverage": 0.879182156133829
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.8289136013686912,
+              "coverage_ci": [
+                0.8048864990581632,
+                0.8507547548947773
+              ],
+              "system_coverage": 0.8289136013686912
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.7364864864864865,
+              "coverage_ci": [
+                0.6924804564083121,
+                0.7797080206378987
+              ],
+              "system_coverage": 0.7364864864864865
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.7035830618892508,
+              "coverage_ci": [
+                0.6482088122605364,
+                0.7653080125893384
+              ],
+              "system_coverage": 0.7035830618892508
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9130080472649486,
+              "coverage_ci": [
+                0.904773830008939,
+                0.9194782444448233
+              ],
+              "system_coverage": 0.9130080472649486
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9019437191760952,
+              "coverage_ci": [
+                0.8909145833885341,
+                0.9121442714709956
+              ],
+              "system_coverage": 0.9019437191760952
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8172499116295511,
+              "coverage_ci": [
+                0.8011571271859919,
+                0.8337602037265979
+              ],
+              "system_coverage": 0.8172499116295511
+            }
+          ]
+        },
+        "seqcrc_box_count_threshold": {
+          "calibration": {
+            "method": "seqcrc_box_count_threshold",
+            "alpha": 0.05,
+            "n_images": 801,
+            "achievable": true,
+            "route": "re-implementation of the cods 0.2 confidence step (cods.od.cp does not import)",
+            "threshold": 0.5091572999954224,
+            "calib_risk": 0.04868913857677903,
+            "bound": 0.04987531172069826
+          },
+          "threshold": 0.5091572999954224,
+          "achievable": true,
+          "coverage": 0.9447585906916051,
+          "coverage_ci": [
+            0.9394573982523606,
+            0.9497172173345484
+          ],
+          "system_recall": 0.9447585906916051,
+          "mean_image_fnr": 0.054178920433859364,
+          "mean_image_fnr_ci": [
+            0.04889450097463701,
+            0.059577031502869415
+          ],
+          "flags_per_image": 2.6430889033095393,
+          "flagged_false_per_image": 2.0571057754704736,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9545794858996756,
+              "coverage_ci": [
+                0.9489950191144093,
+                0.9597318343170318
+              ],
+              "system_coverage": 0.9545794858996756
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9405204460966543,
+              "coverage_ci": [
+                0.9290824773609274,
+                0.9514473466075667
+              ],
+              "system_coverage": 0.9405204460966543
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9213002566295979,
+              "coverage_ci": [
+                0.9024539459410367,
+                0.9381123753699394
+              ],
+              "system_coverage": 0.9213002566295979
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.831081081081081,
+              "coverage_ci": [
+                0.7966951736939804,
+                0.8673318080201201
+              ],
+              "system_coverage": 0.831081081081081
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.8436482084690554,
+              "coverage_ci": [
+                0.796904237590763,
+                0.8813031693077564
+              ],
+              "system_coverage": 0.8436482084690554
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9542630131404706,
+              "coverage_ci": [
+                0.9480532695858278,
+                0.9597362146716315
+              ],
+              "system_coverage": 0.9542630131404706
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9547432550043516,
+              "coverage_ci": [
+                0.9479087524119633,
+                0.9613849041103895
+              ],
+              "system_coverage": 0.9547432550043516
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8996111700247438,
+              "coverage_ci": [
+                0.885644791712758,
+                0.91220840594945
+              ],
+              "system_coverage": 0.8996111700247438
+            }
+          ]
+        },
+        "pac": {
+          "calibration": {
+            "method": "pac",
+            "alpha": 0.05,
+            "delta": 0.05,
+            "n_objects": 8364,
+            "k_star": 385,
+            "achievable": true,
+            "threshold": 0.4682861864566803,
+            "calib_misses": 385
+          },
+          "threshold": 0.4682861864566803,
+          "achievable": true,
+          "coverage": 0.9516559995028895,
+          "coverage_ci": [
+            0.9465229786649421,
+            0.9562500427005619
+          ],
+          "system_recall": 0.9516559995028895,
+          "mean_image_fnr": 0.04769116520028709,
+          "mean_image_fnr_ci": [
+            0.04250828496971832,
+            0.0529760597034878
+          ],
+          "flags_per_image": 3.3504218040233615,
+          "flagged_false_per_image": 2.6924075275794936,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9602362532235255,
+              "coverage_ci": [
+                0.9551756133068137,
+                0.9652017971066479
+              ],
+              "system_coverage": 0.9602362532235255
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9488847583643123,
+              "coverage_ci": [
+                0.9379680137592737,
+                0.9589374338159288
+              ],
+              "system_coverage": 0.9488847583643123
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9264328485885372,
+              "coverage_ci": [
+                0.9081318433951483,
+                0.9421957789613957
+              ],
+              "system_coverage": 0.9264328485885372
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.8558558558558559,
+              "coverage_ci": [
+                0.8182836620926244,
+                0.8882426955467335
+              ],
+              "system_coverage": 0.8558558558558559
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.8697068403908795,
+              "coverage_ci": [
+                0.8238184584178498,
+                0.9059233449477352
+              ],
+              "system_coverage": 0.8697068403908795
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9600692675970256,
+              "coverage_ci": [
+                0.954073048626273,
+                0.9649317742988281
+              ],
+              "system_coverage": 0.9600692675970256
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9605454017986655,
+              "coverage_ci": [
+                0.9539103175650935,
+                0.9668291293338528
+              ],
+              "system_coverage": 0.9605454017986655
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.9116295510781195,
+              "coverage_ci": [
+                0.8991604721824705,
+                0.9240751091699666
+              ],
+              "system_coverage": 0.9116295510781195
+            }
+          ]
+        },
+        "global_confidence": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.48645806312561035,
+                "achievable": true,
+                "n": 8364
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.9490461691418629,
+          "coverage_ci": [
+            0.9439304895246826,
+            0.9541429371559123
+          ],
+          "system_recall": 0.9490461691418629,
+          "mean_image_fnr": 0.05027363415809935,
+          "mean_image_fnr_ci": [
+            0.04503538044992764,
+            0.05577525305024641
+          ],
+          "flags_per_image": 3.035691109669046,
+          "flagged_false_per_image": 2.4049318624269955,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9582397471092255,
+              "coverage_ci": [
+                0.9528894195928728,
+                0.9634902241640781
+              ],
+              "system_coverage": 0.9582397471092255
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9465613382899628,
+              "coverage_ci": [
+                0.9359205180313047,
+                0.9570010170839515
+              ],
+              "system_coverage": 0.9465613382899628
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9230111206159111,
+              "coverage_ci": [
+                0.904103950292378,
+                0.9392489413222855
+              ],
+              "system_coverage": 0.9230111206159111
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.8445945945945946,
+              "coverage_ci": [
+                0.8114074365372098,
+                0.8782076059850373
+              ],
+              "system_coverage": 0.8445945945945946
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.8566775244299675,
+              "coverage_ci": [
+                0.810200965121251,
+                0.8950268141444612
+              ],
+              "system_coverage": 0.8566775244299675
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9576245288784762,
+              "coverage_ci": [
+                0.9513432117626119,
+                0.9628758063360733
+              ],
+              "system_coverage": 0.9576245288784762
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.959094865100087,
+              "coverage_ci": [
+                0.9523827419958049,
+                0.965416091283861
+              ],
+              "system_coverage": 0.959094865100087
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.9070342877341817,
+              "coverage_ci": [
+                0.8939648249277224,
+                0.919393444413552
+              ],
+              "system_coverage": 0.9070342877341817
+            }
+          ]
+        },
+        "mondrian_confidence": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.5300890207290649,
+                "achievable": true,
+                "n": 4997
+              },
+              {
+                "threshold": 0.494640052318573,
+                "achievable": true,
+                "n": 1817
+              },
+              {
+                "threshold": 0.325970858335495,
+                "achievable": true,
+                "n": 1550
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.9515938606847698,
+          "coverage_ci": [
+            0.9461062006782633,
+            0.9564702509406124
+          ],
+          "system_recall": 0.9515938606847698,
+          "mean_image_fnr": 0.04970162299904882,
+          "mean_image_fnr_ci": [
+            0.04443207589428118,
+            0.05510307603271137
+          ],
+          "flags_per_image": 3.565866320571058,
+          "flagged_false_per_image": 2.9085009733939002,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9534148573330006,
+              "coverage_ci": [
+                0.9477053259485001,
+                0.9587707637623296
+              ],
+              "system_coverage": 0.9534148573330006
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9572490706319703,
+              "coverage_ci": [
+                0.9481008519384753,
+                0.9664935896300664
+              ],
+              "system_coverage": 0.9572490706319703
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9538066723695466,
+              "coverage_ci": [
+                0.9385236800293943,
+                0.9648396514353961
+              ],
+              "system_coverage": 0.9538066723695466
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.9054054054054054,
+              "coverage_ci": [
+                0.8742199961097064,
+                0.9329459618110933
+              ],
+              "system_coverage": 0.9054054054054054
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.8990228013029316,
+              "coverage_ci": [
+                0.8631370695089107,
+                0.9305141947757372
+              ],
+              "system_coverage": 0.8990228013029316
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9509014974024651,
+              "coverage_ci": [
+                0.9444432696305429,
+                0.9564644743094121
+              ],
+              "system_coverage": 0.9509014974024651
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9579344357412243,
+              "coverage_ci": [
+                0.9508990539158386,
+                0.9642674258204413
+              ],
+              "system_coverage": 0.9579344357412243
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.9462707670554966,
+              "coverage_ci": [
+                0.935731057332181,
+                0.9567017713489896
+              ],
+              "system_coverage": 0.9462707670554966
+            }
+          ]
+        },
+        "global_occlusion_aware": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.14295955626026216,
+                "achievable": true,
+                "n": 8364
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.9495432796868204,
+          "coverage_ci": [
+            0.9444180703529024,
+            0.9544666689743528
+          ],
+          "system_recall": 0.9495432796868204,
+          "mean_image_fnr": 0.049601793670025665,
+          "mean_image_fnr_ci": [
+            0.044278994333382636,
+            0.054818642304892924
+          ],
+          "flags_per_image": 2.2667099286177805,
+          "flagged_false_per_image": 1.6307592472420507,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9590716246568505,
+              "coverage_ci": [
+                0.9537327490110584,
+                0.9641764306205102
+              ],
+              "system_coverage": 0.9590716246568505
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9474907063197026,
+              "coverage_ci": [
+                0.9366767032568432,
+                0.9579126036136568
+              ],
+              "system_coverage": 0.9474907063197026
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9221556886227545,
+              "coverage_ci": [
+                0.9031729250442082,
+                0.9382243130227002
+              ],
+              "system_coverage": 0.9221556886227545
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.8423423423423423,
+              "coverage_ci": [
+                0.8081500788505345,
+                0.8783974358974359
+              ],
+              "system_coverage": 0.8423423423423423
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.8501628664495114,
+              "coverage_ci": [
+                0.8058277296524339,
+                0.8878453947368421
+              ],
+              "system_coverage": 0.8501628664495114
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9582357135581134,
+              "coverage_ci": [
+                0.9523657223064445,
+                0.9633565797288463
+              ],
+              "system_coverage": 0.9582357135581134
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9596750797795184,
+              "coverage_ci": [
+                0.9529861905999641,
+                0.9659833498315696
+              ],
+              "system_coverage": 0.9596750797795184
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.9070342877341817,
+              "coverage_ci": [
+                0.8943534733157935,
+                0.9194245177745894
+              ],
+              "system_coverage": 0.9070342877341817
+            }
+          ]
+        },
+        "global_gilg_iou_aware": {
+          "calibration": {
+            "certifiable": true
+          },
+          "achievable": true,
+          "coverage": 0.9490461691418629,
+          "coverage_ci": [
+            0.9437249602829118,
+            0.9541218876748216
+          ],
+          "system_recall": 0.9490461691418629,
+          "mean_image_fnr": 0.05061350368684999,
+          "mean_image_fnr_ci": [
+            0.045491890801171414,
+            0.056011425974870827
+          ],
+          "flags_per_image": 2.010382868267359,
+          "flagged_false_per_image": 1.3796236210253083,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9579069960901755,
+              "coverage_ci": [
+                0.9524723650261768,
+                0.9632437090233091
+              ],
+              "system_coverage": 0.9579069960901755
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9479553903345725,
+              "coverage_ci": [
+                0.9372185217792917,
+                0.9581302823379181
+              ],
+              "system_coverage": 0.9479553903345725
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.9238665526090676,
+              "coverage_ci": [
+                0.9056105391265423,
+                0.9392489413222855
+              ],
+              "system_coverage": 0.9238665526090676
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.8445945945945946,
+              "coverage_ci": [
+                0.8097171790869191,
+                0.8802670447831737
+              ],
+              "system_coverage": 0.8445945945945946
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.8566775244299675,
+              "coverage_ci": [
+                0.8117180785025309,
+                0.8917183498410935
+              ],
+              "system_coverage": 0.8566775244299675
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9572170724253846,
+              "coverage_ci": [
+                0.9509939560205872,
+                0.9626117940302651
+              ],
+              "system_coverage": 0.9572170724253846
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9593849724398027,
+              "coverage_ci": [
+                0.9529913611745222,
+                0.9657096252882651
+              ],
+              "system_coverage": 0.9593849724398027
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.9080947331212442,
+              "coverage_ci": [
+                0.8952994704737962,
+                0.9204148339787814
+              ],
+              "system_coverage": 0.9080947331212442
+            }
+          ]
+        }
+      }
+    },
+    "0.1": {
+      "target_coverage": 0.9,
+      "rules": {
+        "crc_fnr": {
+          "calibration": {
+            "method": "crc_fnr",
+            "alpha": 0.1,
+            "n_images": 801,
+            "achievable": true,
+            "min_attainable_bound": 0.008558403789836428,
+            "threshold": 0.6650118231773376,
+            "calib_risk": 0.09883567960821522,
+            "bound": 0.09995932589299301
+          },
+          "threshold": 0.6650118231773376,
+          "achievable": true,
+          "coverage": 0.8967874231032126,
+          "coverage_ci": [
+            0.8905130365165566,
+            0.9029226243075622
+          ],
+          "system_recall": 0.8967874231032126,
+          "mean_image_fnr": 0.10077671475711657,
+          "mean_image_fnr_ci": [
+            0.09384871308760198,
+            0.10713332756122237
+          ],
+          "flags_per_image": 0.21414665801427643,
+          "flagged_false_per_image": 0.1291369240752758,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.916146743199401,
+              "coverage_ci": [
+                0.9101465669014085,
+                0.9223897546536078
+              ],
+              "system_coverage": 0.916146743199401
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.8824349442379182,
+              "coverage_ci": [
+                0.8691415933443296,
+                0.8977197435058727
+              ],
+              "system_coverage": 0.8824349442379182
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.8340461933276304,
+              "coverage_ci": [
+                0.8092146276385822,
+                0.8561935989037878
+              ],
+              "system_coverage": 0.8340461933276304
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.7387387387387387,
+              "coverage_ci": [
+                0.695060051766403,
+                0.7818549666772453
+              ],
+              "system_coverage": 0.7387387387387387
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.7068403908794788,
+              "coverage_ci": [
+                0.6510689097379488,
+                0.7682829349813962
+              ],
+              "system_coverage": 0.7068403908794788
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.915452785983498,
+              "coverage_ci": [
+                0.9073893916253806,
+                0.922192124668357
+              ],
+              "system_coverage": 0.915452785983498
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9057151145923992,
+              "coverage_ci": [
+                0.8946967079864802,
+                0.9154848882905964
+              ],
+              "system_coverage": 0.9057151145923992
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8211382113821138,
+              "coverage_ci": [
+                0.805528180268485,
+                0.837607205602037
+              ],
+              "system_coverage": 0.8211382113821138
+            }
+          ]
+        },
+        "seqcrc_box_count_recall": {
+          "calibration": {
+            "method": "seqcrc_box_count_recall",
+            "alpha": 0.1,
+            "n_images": 801,
+            "achievable": true,
+            "route": "re-implementation of the cods 0.2 confidence step (cods.od.cp does not import)",
+            "threshold": 0.7399096488952637,
+            "calib_risk": 0.09884574349775554,
+            "bound": 0.09996937723404263
+          },
+          "threshold": 0.7399096488952637,
+          "achievable": true,
+          "coverage": 0.84688995215311,
+          "coverage_ci": [
+            0.8396227942505514,
+            0.8539506423144311
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.14928577037721807,
+          "mean_image_fnr_ci": [
+            0.1415976455159868,
+            0.1570863949956196
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.8748856168372016,
+              "coverage_ci": [
+                0.8670771544183633,
+                0.8819090942252977
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.8127323420074349,
+              "coverage_ci": [
+                0.7945890647013376,
+                0.8309580620692442
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.7536355859709153,
+              "coverage_ci": [
+                0.7267238929374468,
+                0.7824376992599958
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.6576576576576577,
+              "coverage_ci": [
+                0.6032652243589743,
+                0.7041619827921656
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.6188925081433225,
+              "coverage_ci": [
+                0.5585017618927762,
+                0.6815168381006059
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8750127330141592,
+              "coverage_ci": [
+                0.8663181509039569,
+                0.8827978254470177
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.8543661154627212,
+              "coverage_ci": [
+                0.8423339969047468,
+                0.8677210561250932
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.7401908801696713,
+              "coverage_ci": [
+                0.7218053706673422,
+                0.7588897414450048
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        },
+        "seqcrc_box_count_threshold": {
+          "calibration": {
+            "method": "seqcrc_box_count_threshold",
+            "alpha": 0.1,
+            "n_images": 801,
+            "achievable": true,
+            "route": "re-implementation of the cods 0.2 confidence step (cods.od.cp does not import)",
+            "threshold": 0.5667991042137146,
+            "calib_risk": 0.0986267166042447,
+            "bound": 0.09975062344139651
+          },
+          "threshold": 0.5667991042137146,
+          "achievable": true,
+          "coverage": 0.931585161250233,
+          "coverage_ci": [
+            0.9261456322243121,
+            0.9368699011164229
+          ],
+          "system_recall": 0.931585161250233,
+          "mean_image_fnr": 0.06668323868540506,
+          "mean_image_fnr_ci": [
+            0.06121164302651224,
+            0.07247821500616357
+          ],
+          "flags_per_image": 1.6658014276443867,
+          "flagged_false_per_image": 1.2173913043478262,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9441810165543632,
+              "coverage_ci": [
+                0.9386908104788215,
+                0.9495700418891644
+              ],
+              "system_coverage": 0.9441810165543632
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9256505576208178,
+              "coverage_ci": [
+                0.9135318460229551,
+                0.9372301294436018
+              ],
+              "system_coverage": 0.9256505576208178
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.8973481608212147,
+              "coverage_ci": [
+                0.878079702282788,
+                0.9147485088967083
+              ],
+              "system_coverage": 0.8973481608212147
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.7995495495495496,
+              "coverage_ci": [
+                0.7592763517499284,
+                0.8352474494479268
+              ],
+              "system_coverage": 0.7995495495495496
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.8013029315960912,
+              "coverage_ci": [
+                0.7513027248973497,
+                0.8448349923588452
+              ],
+              "system_coverage": 0.8013029315960912
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.943261688906998,
+              "coverage_ci": [
+                0.9365122554780694,
+                0.9494320694712436
+              ],
+              "system_coverage": 0.943261688906998
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9416884247171453,
+              "coverage_ci": [
+                0.9337585347813518,
+                0.9493398906681664
+              ],
+              "system_coverage": 0.9416884247171453
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8787557440791799,
+              "coverage_ci": [
+                0.8648567494256725,
+                0.8916995371324046
+              ],
+              "system_coverage": 0.8787557440791799
+            }
+          ]
+        },
+        "pac": {
+          "calibration": {
+            "method": "pac",
+            "alpha": 0.1,
+            "delta": 0.05,
+            "n_objects": 8364,
+            "k_star": 791,
+            "achievable": true,
+            "threshold": 0.6377698183059692,
+            "calib_misses": 791
+          },
+          "threshold": 0.6377698183059692,
+          "achievable": true,
+          "coverage": 0.9085937985459517,
+          "coverage_ci": [
+            0.902208513324479,
+            0.9144432402122044
+          ],
+          "system_recall": 0.9085937985459517,
+          "mean_image_fnr": 0.08931044738766404,
+          "mean_image_fnr_ci": [
+            0.08310080222099564,
+            0.0958048626010676
+          ],
+          "flags_per_image": 0.5833874107722258,
+          "flagged_false_per_image": 0.3750811161583387,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9257133349970884,
+              "coverage_ci": [
+                0.9197547673134087,
+                0.9316842018108661
+              ],
+              "system_coverage": 0.9257133349970884
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.8945167286245354,
+              "coverage_ci": [
+                0.8802565052270703,
+                0.9078869253006672
+              ],
+              "system_coverage": 0.8945167286245354
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.8579982891360137,
+              "coverage_ci": [
+                0.8364815977505978,
+                0.8785411632111647
+              ],
+              "system_coverage": 0.8579982891360137
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.7657657657657657,
+              "coverage_ci": [
+                0.7216269841269841,
+                0.8061170488741309
+              ],
+              "system_coverage": 0.7657657657657657
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.7361563517915309,
+              "coverage_ci": [
+                0.6755606566145382,
+                0.7936495797161361
+              ],
+              "system_coverage": 0.7361563517915309
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9248242844046043,
+              "coverage_ci": [
+                0.9172744260609471,
+                0.9312232835487896
+              ],
+              "system_coverage": 0.9248242844046043
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.917319408181027,
+              "coverage_ci": [
+                0.9074495403157039,
+                0.9270496095030256
+              ],
+              "system_coverage": 0.917319408181027
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8416401555319901,
+              "coverage_ci": [
+                0.8266313257861659,
+                0.8575368135715061
+              ],
+              "system_coverage": 0.8416401555319901
+            }
+          ]
+        },
+        "global_confidence": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.6494905352592468,
+                "achievable": true,
+                "n": 8364
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.904057664823215,
+          "coverage_ci": [
+            0.8980615279762986,
+            0.9098241487029833
+          ],
+          "system_recall": 0.904057664823215,
+          "mean_image_fnr": 0.09387765090900399,
+          "mean_image_fnr_ci": [
+            0.08733492606498315,
+            0.1002037928319344
+          ],
+          "flags_per_image": 0.42829331602855286,
+          "flagged_false_per_image": 0.2673588578844906,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9222194492970635,
+              "coverage_ci": [
+                0.9160635662598806,
+                0.9281048771008676
+              ],
+              "system_coverage": 0.9222194492970635
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.8894052044609665,
+              "coverage_ci": [
+                0.8756993161811611,
+                0.9036275665982779
+              ],
+              "system_coverage": 0.8894052044609665
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.8477331052181352,
+              "coverage_ci": [
+                0.826501998459659,
+                0.8686656480774128
+              ],
+              "system_coverage": 0.8477331052181352
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.7522522522522522,
+              "coverage_ci": [
+                0.7100516376285169,
+                0.7937445620740815
+              ],
+              "system_coverage": 0.7522522522522522
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.7296416938110749,
+              "coverage_ci": [
+                0.6701236371539306,
+                0.7882245934959349
+              ],
+              "system_coverage": 0.7296416938110749
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9214627686665987,
+              "coverage_ci": [
+                0.9137117603319749,
+                0.9278163442002697
+              ],
+              "system_coverage": 0.9214627686665987
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9118073687264288,
+              "coverage_ci": [
+                0.9017572386168837,
+                0.9217919827910372
+              ],
+              "system_coverage": 0.9118073687264288
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8342170378225522,
+              "coverage_ci": [
+                0.8186487368501881,
+                0.8502614255186535
+              ],
+              "system_coverage": 0.8342170378225522
+            }
+          ]
+        },
+        "mondrian_confidence": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.699871838092804,
+                "achievable": true,
+                "n": 4997
+              },
+              {
+                "threshold": 0.6392691135406494,
+                "achievable": true,
+                "n": 1817
+              },
+              {
+                "threshold": 0.5381765961647034,
+                "achievable": true,
+                "n": 1550
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.9015099732803082,
+          "coverage_ci": [
+            0.8956713862135622,
+            0.9077117732861048
+          ],
+          "system_recall": 0.9068539116386006,
+          "mean_image_fnr": 0.10087649517082387,
+          "mean_image_fnr_ci": [
+            0.09406934598482569,
+            0.107874706425267
+          ],
+          "flags_per_image": 0.6463335496430889,
+          "flagged_false_per_image": 0.4561972744970798,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9067465269112387,
+              "coverage_ci": [
+                0.9000489957485394,
+                0.9132982114811674
+              ],
+              "system_coverage": 0.913651110556526
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9098513011152416,
+              "coverage_ci": [
+                0.8978125497717699,
+                0.9232605353926765
+              ],
+              "system_coverage": 0.9103159851301115
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.8982035928143712,
+              "coverage_ci": [
+                0.876793008551674,
+                0.9157382475784236
+              ],
+              "system_coverage": 0.8990590248075278
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.7972972972972973,
+              "coverage_ci": [
+                0.7590268169414659,
+                0.8325889022275577
+              ],
+              "system_coverage": 0.7995495495495496
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.8013029315960912,
+              "coverage_ci": [
+                0.7483260682535131,
+                0.8452085730724971
+              ],
+              "system_coverage": 0.8013029315960912
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8993582560863808,
+              "coverage_ci": [
+                0.8909916193537954,
+                0.9066099246283812
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9167391935015956,
+              "coverage_ci": [
+                0.9066506919416567,
+                0.9264426887123011
+              ],
+              "system_coverage": 0.9167391935015956
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8904206433368681,
+              "coverage_ci": [
+                0.8766956028616297,
+                0.9035795135886417
+              ],
+              "system_coverage": 0.8904206433368681
+            }
+          ]
+        },
+        "global_occlusion_aware": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.3740461496249025,
+                "achievable": true,
+                "n": 8364
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.9028148884608215,
+          "coverage_ci": [
+            0.8966578304658415,
+            0.9086035966459386
+          ],
+          "system_recall": 0.9079102715466352,
+          "mean_image_fnr": 0.0951266604311467,
+          "mean_image_fnr_ci": [
+            0.08869130463249965,
+            0.10156448218393928
+          ],
+          "flags_per_image": 0.46658014276443865,
+          "flagged_false_per_image": 0.2654120700843608,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9198901921637135,
+              "coverage_ci": [
+                0.9138752058317264,
+                0.9257042368441144
+              ],
+              "system_coverage": 0.9252973962232759
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.8903345724907064,
+              "coverage_ci": [
+                0.8765899383009018,
+                0.9040976592276839
+              ],
+              "system_coverage": 0.8940520446096655
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.8511548331907614,
+              "coverage_ci": [
+                0.8287557409380781,
+                0.872391886357932
+              ],
+              "system_coverage": 0.8545765611633875
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.7567567567567568,
+              "coverage_ci": [
+                0.7154072854715379,
+                0.7979187943397977
+              ],
+              "system_coverage": 0.7635135135135135
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.7296416938110749,
+              "coverage_ci": [
+                0.6717759781533971,
+                0.7846825700964425
+              ],
+              "system_coverage": 0.7361563517915309
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9194254864011409,
+              "coverage_ci": [
+                0.9119614150242589,
+                0.9260044914282073
+              ],
+              "system_coverage": 0.9245186920647855
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.910646939367566,
+              "coverage_ci": [
+                0.9001263397115714,
+                0.9213535490258491
+              ],
+              "system_coverage": 0.9167391935015956
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8356309650053022,
+              "coverage_ci": [
+                0.8199474624167742,
+                0.8514670021337304
+              ],
+              "system_coverage": 0.839519264757865
+            }
+          ]
+        },
+        "global_gilg_iou_aware": {
+          "calibration": {
+            "certifiable": true
+          },
+          "achievable": true,
+          "coverage": 0.9026284720064625,
+          "coverage_ci": [
+            0.8961632810917047,
+            0.9084611936665552
+          ],
+          "system_recall": 0.9026284720064625,
+          "mean_image_fnr": 0.09596098126999389,
+          "mean_image_fnr_ci": [
+            0.0890732230708078,
+            0.1022391944803645
+          ],
+          "flags_per_image": 0.32511356262167423,
+          "flagged_false_per_image": 0.1791044776119403,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9198901921637135,
+              "coverage_ci": [
+                0.9135134813187469,
+                0.9258942922295603
+              ],
+              "system_coverage": 0.9198901921637135
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.891728624535316,
+              "coverage_ci": [
+                0.8776442307692307,
+                0.905344611620577
+              ],
+              "system_coverage": 0.891728624535316
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.8494439692044482,
+              "coverage_ci": [
+                0.8278685676396602,
+                0.870406917481351
+              ],
+              "system_coverage": 0.8494439692044482
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.705883487654321,
+                0.7916043176681474
+              ],
+              "system_coverage": 0.75
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.7263843648208469,
+              "coverage_ci": [
+                0.6687889884061793,
+                0.7836879432624113
+              ],
+              "system_coverage": 0.7263843648208469
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9181012529285932,
+              "coverage_ci": [
+                0.9101666081706403,
+                0.9247879816479281
+              ],
+              "system_coverage": 0.9181012529285932
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9147084421235857,
+              "coverage_ci": [
+                0.9046076250480566,
+                0.9248964926687413
+              ],
+              "system_coverage": 0.9147084421235857
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8342170378225522,
+              "coverage_ci": [
+                0.8187880478848607,
+                0.8501537903561779
+              ],
+              "system_coverage": 0.8342170378225522
+            }
+          ]
+        }
+      }
+    },
+    "0.15": {
+      "target_coverage": 0.85,
+      "rules": {
+        "crc_fnr": {
+          "calibration": {
+            "method": "crc_fnr",
+            "alpha": 0.15,
+            "n_images": 801,
+            "achievable": true,
+            "min_attainable_bound": 0.008558403789836428,
+            "threshold": 0.7442950010299683,
+            "calib_risk": 0.14888488635236125,
+            "bound": 0.1499461271424456
+          },
+          "threshold": 0.7442950010299683,
+          "achievable": true,
+          "coverage": 0.8426645125209719,
+          "coverage_ci": [
+            0.8353736607169941,
+            0.8497522380026062
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.15346573720380643,
+          "mean_image_fnr_ci": [
+            0.14590696013082677,
+            0.16149155544845814
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.8713917311371766,
+              "coverage_ci": [
+                0.863875081585559,
+                0.8785973731935716
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.8090148698884758,
+              "coverage_ci": [
+                0.7909869451840454,
+                0.8274680802553579
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.7450812660393499,
+              "coverage_ci": [
+                0.7175583305948078,
+                0.7743349928876243
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.6486486486486487,
+              "coverage_ci": [
+                0.5948593073593074,
+                0.6938982937883231
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.6058631921824105,
+              "coverage_ci": [
+                0.5456807850094245,
+                0.6692806638228247
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8719568096159723,
+              "coverage_ci": [
+                0.8628009797384966,
+                0.8796390741316239
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.8485639686684073,
+              "coverage_ci": [
+                0.8360537593672673,
+                0.8630109472258974
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.7338282078472959,
+              "coverage_ci": [
+                0.7157661693321973,
+                0.7526070390577988
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        },
+        "seqcrc_box_count_recall": {
+          "calibration": {
+            "method": "seqcrc_box_count_recall",
+            "alpha": 0.15,
+            "n_images": 801,
+            "achievable": true,
+            "route": "re-implementation of the cods 0.2 confidence step (cods.od.cp does not import)",
+            "threshold": 0.7821462750434875,
+            "calib_risk": 0.14891008746251097,
+            "bound": 0.1499712968297647
+          },
+          "threshold": 0.7821462750434875,
+          "achievable": true,
+          "coverage": 0.8051326663766856,
+          "coverage_ci": [
+            0.7973910474013579,
+            0.8126824544474907
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.18762997607757168,
+          "mean_image_fnr_ci": [
+            0.1792661513034435,
+            0.19705802917902543
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.8398635720821895,
+              "coverage_ci": [
+                0.8318730343105156,
+                0.8477548347733226
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.7648698884758365,
+              "coverage_ci": [
+                0.7427204689514458,
+                0.7860134486693988
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.6809238665526091,
+              "coverage_ci": [
+                0.6509577356546096,
+                0.710733767611611
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.5698198198198198,
+              "coverage_ci": [
+                0.5113882835201328,
+                0.6161175302860633
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.5407166123778502,
+              "coverage_ci": [
+                0.48047487057314336,
+                0.6030082781456954
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8410919832942855,
+              "coverage_ci": [
+                0.8308780349658875,
+                0.8496618198046691
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.80794894110821,
+              "coverage_ci": [
+                0.7925047909155328,
+                0.8220342908789415
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.6769176387416048,
+              "coverage_ci": [
+                0.656789996420902,
+                0.6968964624818427
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        },
+        "seqcrc_box_count_threshold": {
+          "calibration": {
+            "method": "seqcrc_box_count_threshold",
+            "alpha": 0.15,
+            "n_images": 801,
+            "achievable": true,
+            "route": "re-implementation of the cods 0.2 confidence step (cods.od.cp does not import)",
+            "threshold": 0.601108968257904,
+            "calib_risk": 0.14856429463171036,
+            "bound": 0.14962593516209477
+          },
+          "threshold": 0.601108968257904,
+          "achievable": true,
+          "coverage": 0.9217672279873237,
+          "coverage_ci": [
+            0.9160404005867204,
+            0.9272046111685811
+          ],
+          "system_recall": 0.9217672279873237,
+          "mean_image_fnr": 0.07629202559758212,
+          "mean_image_fnr_ci": [
+            0.07084990860556557,
+            0.08211998917431095
+          ],
+          "flags_per_image": 1.1356262167423752,
+          "flagged_false_per_image": 0.7897469175859831,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9360286165876383,
+              "coverage_ci": [
+                0.9305010179069787,
+                0.9418447551651065
+              ],
+              "system_coverage": 0.9360286165876383
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.9158921933085502,
+              "coverage_ci": [
+                0.9024765262266782,
+                0.9277861914072112
+              ],
+              "system_coverage": 0.9158921933085502
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.8768177929854577,
+              "coverage_ci": [
+                0.8568912269997411,
+                0.8969895933760563
+              ],
+              "system_coverage": 0.8768177929854577
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.7837837837837838,
+              "coverage_ci": [
+                0.7447898479921834,
+                0.822094923538996
+              ],
+              "system_coverage": 0.7837837837837838
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.7752442996742671,
+              "coverage_ci": [
+                0.7172413793103448,
+                0.8240899083122211
+              ],
+              "system_coverage": 0.7752442996742671
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9351125598451665,
+              "coverage_ci": [
+                0.9282017905120256,
+                0.941611664395907
+              ],
+              "system_coverage": 0.9351125598451665
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.931534667827096,
+              "coverage_ci": [
+                0.9227406877653191,
+                0.9401406271746252
+              ],
+              "system_coverage": 0.931534667827096
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8635560268646165,
+              "coverage_ci": [
+                0.8484104452645111,
+                0.8782871422080872
+              ],
+              "system_coverage": 0.8635560268646165
+            }
+          ]
+        },
+        "pac": {
+          "calibration": {
+            "method": "pac",
+            "alpha": 0.15,
+            "delta": 0.05,
+            "n_objects": 8364,
+            "k_star": 1200,
+            "achievable": true,
+            "threshold": 0.7259193062782288,
+            "calib_misses": 1200
+          },
+          "threshold": 0.7259193062782288,
+          "achievable": true,
+          "coverage": 0.8593798545951656,
+          "coverage_ci": [
+            0.8523667826739145,
+            0.865855369934163
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.1370443129741621,
+          "mean_image_fnr_ci": [
+            0.12926243082202765,
+            0.14437040853558156
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.8857000249563264,
+              "coverage_ci": [
+                0.878947951870567,
+                0.8929395504676811
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.8303903345724907,
+              "coverage_ci": [
+                0.8132232548444598,
+                0.8478043870877758
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.7733105218135158,
+              "coverage_ci": [
+                0.7451412639709372,
+                0.8002432293856129
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.6666666666666666,
+              "coverage_ci": [
+                0.6129735707803993,
+                0.7114269257738155
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.6384364820846905,
+              "coverage_ci": [
+                0.5797104501184522,
+                0.7008258035846541
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8851991443414485,
+              "coverage_ci": [
+                0.8767145787124547,
+                0.8927796277191037
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.869741804467653,
+              "coverage_ci": [
+                0.8578378389376923,
+                0.8817180474204986
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.7571580063626723,
+              "coverage_ci": [
+                0.7392514401746746,
+                0.7756069119960433
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        },
+        "global_confidence": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.7341087460517883,
+                "achievable": true,
+                "n": 8364
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.8524824457838812,
+          "coverage_ci": [
+            0.8452916041154797,
+            0.8591863228382802
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.14374308270414177,
+          "mean_image_fnr_ci": [
+            0.13644481432885022,
+            0.1513690579316012
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.879960069877714,
+              "coverage_ci": [
+                0.8728705221270032,
+                0.8869423393782044
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.8197026022304833,
+              "coverage_ci": [
+                0.8024395284688679,
+                0.8380334273968572
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.7613344739093242,
+              "coverage_ci": [
+                0.7341438316865171,
+                0.7895072225325827
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.6621621621621622,
+              "coverage_ci": [
+                0.6061400802221537,
+                0.7080828251154292
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.6286644951140065,
+              "coverage_ci": [
+                0.5671619087615123,
+                0.6947108927687848
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8798003463379851,
+              "coverage_ci": [
+                0.8704983119192747,
+                0.8877175994260849
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.8613286916158979,
+              "coverage_ci": [
+                0.8491624221071218,
+                0.8735840788977781
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.7469070342877342,
+              "coverage_ci": [
+                0.7293659653005757,
+                0.7651009848764622
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        },
+        "mondrian_confidence": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.7705963253974915,
+                "achievable": true,
+                "n": 4997
+              },
+              {
+                "threshold": 0.7197295427322388,
+                "achievable": true,
+                "n": 1817
+              },
+              {
+                "threshold": 0.6328283548355103,
+                "achievable": true,
+                "n": 1550
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.8553408314173865,
+          "coverage_ci": [
+            0.8481032681540537,
+            0.8626947865922241
+          ],
+          "system_recall": 0.8943018703784255,
+          "mean_image_fnr": 0.14730005173361593,
+          "mean_image_fnr_ci": [
+            0.13925649688799485,
+            0.15608244140863506
+          ],
+          "flags_per_image": 0.1583387410772226,
+          "flagged_false_per_image": 0.09928617780661908,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.8614092005656767,
+              "coverage_ci": [
+                0.8539243557942099,
+                0.86935811865269
+              ],
+              "system_coverage": 0.9091589717993511
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.8643122676579925,
+              "coverage_ci": [
+                0.8491616001945526,
+                0.8800288824228035
+              ],
+              "system_coverage": 0.8842936802973977
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.8502994011976048,
+              "coverage_ci": [
+                0.8271820261588946,
+                0.8730021683370506
+              ],
+              "system_coverage": 0.8545765611633875
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.7454954954954955,
+              "coverage_ci": [
+                0.7048064085447263,
+                0.7889795702339367
+              ],
+              "system_coverage": 0.7545045045045045
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.7328990228013029,
+              "coverage_ci": [
+                0.6739711085918445,
+                0.7910677218474312
+              ],
+              "system_coverage": 0.7361563517915309
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8513802587348477,
+              "coverage_ci": [
+                0.8416027137813962,
+                0.859437206325882
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.8752538439222513,
+              "coverage_ci": [
+                0.8636894746620329,
+                0.8867209505235566
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8448214916931778,
+              "coverage_ci": [
+                0.8296954739858344,
+                0.8600143890356292
+              ],
+              "system_coverage": 0.8448214916931778
+            }
+          ]
+        },
+        "global_occlusion_aware": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.566513486843738,
+                "achievable": true,
+                "n": 8364
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.8532281116013174,
+          "coverage_ci": [
+            0.8465367112588045,
+            0.8598589321025615
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.14345385379654094,
+          "mean_image_fnr_ci": [
+            0.13594329829564372,
+            0.15122159232280818
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.8793777555943765,
+              "coverage_ci": [
+                0.8726557383901649,
+                0.8864104665825977
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.8262081784386617,
+              "coverage_ci": [
+                0.8092731069981998,
+                0.844037744641193
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.76732249786142,
+              "coverage_ci": [
+                0.7400930315618018,
+                0.7940417990104756
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.6554054054054054,
+              "coverage_ci": [
+                0.6020949045042463,
+                0.6986458441423679
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.6319218241042345,
+              "coverage_ci": [
+                0.572541138641952,
+                0.6945261437908495
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8790872975450749,
+              "coverage_ci": [
+                0.8702060702287209,
+                0.8865024720897
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.8624891209747607,
+              "coverage_ci": [
+                0.850339049840073,
+                0.8748832841898343
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.752209261223047,
+              "coverage_ci": [
+                0.733824734338541,
+                0.7713010599464244
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        },
+        "global_gilg_iou_aware": {
+          "calibration": {
+            "certifiable": true
+          },
+          "achievable": true,
+          "coverage": 0.8514882246939663,
+          "coverage_ci": [
+            0.844408345242472,
+            0.8586044404950668
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.1459811263699077,
+          "mean_image_fnr_ci": [
+            0.1383042466486775,
+            0.15348319854675535
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.8771316862157891,
+              "coverage_ci": [
+                0.8697989055882991,
+                0.8841593746461256
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.8266728624535316,
+              "coverage_ci": [
+                0.810251871657754,
+                0.8440559269499784
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.7639007698887939,
+              "coverage_ci": [
+                0.7368887470542026,
+                0.7907761544038789
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.6576576576576577,
+              "coverage_ci": [
+                0.605186830526304,
+                0.7022859419415971
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.6351791530944625,
+              "coverage_ci": [
+                0.5759299599911637,
+                0.6962544760709898
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.875114597127432,
+              "coverage_ci": [
+                0.8661513275389511,
+                0.8832143569284377
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.8668407310704961,
+              "coverage_ci": [
+                0.8546043308141716,
+                0.8784775822666289
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.750795334040297,
+              "coverage_ci": [
+                0.7329237705050244,
+                0.7700517827820783
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        }
+      }
+    },
+    "0.2": {
+      "target_coverage": 0.8,
+      "rules": {
+        "crc_fnr": {
+          "calibration": {
+            "method": "crc_fnr",
+            "alpha": 0.2,
+            "n_images": 801,
+            "achievable": true,
+            "min_attainable_bound": 0.008558403789836428,
+            "threshold": 0.7908703088760376,
+            "calib_risk": 0.19897281078684015,
+            "bound": 0.19997159780580917
+          },
+          "threshold": 0.7908703088760376,
+          "achievable": true,
+          "coverage": 0.7933884297520661,
+          "coverage_ci": [
+            0.7856809376778924,
+            0.8011310307179031
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.19835414642933633,
+          "mean_image_fnr_ci": [
+            0.1896662990508942,
+            0.20697409638998426
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.8300474170202147,
+              "coverage_ci": [
+                0.8216255497981333,
+                0.8382246826911743
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.745817843866171,
+              "coverage_ci": [
+                0.7226992393870133,
+                0.7678405568280069
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.6638152266894782,
+              "coverage_ci": [
+                0.6331075301135181,
+                0.6947967577177041
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.5540540540540541,
+              "coverage_ci": [
+                0.4957253472878473,
+                0.6017262332805983
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.5309446254071661,
+              "coverage_ci": [
+                0.46700294568445255,
+                0.590401206538661
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8315167566466334,
+              "coverage_ci": [
+                0.8216769930168988,
+                0.8402808281389483
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.7948941108210038,
+              "coverage_ci": [
+                0.7801152033513702,
+                0.8088510225685641
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.6592435489572287,
+              "coverage_ci": [
+                0.6395408530072626,
+                0.6790600775193798
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        },
+        "seqcrc_box_count_recall": {
+          "calibration": {
+            "method": "seqcrc_box_count_recall",
+            "alpha": 0.2,
+            "n_images": 801,
+            "achievable": true,
+            "route": "re-implementation of the cods 0.2 confidence step (cods.od.cp does not import)",
+            "threshold": 0.8143976330757141,
+            "calib_risk": 0.19895085715627167,
+            "bound": 0.1999496715488449
+          },
+          "threshold": 0.8143976330757141,
+          "achievable": true,
+          "coverage": 0.756975082333934,
+          "coverage_ci": [
+            0.7488460719028834,
+            0.7650321575950073
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.23548252907730163,
+          "mean_image_fnr_ci": [
+            0.22662364263397294,
+            0.24449835553259816
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.7983528824557026,
+              "coverage_ci": [
+                0.7895106161435492,
+                0.8061561624777988
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.7030669144981413,
+              "coverage_ci": [
+                0.6809952665363062,
+                0.7262124066708534
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.6047904191616766,
+              "coverage_ci": [
+                0.5722752219436893,
+                0.635231292821638
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.481981981981982,
+              "coverage_ci": [
+                0.42871134020618556,
+                0.526317128172855
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.49185667752442996,
+              "coverage_ci": [
+                0.43330815607641243,
+                0.5568156240710069
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8000407456453091,
+              "coverage_ci": [
+                0.7901085572588565,
+                0.8090788344843485
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.7565999419785321,
+              "coverage_ci": [
+                0.7404391749770073,
+                0.7722656581986784
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.607988688582538,
+              "coverage_ci": [
+                0.5850859790619619,
+                0.6282530114909887
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        },
+        "seqcrc_box_count_threshold": {
+          "calibration": {
+            "method": "seqcrc_box_count_threshold",
+            "alpha": 0.2,
+            "n_images": 801,
+            "achievable": true,
+            "route": "re-implementation of the cods 0.2 confidence step (cods.od.cp does not import)",
+            "threshold": 0.6305939555168152,
+            "calib_risk": 0.19850187265917604,
+            "bound": 0.19950124688279303
+          },
+          "threshold": 0.6305939555168152,
+          "achievable": true,
+          "coverage": 0.9118871559062947,
+          "coverage_ci": [
+            0.9060397897098842,
+            0.917490105573801
+          ],
+          "system_recall": 0.9118871559062947,
+          "mean_image_fnr": 0.08606319052045533,
+          "mean_image_fnr_ci": [
+            0.08009982061557794,
+            0.0922073986075579
+          ],
+          "flags_per_image": 0.7008436080467229,
+          "flagged_false_per_image": 0.4581440622972096,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.9285417186590134,
+              "coverage_ci": [
+                0.9225254430516019,
+                0.9344148393707304
+              ],
+              "system_coverage": 0.9285417186590134
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.900092936802974,
+              "coverage_ci": [
+                0.8870174218801694,
+                0.9132483444468649
+              ],
+              "system_coverage": 0.900092936802974
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.863130881094953,
+              "coverage_ci": [
+                0.8415443308913463,
+                0.8835768888770399
+              ],
+              "system_coverage": 0.863130881094953
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.7680180180180181,
+              "coverage_ci": [
+                0.7294270575418441,
+                0.807258892535895
+              ],
+              "system_coverage": 0.7680180180180181
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.7361563517915309,
+              "coverage_ci": [
+                0.6755606566145382,
+                0.7936495797161361
+              ],
+              "system_coverage": 0.7361563517915309
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.9277783436895182,
+              "coverage_ci": [
+                0.9203328868392497,
+                0.9341119275725213
+              ],
+              "system_coverage": 0.9277783436895182
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.9202204815781839,
+              "coverage_ci": [
+                0.9099773277707583,
+                0.9303628520744152
+              ],
+              "system_coverage": 0.9202204815781839
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.8465889006716154,
+              "coverage_ci": [
+                0.8317132677962384,
+                0.8613058912335344
+              ],
+              "system_coverage": 0.8465889006716154
+            }
+          ]
+        },
+        "pac": {
+          "calibration": {
+            "method": "pac",
+            "alpha": 0.2,
+            "delta": 0.05,
+            "n_objects": 8364,
+            "k_star": 1612,
+            "achievable": true,
+            "threshold": 0.7752623558044434,
+            "calib_misses": 1612
+          },
+          "threshold": 0.7752623558044434,
+          "achievable": true,
+          "coverage": 0.8131485739141242,
+          "coverage_ci": [
+            0.8054838051525935,
+            0.820482584605181
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.18098864088434186,
+          "mean_image_fnr_ci": [
+            0.17260549149413268,
+            0.1902197776793738
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.8463522169536645,
+              "coverage_ci": [
+                0.8384055921012045,
+                0.8545907517438185
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.7760223048327137,
+              "coverage_ci": [
+                0.7556916556361518,
+                0.7966786970403722
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.6963216424294268,
+              "coverage_ci": [
+                0.6682636920755273,
+                0.7255132775211867
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.581081081081081,
+              "coverage_ci": [
+                0.5245494160519846,
+                0.6257389162561576
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.5537459283387622,
+              "coverage_ci": [
+                0.49215986639753945,
+                0.6195019868412481
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8480187429968422,
+              "coverage_ci": [
+                0.8382889501248146,
+                0.8565213296877495
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.8157818392805338,
+              "coverage_ci": [
+                0.8014579875849027,
+                0.8298674838302643
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.6889360197949805,
+              "coverage_ci": [
+                0.6688530707697867,
+                0.708739992375143
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        },
+        "global_confidence": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.7823718190193176,
+                "achievable": true,
+                "n": 8364
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.8050705275585658,
+          "coverage_ci": [
+            0.7972689550648785,
+            0.8126526645446998
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.18766242254090718,
+          "mean_image_fnr_ci": [
+            0.17929148063168673,
+            0.19708885331919415
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.839780384327427,
+              "coverage_ci": [
+                0.8317903791037213,
+                0.8477143092208954
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.7648698884758365,
+              "coverage_ci": [
+                0.7427204689514458,
+                0.7860134486693988
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.6809238665526091,
+              "coverage_ci": [
+                0.6509577356546096,
+                0.710733767611611
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.5698198198198198,
+              "coverage_ci": [
+                0.5113882835201328,
+                0.6161175302860633
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.5407166123778502,
+              "coverage_ci": [
+                0.48047487057314336,
+                0.6030082781456954
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8410919832942855,
+              "coverage_ci": [
+                0.8308780349658875,
+                0.8496618198046691
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.8076588337684943,
+              "coverage_ci": [
+                0.7923511718802226,
+                0.8218199237558627
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.6769176387416048,
+              "coverage_ci": [
+                0.656789996420902,
+                0.6968964624818427
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        },
+        "mondrian_confidence": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.8140671253204346,
+                "achievable": true,
+                "n": 4997
+              },
+              {
+                "threshold": 0.7612113356590271,
+                "achievable": true,
+                "n": 1817
+              },
+              {
+                "threshold": 0.702098548412323,
+                "achievable": true,
+                "n": 1550
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.8053190828310446,
+          "coverage_ci": [
+            0.797598403341704,
+            0.8128452241912475
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.19615404143457335,
+          "mean_image_fnr_ci": [
+            0.18758832268744635,
+            0.20498230832994013
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.8138258048415273,
+              "coverage_ci": [
+                0.8054990449907297,
+                0.8218928902924457
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.8145910780669146,
+              "coverage_ci": [
+                0.7967571473427036,
+                0.8324872863720313
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.787852865697177,
+              "coverage_ci": [
+                0.7615582201471421,
+                0.8121713148651005
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.6756756756756757,
+              "coverage_ci": [
+                0.6234408747300216,
+                0.7180147857406257
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.6612377850162866,
+              "coverage_ci": [
+                0.6022863015823767,
+                0.7199541882192549
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8004482020984007,
+              "coverage_ci": [
+                0.7905153301334282,
+                0.8094940598552882
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.8328981723237598,
+              "coverage_ci": [
+                0.8184982375528226,
+                0.8463206779170934
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.7886178861788617,
+              "coverage_ci": [
+                0.7700604146827331,
+                0.8066672741164899
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        },
+        "global_occlusion_aware": {
+          "calibration": {
+            "certifiable": true,
+            "groups": [
+              {
+                "threshold": 0.6910893409017431,
+                "achievable": true,
+                "n": 8364
+              }
+            ]
+          },
+          "achievable": true,
+          "coverage": 0.8064997203753185,
+          "coverage_ci": [
+            0.7989960101496177,
+            0.8138760440205663
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.18783864819031396,
+          "mean_image_fnr_ci": [
+            0.17981559601811922,
+            0.19755761893333443
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.839780384327427,
+              "coverage_ci": [
+                0.8323105749983852,
+                0.8476227279922215
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.770910780669145,
+              "coverage_ci": [
+                0.7497290298311244,
+                0.7929566709055926
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.688622754491018,
+              "coverage_ci": [
+                0.659655131453912,
+                0.7171599273817785
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.5675675675675675,
+              "coverage_ci": [
+                0.5088087024630871,
+                0.6139783124364622
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.5472312703583062,
+              "coverage_ci": [
+                0.482797181372549,
+                0.6113222723216382
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8412957115208312,
+              "coverage_ci": [
+                0.831480339226162,
+                0.8496663927989457
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.8088192631273571,
+              "coverage_ci": [
+                0.7940928197139047,
+                0.8230094450051576
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.6829268292682927,
+              "coverage_ci": [
+                0.6634235486304837,
+                0.702941255713635
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        },
+        "global_gilg_iou_aware": {
+          "calibration": {
+            "certifiable": true
+          },
+          "achievable": true,
+          "coverage": 0.8046976946498478,
+          "coverage_ci": [
+            0.7968986852721792,
+            0.8122772417190813
+          ],
+          "system_recall": 0.8886472379295346,
+          "mean_image_fnr": 0.18926637965900162,
+          "mean_image_fnr_ci": [
+            0.1808467638341929,
+            0.19826125554055749
+          ],
+          "flags_per_image": 0.0,
+          "flagged_false_per_image": 0.0,
+          "by_annotated_occlusion": [
+            {
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 12021,
+              "reliable": true,
+              "coverage": 0.8373679394393145,
+              "coverage_ci": [
+                0.8289903346387092,
+                0.8452333749604417
+              ],
+              "system_coverage": 0.9086598452707761
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 2152,
+              "reliable": true,
+              "coverage": 0.7699814126394052,
+              "coverage_ci": [
+                0.7494638012146758,
+                0.7899573751535641
+              ],
+              "system_coverage": 0.8726765799256505
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 1169,
+              "reliable": true,
+              "coverage": 0.6869118905047049,
+              "coverage_ci": [
+                0.65649226610762,
+                0.7172755929661941
+              ],
+              "system_coverage": 0.8246364414029085
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 444,
+              "reliable": true,
+              "coverage": 0.5743243243243243,
+              "coverage_ci": [
+                0.5171970081135903,
+                0.6200928381962865
+              ],
+              "system_coverage": 0.722972972972973
+            },
+            {
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 307,
+              "reliable": true,
+              "coverage": 0.5504885993485342,
+              "coverage_ci": [
+                0.4878449658199004,
+                0.6143790849673203
+              ],
+              "system_coverage": 0.7003257328990228
+            }
+          ],
+          "by_occlusion_context": [
+            {
+              "lo": 0.0,
+              "hi": 0.05,
+              "n": 9817,
+              "reliable": true,
+              "coverage": 0.8371192828766426,
+              "coverage_ci": [
+                0.8271461187858847,
+                0.8457007106123318
+              ],
+              "system_coverage": 0.9081185698278497
+            },
+            {
+              "lo": 0.05,
+              "hi": 0.3,
+              "n": 3447,
+              "reliable": true,
+              "coverage": 0.8120104438642297,
+              "coverage_ci": [
+                0.7975661246423338,
+                0.825963921265752
+              ],
+              "system_coverage": 0.8955613577023499
+            },
+            {
+              "lo": 0.3,
+              "hi": 1.0,
+              "n": 2829,
+              "reliable": true,
+              "coverage": 0.6832803110639802,
+              "coverage_ci": [
+                0.6628086559154069,
+                0.7029386611377038
+              ],
+              "system_coverage": 0.8126546482856133
+            }
+          ]
+        }
+      }
+    }
+  },
+  "gilg_vs_ours": {
+    "spearman_gilg_vs_z_dup_weak_candidates": 0.73435657760909,
+    "spearman_gilg_vs_confidence_weak_candidates": 0.7367558614283278,
+    "spearman_u_higher_vs_dup": 0.1313539789223101,
+    "recovery": {
+      "confidence": {
+        "mean_recovery_over_budget_range": 0.20989118303571427,
+        "mean_recovery_ci": [
+          0.19122630528492457,
+          0.22778974249561676
+        ],
+        "mean_recovery_delta_vs_confidence": null,
+        "mean_recovery_delta_ci": null,
+        "mean_recovery_occluded_delta_vs_confidence": null,
+        "mean_recovery_occluded_delta_ci": null
+      },
+      "gilg_iou_aware": {
+        "mean_recovery_over_budget_range": 0.27663225446428574,
+        "mean_recovery_ci": [
+          0.25277614301042167,
+          0.2999863270005757
+        ],
+        "mean_recovery_delta_vs_confidence": 0.06674107142857147,
+        "mean_recovery_delta_ci": [
+          0.056472244981646824,
+          0.0774768486065856
+        ],
+        "mean_recovery_occluded_delta_vs_confidence": 0.07921469740634007,
+        "mean_recovery_occluded_delta_ci": [
+          0.06667092624062672,
+          0.09209215827604049
+        ]
+      },
+      "z_dup": {
+        "mean_recovery_over_budget_range": 0.2591796875,
+        "mean_recovery_ci": [
+          0.23709924460368248,
+          0.2805269287702192
+        ],
+        "mean_recovery_delta_vs_confidence": 0.049288504464285704,
+        "mean_recovery_delta_ci": [
+          0.039634811707431924,
+          0.05937405532837788
+        ],
+        "mean_recovery_occluded_delta_vs_confidence": 0.009582132564841472,
+        "mean_recovery_occluded_delta_ci": [
+          -0.0021559811589051073,
+          0.02318362878712378
+        ]
+      },
+      "default_score": {
+        "mean_recovery_over_budget_range": 0.2693498883928572,
+        "mean_recovery_ci": [
+          0.24613381405089488,
+          0.29093515573297496
+        ],
+        "mean_recovery_delta_vs_confidence": 0.0594587053571429,
+        "mean_recovery_delta_ci": [
+          0.05074101794201162,
+          0.0681362450931551
+        ],
+        "mean_recovery_occluded_delta_vs_confidence": 0.05662824207492795,
+        "mean_recovery_occluded_delta_ci": [
+          0.04634962406015036,
+          0.06702733895200913
+        ]
+      }
+    },
+    "gilg_model": {
+      "features": [
+        "ln s",
+        "-ln(1-s)",
+        "ln u",
+        "-ln(1-u)"
+      ],
+      "mean": [
+        -3.8338299525470023,
+        0.09909664554071414,
+        -0.6567773005471989,
+        3.5893900105590117
+      ],
+      "std": [
+        1.1653825712600403,
+        0.38798094025904123,
+        1.860758890340514,
+        2.9015662380657616
+      ],
+      "coef": [
+        -9.345255287665813,
+        1.7491646239924834,
+        0.8169045474621923,
+        0.06325548105075277,
+        -1.6753402337935772
+      ],
+      "n_fit": 320735
+    },
+    "fitted_on": "calib score half (the rows our own candidate score is fitted on)"
+  },
+  "calibration_metrics": {
+    "at_threshold": 0.68,
+    "laece0": 0.08172635559386415,
+    "laece0_ci": [
+      0.07479002749297568,
+      0.08904280751074818
+    ],
+    "laace0": 0.08172635559386408,
+    "laace0_ci": [
+      0.07479002749297564,
+      0.08904280751074818
+    ],
+    "dece": 0.04040078490163292,
+    "n_bins_la": 25,
+    "bootstrap_replicates": 200
+  },
+  "lrp": {
+    "operating_threshold_max_f1": {
+      "threshold": 0.68,
+      "lrp": 0.33696565608929396,
+      "n_tp": 14301.0,
+      "n_fp": 1977.0,
+      "n_fn": 1792.0,
+      "lrp_loc": 0.08111213920472493,
+      "lrp_ci": [
+        0.3283432317381189,
+        0.3461481228977542
+      ],
+      "recall": 0.8886472379295346,
+      "precision": 0.8785477331367489,
+      "fp_per_image": 1.282933160285529,
+      "strata": {
+        "threshold": 0.68,
+        "achievable": true,
+        "coverage": 0.8886472379295346,
+        "coverage_ci": [
+          0.8823774455745247,
+          0.8948898228816771
+        ],
+        "system_recall": 0.8886472379295346,
+        "mean_image_fnr": 0.10867858788559615,
+        "mean_image_fnr_ci": [
+          0.10165967919855717,
+          0.1156284967359395
+        ],
+        "flags_per_image": 0.0,
+        "flagged_false_per_image": 0.0,
+        "by_annotated_occlusion": [
+          {
+            "lo": 0.0,
+            "hi": 0.2,
+            "n": 12021,
+            "reliable": true,
+            "coverage": 0.9086598452707761,
+            "coverage_ci": [
+              0.9023111635220126,
+              0.9150625128650542
+            ],
+            "system_coverage": 0.9086598452707761
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.4,
+            "n": 2152,
+            "reliable": true,
+            "coverage": 0.8726765799256505,
+            "coverage_ci": [
+              0.8587543182064084,
+              0.88816010711172
+            ],
+            "system_coverage": 0.8726765799256505
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.6,
+            "n": 1169,
+            "reliable": true,
+            "coverage": 0.8246364414029085,
+            "coverage_ci": [
+              0.7994689913675602,
+              0.8465157849495976
+            ],
+            "system_coverage": 0.8246364414029085
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.8,
+            "n": 444,
+            "reliable": true,
+            "coverage": 0.722972972972973,
+            "coverage_ci": [
+              0.6770669992872417,
+              0.767703206196686
+            ],
+            "system_coverage": 0.722972972972973
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.0,
+            "n": 307,
+            "reliable": true,
+            "coverage": 0.7003257328990228,
+            "coverage_ci": [
+              0.6431938271857783,
+              0.7606019108280255
+            ],
+            "system_coverage": 0.7003257328990228
+          }
+        ],
+        "by_occlusion_context": [
+          {
+            "lo": 0.0,
+            "hi": 0.05,
+            "n": 9817,
+            "reliable": true,
+            "coverage": 0.9081185698278497,
+            "coverage_ci": [
+              0.8998657469945736,
+              0.915106439026218
+            ],
+            "system_coverage": 0.9081185698278497
+          },
+          {
+            "lo": 0.05,
+            "hi": 0.3,
+            "n": 3447,
+            "reliable": true,
+            "coverage": 0.8955613577023499,
+            "coverage_ci": [
+              0.8841085778490458,
+              0.9065821402247946
+            ],
+            "system_coverage": 0.8955613577023499
+          },
+          {
+            "lo": 0.3,
+            "hi": 1.0,
+            "n": 2829,
+            "reliable": true,
+            "coverage": 0.8126546482856133,
+            "coverage_ci": [
+              0.7961299297171304,
+              0.829426336439779
+            ],
+            "system_coverage": 0.8126546482856133
+          }
+        ]
+      }
+    },
+    "lrp_optimal_threshold_from_calib": {
+      "threshold": 0.7,
+      "lrp": 0.3353719392400521,
+      "n_tp": 14126.0,
+      "n_fp": 1748.0,
+      "n_fn": 1967.0,
+      "lrp_loc": 0.08029062607892432,
+      "lrp_ci": [
+        0.32574917559687333,
+        0.3441771209592893
+      ],
+      "recall": 0.8777729447585907,
+      "precision": 0.8898828272647096,
+      "fp_per_image": 1.1343283582089552,
+      "strata": {
+        "threshold": 0.7,
+        "achievable": true,
+        "coverage": 0.8777729447585907,
+        "coverage_ci": [
+          0.8714127092440973,
+          0.884214712244241
+        ],
+        "system_recall": 0.8777729447585907,
+        "mean_image_fnr": 0.11847532253790058,
+        "mean_image_fnr_ci": [
+          0.11117008537069392,
+          0.12566313380775243
+        ],
+        "flags_per_image": 0.0,
+        "flagged_false_per_image": 0.0,
+        "by_annotated_occlusion": [
+          {
+            "lo": 0.0,
+            "hi": 0.2,
+            "n": 12021,
+            "reliable": true,
+            "coverage": 0.8999251310207137,
+            "coverage_ci": [
+              0.8934105433186741,
+              0.9068312200671891
+            ],
+            "system_coverage": 0.8999251310207137
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.4,
+            "n": 2152,
+            "reliable": true,
+            "coverage": 0.8578066914498141,
+            "coverage_ci": [
+              0.8421667872257945,
+              0.8737281396143556
+            ],
+            "system_coverage": 0.8578066914498141
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.6,
+            "n": 1169,
+            "reliable": true,
+            "coverage": 0.804961505560308,
+            "coverage_ci": [
+              0.7791759617149149,
+              0.8293056002417931
+            ],
+            "system_coverage": 0.804961505560308
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.8,
+            "n": 444,
+            "reliable": true,
+            "coverage": 0.7004504504504504,
+            "coverage_ci": [
+              0.654476127320955,
+              0.7418902251002158
+            ],
+            "system_coverage": 0.7004504504504504
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.0,
+            "n": 307,
+            "reliable": true,
+            "coverage": 0.6840390879478827,
+            "coverage_ci": [
+              0.6260423675723336,
+              0.7467322895080205
+            ],
+            "system_coverage": 0.6840390879478827
+          }
+        ],
+        "by_occlusion_context": [
+          {
+            "lo": 0.0,
+            "hi": 0.05,
+            "n": 9817,
+            "reliable": true,
+            "coverage": 0.8993582560863808,
+            "coverage_ci": [
+              0.8909916193537954,
+              0.9066099246283812
+            ],
+            "system_coverage": 0.8993582560863808
+          },
+          {
+            "lo": 0.05,
+            "hi": 0.3,
+            "n": 3447,
+            "reliable": true,
+            "coverage": 0.886858137510879,
+            "coverage_ci": [
+              0.8749798119574189,
+              0.8981001365475302
+            ],
+            "system_coverage": 0.886858137510879
+          },
+          {
+            "lo": 0.3,
+            "hi": 1.0,
+            "n": 2829,
+            "reliable": true,
+            "coverage": 0.7917992223400495,
+            "coverage_ci": [
+              0.7741198532325475,
+              0.8092501918292371
+            ],
+            "system_coverage": 0.7917992223400495
+          }
+        ]
+      }
+    },
+    "olrp_on_calib": 0.3351746744470571
+  }
+}

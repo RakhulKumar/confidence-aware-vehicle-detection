@@ -1,0 +1,412 @@
+{
+  "experiment": "pals_rev",
+  "detector": "yolo26_rev",
+  "development_dataset": "pals",
+  "matching": "class_agnostic",
+  "standard_threshold": 0.29,
+  "gates": {
+    "detector_usable_on_development": {
+      "usable": true,
+      "message": ""
+    },
+    "enough_occlusion": {
+      "n_objects": 1298,
+      "n_occluded": 50,
+      "occluded_threshold": 0.2,
+      "min_occluded_required": 200,
+      "adequate": false,
+      "message": "only 50 objects with occlusion >= 0.2 (need >= 200): occlusion-stratified results on this split are NOT interpretable"
+    },
+    "detector_usable_on_bmd45": {
+      "class_agnostic": {
+        "usable": false,
+        "message": "the detector proposes a candidate for only 37.7% of the vehicles (need >= 50%); check the class mapping and whether the detector transfers to this dataset at all before reading anything else"
+      }
+    }
+  },
+  "headline": {
+    "detection": {
+      "ap50": 0.6896222102143515,
+      "recall_at_standard": 0.7026194144838213,
+      "recall_at_floor": 0.9591679506933745,
+      "precision_at_standard": 0.6246575342465753,
+      "fp_per_image_at_standard": 0.5474525474525475
+    },
+    "rq1": {
+      "interpretable": false,
+      "spearman": 0.15695073912658153,
+      "spearman_ci": [
+        0.09770062391425334,
+        0.2128028132928707
+      ],
+      "partial_spearman": 0.1555968293726939,
+      "partial_spearman_ci": [
+        0.09780521233878359,
+        0.2111290490337023
+      ],
+      "odds_ratio_per_0.1_occlusion": 1.3851740286133556,
+      "odds_ratio_ci": [
+        1.196684537592278,
+        1.699914125315263
+      ],
+      "miss_rate_by_bucket": [
+        0.28525641025641024,
+        0.5833333333333334,
+        0.5,
+        1.0,
+        0.75
+      ],
+      "n_by_bucket": [
+        1248,
+        36,
+        8,
+        2,
+        4
+      ],
+      "context_tracks_annotated_occlusion": 0.579248673996605
+    },
+    "rq2": {
+      "interpretable_for_occluded": false,
+      "n_missed": 386,
+      "n_missed_occluded": 30,
+      "recoverable_ceiling": 0.8626943005181347,
+      "policies": {
+        "confidence": {
+          "mean_recovery_over_budget_range": 0.3025259067357513,
+          "mean_recovery_ci": [
+            0.2618828468298807,
+            0.33771133427096534
+          ],
+          "mean_recovery_occluded": 0.13416666666666666,
+          "mean_recovery_delta_vs_confidence": null,
+          "mean_recovery_delta_ci": null,
+          "prob_better_than_confidence": null,
+          "mean_recovery_occluded_delta_vs_confidence": null,
+          "mean_recovery_occluded_delta_ci": null,
+          "prob_better_occluded": null
+        },
+        "mondrian_rank": {
+          "mean_recovery_over_budget_range": 0.2829015544041451,
+          "mean_recovery_ci": [
+            0.24357225501892382,
+            0.31671954689798326
+          ],
+          "mean_recovery_occluded": 0.13166666666666665,
+          "mean_recovery_delta_vs_confidence": -0.0196243523316062,
+          "mean_recovery_delta_ci": [
+            -0.02493075698281155,
+            -0.015861617393800216
+          ],
+          "prob_better_than_confidence": 0.0,
+          "mean_recovery_occluded_delta_vs_confidence": -0.0025000000000000022,
+          "mean_recovery_occluded_delta_ci": [
+            -0.007692307692307693,
+            0.0
+          ],
+          "prob_better_occluded": 0.0
+        },
+        "occlusion_aware": {
+          "mean_recovery_over_budget_range": 0.3650259067357513,
+          "mean_recovery_ci": [
+            0.32287480916030536,
+            0.40701373626373627
+          ],
+          "mean_recovery_occluded": 0.10666666666666666,
+          "mean_recovery_delta_vs_confidence": 0.0625,
+          "mean_recovery_delta_ci": [
+            0.04630291053921567,
+            0.07955651463483943
+          ],
+          "prob_better_than_confidence": 1.0,
+          "mean_recovery_occluded_delta_vs_confidence": -0.027499999999999997,
+          "mean_recovery_occluded_delta_ci": [
+            -0.10088120404411759,
+            0.01311489762931034
+          ],
+          "prob_better_occluded": 0.15
+        }
+      }
+    },
+    "conformal": {
+      "alpha": 0.1,
+      "target": 0.9,
+      "standard_threshold": {
+        "rule_recall": 0.7026194144838213,
+        "rule_recall_ci": [
+          0.674067028169734,
+          0.7299373965658849
+        ],
+        "system_recall": 0.7026194144838213,
+        "system_recall_most_occluded_bucket": 0.25,
+        "n_most_occluded_bucket": 4,
+        "all_groups_certifiable": null,
+        "flagged_per_image": null,
+        "flagged_false_per_image": null
+      },
+      "global_confidence": {
+        "rule_recall": 0.9591679506933745,
+        "rule_recall_ci": [
+          0.9460123158609126,
+          0.9712224694550757
+        ],
+        "system_recall": 0.9591679506933745,
+        "system_recall_most_occluded_bucket": 0.75,
+        "n_most_occluded_bucket": 4,
+        "all_groups_certifiable": false,
+        "flagged_per_image": 12.436563436563437,
+        "flagged_false_per_image": 12.103896103896103
+      },
+      "mondrian_confidence": {
+        "rule_recall": 0.9591679506933745,
+        "rule_recall_ci": [
+          0.9460123158609126,
+          0.9712224694550757
+        ],
+        "system_recall": 0.9591679506933745,
+        "system_recall_most_occluded_bucket": 0.75,
+        "n_most_occluded_bucket": 4,
+        "all_groups_certifiable": false,
+        "flagged_per_image": 12.436563436563437,
+        "flagged_false_per_image": 12.103896103896103
+      },
+      "global_occlusion_aware": {
+        "rule_recall": 0.9591679506933745,
+        "rule_recall_ci": [
+          0.9460123158609126,
+          0.9712224694550757
+        ],
+        "system_recall": 0.9591679506933745,
+        "system_recall_most_occluded_bucket": 0.75,
+        "n_most_occluded_bucket": 4,
+        "all_groups_certifiable": false,
+        "flagged_per_image": 12.436563436563437,
+        "flagged_false_per_image": 12.103896103896103
+      }
+    },
+    "rq3": {
+      "dece": 0.032694293538185024,
+      "dece_ci": [
+        0.02315019939532264,
+        0.057973475296361224
+      ],
+      "ma_ece": 0.23495865036064473,
+      "ma_ece_ci": [
+        0.216314740116246,
+        0.2658974820881749
+      ],
+      "gap": 0.2022643568224597,
+      "gap_ci": [
+        0.1813046212153213,
+        0.22054764998589657
+      ],
+      "miss_mass": 0.20910075839653305,
+      "oce_max": 0.39862580005256343,
+      "threshold_preferred": {
+        "dece": 0.05,
+        "ma_ece": 0.05,
+        "ma_brier": 0.05,
+        "oce_max": 0.15
+      },
+      "by_bucket_interpretable": false,
+      "share_of_objects_by_bucket": [
+        0.9614791987673343,
+        0.02773497688751926,
+        0.0061633281972265025,
+        0.0015408320493066256,
+        0.0030816640986132513
+      ],
+      "share_of_gap_by_bucket": [
+        0.9222797927461139,
+        0.054404145077720206,
+        0.010362694300518135,
+        0.0051813471502590676,
+        0.007772020725388601
+      ]
+    },
+    "rq5": {
+      "interpretable": false,
+      "cause_shares": {
+        "confused": 0.2024793388429752,
+        "suppressed": 0.6033057851239669,
+        "merged": 0.004132231404958678,
+        "unproposed": 0.10537190082644628,
+        "weak_other": 0.08471074380165289
+      },
+      "verdict": {
+        "visibility_misses_rise_with_occlusion": true,
+        "confusion_misses_rise_with_rarity": false,
+        "confusion_misses_rise_with_occlusion": false,
+        "visibility_misses_rise_with_rarity": false,
+        "causes_separated": false
+      },
+      "visibility_model": {
+        "fitted": true,
+        "n_events": 345,
+        "odds_ratio_per_0.1_occlusion": 1.3326722762338665,
+        "occlusion_ci": [
+          1.1727781897065248,
+          1.5456299205256563
+        ],
+        "odds_ratio_per_sd_rarity": 0.8053332419657949,
+        "rarity_ci": [
+          0.699763602582278,
+          0.9315733781449592
+        ]
+      },
+      "confusion_model": {
+        "fitted": true,
+        "n_events": 98,
+        "odds_ratio_per_0.1_occlusion": 0.8659608261790712,
+        "occlusion_ci": [
+          0.5234249002910647,
+          1.0431484682127385
+        ],
+        "odds_ratio_per_sd_rarity": 1.007479669457867,
+        "rarity_ci": [
+          0.7990470794775097,
+          1.2769531869700332
+        ]
+      }
+    },
+    "rq4": {
+      "bmd45": {
+        "class_agnostic": {
+          "metrics": {
+            "recall_at_standard": {
+              "development": 0.7026194144838213,
+              "transfer": 0.0902222502046213,
+              "change": -0.6123971642792
+            },
+            "recall_at_floor": {
+              "development": 0.9591679506933745,
+              "transfer": 0.3767550210917333,
+              "change": -0.5824129296016411
+            },
+            "precision_at_standard": {
+              "development": 0.6246575342465753,
+              "transfer": 0.8091473743647657,
+              "change": 0.18448984011819036
+            },
+            "ap50": {
+              "development": 0.6896222102143515,
+              "transfer": 0.2032415322634059,
+              "change": -0.48638067795094564
+            },
+            "dece": {
+              "development": 0.032694293538185024,
+              "transfer": 0.2630988718223465,
+              "change": 0.23040457828416144
+            },
+            "ma_ece": {
+              "development": 0.23495865036064473,
+              "transfer": 0.9195455336907328,
+              "change": 0.6845868833300881
+            },
+            "miss_mass": {
+              "development": 0.20910075839653305,
+              "transfer": 0.8908205412736576,
+              "change": 0.6817197828771245
+            },
+            "oce_max": {
+              "development": 0.39862580005256343,
+              "transfer": 0.9294837121232579,
+              "change": 0.5308579120706944
+            }
+          },
+          "conformal_coverage": {
+            "global_confidence": {
+              "target": 0.9,
+              "development": 0.9591679506933745,
+              "development_flags_per_image": 12.436563436563437,
+              "development_certifiable": false,
+              "transfer_frozen": 0.3767550210917333,
+              "transfer_frozen_flags_per_image": 29.896171317326413,
+              "transfer_frozen_certifiable": false,
+              "transfer_recalibrated": 0.3767550210917333,
+              "transfer_recalibrated_flags_per_image": 29.896171317326413,
+              "transfer_recalibrated_certifiable": false,
+              "frozen_guarantee_holds": false,
+              "recalibration_restores": false
+            },
+            "mondrian_confidence": {
+              "target": 0.9,
+              "development": 0.9591679506933745,
+              "development_flags_per_image": 12.436563436563437,
+              "development_certifiable": false,
+              "transfer_frozen": 0.3767550210917333,
+              "transfer_frozen_flags_per_image": 29.896171317326413,
+              "transfer_frozen_certifiable": false,
+              "transfer_recalibrated": 0.3767550210917333,
+              "transfer_recalibrated_flags_per_image": 29.896171317326413,
+              "transfer_recalibrated_certifiable": false,
+              "frozen_guarantee_holds": false,
+              "recalibration_restores": false
+            },
+            "global_occlusion_aware": {
+              "target": 0.9,
+              "development": 0.9591679506933745,
+              "development_flags_per_image": 12.436563436563437,
+              "development_certifiable": false,
+              "transfer_frozen": 0.3767550210917333,
+              "transfer_frozen_flags_per_image": 29.896171317326413,
+              "transfer_frozen_certifiable": false,
+              "transfer_recalibrated": 0.3767550210917333,
+              "transfer_recalibrated_flags_per_image": 29.896171317326413,
+              "transfer_recalibrated_certifiable": false,
+              "frozen_guarantee_holds": false,
+              "recalibration_restores": false
+            }
+          },
+          "usable": false,
+          "gate_message": "the detector proposes a candidate for only 37.7% of the vehicles (need >= 50%); check the class mapping and whether the detector transfers to this dataset at all before reading anything else",
+          "conformal_coverage_by_alpha": {
+            "0.1": {
+              "global_confidence": {
+                "target": 0.9,
+                "development": 0.9591679506933745,
+                "development_flags_per_image": 12.436563436563437,
+                "development_certifiable": false,
+                "transfer_frozen": 0.3767550210917333,
+                "transfer_frozen_flags_per_image": 29.896171317326413,
+                "transfer_frozen_certifiable": false,
+                "transfer_recalibrated": 0.3767550210917333,
+                "transfer_recalibrated_flags_per_image": 29.896171317326413,
+                "transfer_recalibrated_certifiable": false,
+                "frozen_guarantee_holds": false,
+                "recalibration_restores": false
+              },
+              "mondrian_confidence": {
+                "target": 0.9,
+                "development": 0.9591679506933745,
+                "development_flags_per_image": 12.436563436563437,
+                "development_certifiable": false,
+                "transfer_frozen": 0.3767550210917333,
+                "transfer_frozen_flags_per_image": 29.896171317326413,
+                "transfer_frozen_certifiable": false,
+                "transfer_recalibrated": 0.3767550210917333,
+                "transfer_recalibrated_flags_per_image": 29.896171317326413,
+                "transfer_recalibrated_certifiable": false,
+                "frozen_guarantee_holds": false,
+                "recalibration_restores": false
+              },
+              "global_occlusion_aware": {
+                "target": 0.9,
+                "development": 0.9591679506933745,
+                "development_flags_per_image": 12.436563436563437,
+                "development_certifiable": false,
+                "transfer_frozen": 0.3767550210917333,
+                "transfer_frozen_flags_per_image": 29.896171317326413,
+                "transfer_frozen_certifiable": false,
+                "transfer_recalibrated": 0.3767550210917333,
+                "transfer_recalibrated_flags_per_image": 29.896171317326413,
+                "transfer_recalibrated_certifiable": false,
+                "frozen_guarantee_holds": false,
+                "recalibration_restores": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

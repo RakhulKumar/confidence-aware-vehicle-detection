@@ -1,0 +1,4214 @@
+{
+  "dataset": "pals",
+  "modes": {
+    "class_agnostic": {
+      "detection": {
+        "n_images": 1001,
+        "n_ground_truth": 1298,
+        "n_candidates": 43043,
+        "objects_per_image": 1.2967032967032968,
+        "class_agnostic": true,
+        "recall_at_floor": 0.9491525423728814,
+        "recall_at_standard": 0.7180277349768875,
+        "precision_at_standard": 0.21249430004559963,
+        "fp_per_image_at_standard": 3.4505494505494507,
+        "ap50": 0.28635154446485056
+      },
+      "gate": {
+        "usable": true,
+        "message": ""
+      },
+      "calibration": {
+        "dece": 0.5717569435778895,
+        "ma_ece": 0.6047403102972693,
+        "miss_mass": 0.07702020202020202,
+        "gap": 0.032983366719379736,
+        "threshold": 0.46,
+        "ma_brier": 0.5391816817357258,
+        "ma_brier_decomposition": {
+          "ma_brier": 0.5391816817357259,
+          "false_alarm": 0.45164699683006715,
+          "matched": 0.0105144828854567,
+          "miss": 0.07702020202020202,
+          "share_false_alarm": 0.8376527098920195,
+          "share_matched": 0.01950081622136833,
+          "share_miss": 0.1428464738866122,
+          "n_false_alarms": 3454.0,
+          "n_matched": 932.0,
+          "n_missed": 366.0
+        },
+        "recall": 0.7180277349768875,
+        "precision": 0.21249430004559963,
+        "fp_per_image": 3.4505494505494507,
+        "n_detections": 4386.0,
+        "n_ground_truth": 1298.0,
+        "n_missed": 366.0,
+        "oce_max": 0.320722606169714,
+        "oce_ens": 0.3202372175947864
+      },
+      "conformal_frozen": {
+        "standard_threshold": {
+          "coverage": 0.7180277349768875,
+          "coverage_ci": [
+            0.6921579288925973,
+            0.7444641858127649
+          ],
+          "by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.7227564102564102,
+              "coverage_ci": [
+                0.6962819066716799,
+                0.7494952364390839
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.6111111111111112,
+              "coverage_ci": [
+                0.44556737588652484,
+                0.7878787878787878
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.4,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 0.0,
+              "coverage_ci": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.5,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "fp_per_image": 3.4505494505494507
+        },
+        "global_confidence": {
+          "alpha": 0.05,
+          "target_coverage": 0.95,
+          "score": "confidence",
+          "conditional": false,
+          "all_groups_achievable": true,
+          "coverage": 0.889060092449923,
+          "coverage_ci": [
+            0.871727561992539,
+            0.9055451745575671
+          ],
+          "by_context_group": [
+            {
+              "group": 0,
+              "context_range": [
+                0.0,
+                1.0
+              ],
+              "n_calibration": 8364,
+              "n_test": 1298,
+              "threshold": 0.05954330787062645,
+              "achievable": true,
+              "min_certifiable_alpha": 0.017334130304841603,
+              "reason": "",
+              "coverage": 0.889060092449923,
+              "coverage_ci": [
+                0.871727561992539,
+                0.9055451745575671
+              ]
+            }
+          ],
+          "by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.8926282051282052,
+              "coverage_ci": [
+                0.8756769057407248,
+                0.909795637829912
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.7777777777777778,
+              "coverage_ci": [
+                0.63,
+                0.918918918918919
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 0.875,
+              "coverage_ci": [
+                0.5912500000000002,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "system_recall": 0.889060092449923,
+          "system_recall_ci": [
+            0.871727561992539,
+            0.9055451745575671
+          ],
+          "system_by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.8926282051282052,
+              "coverage_ci": [
+                0.8756769057407248,
+                0.909795637829912
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.7777777777777778,
+              "coverage_ci": [
+                0.63,
+                0.918918918918919
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 0.875,
+              "coverage_ci": [
+                0.5912500000000002,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "adds_flags": true,
+          "flagged_per_image": 2.757242757242757,
+          "flagged_false_per_image": 2.5354645354645355,
+          "flagged_true_total": 222
+        },
+        "mondrian_confidence": {
+          "alpha": 0.05,
+          "target_coverage": 0.95,
+          "score": "confidence",
+          "conditional": true,
+          "all_groups_achievable": true,
+          "coverage": 0.8651771956856703,
+          "coverage_ci": [
+            0.8466628822336147,
+            0.8855321529914871
+          ],
+          "by_context_group": [
+            {
+              "group": 0,
+              "context_range": [
+                0.0,
+                0.05
+              ],
+              "n_calibration": 5014,
+              "n_test": 1013,
+              "threshold": 0.12324722111225128,
+              "achievable": true,
+              "min_certifiable_alpha": 0.014755732801595214,
+              "reason": "",
+              "coverage": 0.8775913129318855,
+              "coverage_ci": [
+                0.8575055722883705,
+                0.8969508775619288
+              ]
+            },
+            {
+              "group": 1,
+              "context_range": [
+                0.05,
+                0.3
+              ],
+              "n_calibration": 1786,
+              "n_test": 165,
+              "threshold": 0.08244279772043228,
+              "achievable": true,
+              "min_certifiable_alpha": 0.012311135982092894,
+              "reason": "",
+              "coverage": 0.896969696969697,
+              "coverage_ci": [
+                0.8449860956618466,
+                0.9433258928571429
+              ]
+            },
+            {
+              "group": 2,
+              "context_range": [
+                0.3,
+                1.0
+              ],
+              "n_calibration": 1564,
+              "n_test": 120,
+              "threshold": 0.00544795673340559,
+              "achievable": true,
+              "min_certifiable_alpha": 0.03258785942492013,
+              "reason": "",
+              "coverage": 0.7166666666666667,
+              "coverage_ci": [
+                0.6440178571428572,
+                0.7872284193642461
+              ]
+            }
+          ],
+          "by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.8677884615384616,
+              "coverage_ci": [
+                0.8499653111691167,
+                0.8877530633453907
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.7777777777777778,
+              "coverage_ci": [
+                0.628125,
+                0.9142857142857143
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 0.875,
+              "coverage_ci": [
+                0.5912500000000002,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "system_recall": 0.8651771956856703,
+          "system_recall_ci": [
+            0.8466628822336147,
+            0.8855321529914871
+          ],
+          "system_by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.8677884615384616,
+              "coverage_ci": [
+                0.8499653111691167,
+                0.8877530633453907
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.7777777777777778,
+              "coverage_ci": [
+                0.628125,
+                0.9142857142857143
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 0.875,
+              "coverage_ci": [
+                0.5912500000000002,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "adds_flags": true,
+          "flagged_per_image": 3.4295704295704295,
+          "flagged_false_per_image": 3.2387612387612386,
+          "flagged_true_total": 191
+        },
+        "global_occlusion_aware": {
+          "alpha": 0.05,
+          "target_coverage": 0.95,
+          "score": "occlusion_aware",
+          "conditional": false,
+          "all_groups_achievable": true,
+          "coverage": 0.889060092449923,
+          "coverage_ci": [
+            0.8712646003460699,
+            0.9056691206708561
+          ],
+          "by_context_group": [
+            {
+              "group": 0,
+              "context_range": [
+                0.0,
+                1.0
+              ],
+              "n_calibration": 8364,
+              "n_test": 1298,
+              "threshold": 0.06328962715833646,
+              "achievable": true,
+              "min_certifiable_alpha": 0.017334130304841603,
+              "reason": "",
+              "coverage": 0.889060092449923,
+              "coverage_ci": [
+                0.8712646003460699,
+                0.9056691206708561
+              ]
+            }
+          ],
+          "by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.8926282051282052,
+              "coverage_ci": [
+                0.8762682649025706,
+                0.9099451412948754
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.7777777777777778,
+              "coverage_ci": [
+                0.63,
+                0.918918918918919
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 0.875,
+              "coverage_ci": [
+                0.5912500000000002,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "system_recall": 0.889060092449923,
+          "system_recall_ci": [
+            0.8712646003460699,
+            0.9056691206708561
+          ],
+          "system_by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.8926282051282052,
+              "coverage_ci": [
+                0.8762682649025706,
+                0.9099451412948754
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.7777777777777778,
+              "coverage_ci": [
+                0.63,
+                0.918918918918919
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 0.875,
+              "coverage_ci": [
+                0.5912500000000002,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "adds_flags": true,
+          "flagged_per_image": 2.5794205794205793,
+          "flagged_false_per_image": 2.3576423576423577,
+          "flagged_true_total": 222
+        }
+      },
+      "conformal_by_alpha": {
+        "0.05": {
+          "frozen": {
+            "standard_threshold": {
+              "coverage": 0.7180277349768875,
+              "coverage_ci": [
+                0.6921579288925973,
+                0.7444641858127649
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.7227564102564102,
+                  "coverage_ci": [
+                    0.6962819066716799,
+                    0.7494952364390839
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.6111111111111112,
+                  "coverage_ci": [
+                    0.44556737588652484,
+                    0.7878787878787878
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.4,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 0.0,
+                  "coverage_ci": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "fp_per_image": 3.4505494505494507
+            },
+            "global_confidence": {
+              "alpha": 0.05,
+              "target_coverage": 0.95,
+              "score": "confidence",
+              "conditional": false,
+              "all_groups_achievable": true,
+              "coverage": 0.889060092449923,
+              "coverage_ci": [
+                0.871727561992539,
+                0.9055451745575671
+              ],
+              "by_context_group": [
+                {
+                  "group": 0,
+                  "context_range": [
+                    0.0,
+                    1.0
+                  ],
+                  "n_calibration": 8364,
+                  "n_test": 1298,
+                  "threshold": 0.05954330787062645,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.017334130304841603,
+                  "reason": "",
+                  "coverage": 0.889060092449923,
+                  "coverage_ci": [
+                    0.871727561992539,
+                    0.9055451745575671
+                  ]
+                }
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.8926282051282052,
+                  "coverage_ci": [
+                    0.8756769057407248,
+                    0.909795637829912
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.7777777777777778,
+                  "coverage_ci": [
+                    0.63,
+                    0.918918918918919
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "system_recall": 0.889060092449923,
+              "system_recall_ci": [
+                0.871727561992539,
+                0.9055451745575671
+              ],
+              "system_by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.8926282051282052,
+                  "coverage_ci": [
+                    0.8756769057407248,
+                    0.909795637829912
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.7777777777777778,
+                  "coverage_ci": [
+                    0.63,
+                    0.918918918918919
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "adds_flags": true,
+              "flagged_per_image": 2.757242757242757,
+              "flagged_false_per_image": 2.5354645354645355,
+              "flagged_true_total": 222
+            },
+            "mondrian_confidence": {
+              "alpha": 0.05,
+              "target_coverage": 0.95,
+              "score": "confidence",
+              "conditional": true,
+              "all_groups_achievable": true,
+              "coverage": 0.8651771956856703,
+              "coverage_ci": [
+                0.8466628822336147,
+                0.8855321529914871
+              ],
+              "by_context_group": [
+                {
+                  "group": 0,
+                  "context_range": [
+                    0.0,
+                    0.05
+                  ],
+                  "n_calibration": 5014,
+                  "n_test": 1013,
+                  "threshold": 0.12324722111225128,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.014755732801595214,
+                  "reason": "",
+                  "coverage": 0.8775913129318855,
+                  "coverage_ci": [
+                    0.8575055722883705,
+                    0.8969508775619288
+                  ]
+                },
+                {
+                  "group": 1,
+                  "context_range": [
+                    0.05,
+                    0.3
+                  ],
+                  "n_calibration": 1786,
+                  "n_test": 165,
+                  "threshold": 0.08244279772043228,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.012311135982092894,
+                  "reason": "",
+                  "coverage": 0.896969696969697,
+                  "coverage_ci": [
+                    0.8449860956618466,
+                    0.9433258928571429
+                  ]
+                },
+                {
+                  "group": 2,
+                  "context_range": [
+                    0.3,
+                    1.0
+                  ],
+                  "n_calibration": 1564,
+                  "n_test": 120,
+                  "threshold": 0.00544795673340559,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.03258785942492013,
+                  "reason": "",
+                  "coverage": 0.7166666666666667,
+                  "coverage_ci": [
+                    0.6440178571428572,
+                    0.7872284193642461
+                  ]
+                }
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.8677884615384616,
+                  "coverage_ci": [
+                    0.8499653111691167,
+                    0.8877530633453907
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.7777777777777778,
+                  "coverage_ci": [
+                    0.628125,
+                    0.9142857142857143
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "system_recall": 0.8651771956856703,
+              "system_recall_ci": [
+                0.8466628822336147,
+                0.8855321529914871
+              ],
+              "system_by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.8677884615384616,
+                  "coverage_ci": [
+                    0.8499653111691167,
+                    0.8877530633453907
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.7777777777777778,
+                  "coverage_ci": [
+                    0.628125,
+                    0.9142857142857143
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "adds_flags": true,
+              "flagged_per_image": 3.4295704295704295,
+              "flagged_false_per_image": 3.2387612387612386,
+              "flagged_true_total": 191
+            },
+            "global_occlusion_aware": {
+              "alpha": 0.05,
+              "target_coverage": 0.95,
+              "score": "occlusion_aware",
+              "conditional": false,
+              "all_groups_achievable": true,
+              "coverage": 0.889060092449923,
+              "coverage_ci": [
+                0.8712646003460699,
+                0.9056691206708561
+              ],
+              "by_context_group": [
+                {
+                  "group": 0,
+                  "context_range": [
+                    0.0,
+                    1.0
+                  ],
+                  "n_calibration": 8364,
+                  "n_test": 1298,
+                  "threshold": 0.06328962715833646,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.017334130304841603,
+                  "reason": "",
+                  "coverage": 0.889060092449923,
+                  "coverage_ci": [
+                    0.8712646003460699,
+                    0.9056691206708561
+                  ]
+                }
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.8926282051282052,
+                  "coverage_ci": [
+                    0.8762682649025706,
+                    0.9099451412948754
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.7777777777777778,
+                  "coverage_ci": [
+                    0.63,
+                    0.918918918918919
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "system_recall": 0.889060092449923,
+              "system_recall_ci": [
+                0.8712646003460699,
+                0.9056691206708561
+              ],
+              "system_by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.8926282051282052,
+                  "coverage_ci": [
+                    0.8762682649025706,
+                    0.9099451412948754
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.7777777777777778,
+                  "coverage_ci": [
+                    0.63,
+                    0.918918918918919
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "adds_flags": true,
+              "flagged_per_image": 2.5794205794205793,
+              "flagged_false_per_image": 2.3576423576423577,
+              "flagged_true_total": 222
+            }
+          },
+          "recalibrated": {
+            "standard_threshold": {
+              "coverage": 0.7180277349768875,
+              "coverage_ci": [
+                0.6921579288925973,
+                0.7444641858127649
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.7227564102564102,
+                  "coverage_ci": [
+                    0.6962819066716799,
+                    0.7494952364390839
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.6111111111111112,
+                  "coverage_ci": [
+                    0.44556737588652484,
+                    0.7878787878787878
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.4,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 0.0,
+                  "coverage_ci": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "fp_per_image": 3.4505494505494507
+            },
+            "global_confidence": {
+              "alpha": 0.05,
+              "target_coverage": 0.95,
+              "score": "confidence",
+              "conditional": false,
+              "all_groups_achievable": false,
+              "coverage": 0.9491525423728814,
+              "coverage_ci": [
+                0.9369486658027909,
+                0.9602064324558011
+              ],
+              "by_context_group": [
+                {
+                  "group": 0,
+                  "context_range": [
+                    0.0,
+                    1.0
+                  ],
+                  "n_calibration": 636,
+                  "n_test": 1298,
+                  "threshold": null,
+                  "achievable": false,
+                  "min_certifiable_alpha": 0.05180533751962323,
+                  "reason": "32/636 objects have no candidate at all; the smallest certifiable miss rate is 0.052",
+                  "coverage": 0.9491525423728814,
+                  "coverage_ci": [
+                    0.9369486658027909,
+                    0.9602064324558011
+                  ]
+                }
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.9503205128205128,
+                  "coverage_ci": [
+                    0.9389340175874265,
+                    0.9609180708291942
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.9166666666666666,
+                  "coverage_ci": [
+                    0.8190454545454545,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "system_recall": 0.9491525423728814,
+              "system_recall_ci": [
+                0.9369486658027909,
+                0.9602064324558011
+              ],
+              "system_by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.9503205128205128,
+                  "coverage_ci": [
+                    0.9389340175874265,
+                    0.9609180708291942
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.9166666666666666,
+                  "coverage_ci": [
+                    0.8190454545454545,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "adds_flags": true,
+              "flagged_per_image": 38.61838161838162,
+              "flagged_false_per_image": 38.31868131868132,
+              "flagged_true_total": 300
+            },
+            "mondrian_confidence": {
+              "alpha": 0.05,
+              "target_coverage": 0.95,
+              "score": "confidence",
+              "conditional": true,
+              "all_groups_achievable": false,
+              "coverage": 0.9337442218798151,
+              "coverage_ci": [
+                0.9197554352951717,
+                0.9468211610486892
+              ],
+              "by_context_group": [
+                {
+                  "group": 0,
+                  "context_range": [
+                    0.0,
+                    0.05
+                  ],
+                  "n_calibration": 527,
+                  "n_test": 1013,
+                  "threshold": 0.007054981309920549,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.032196969696969696,
+                  "reason": "",
+                  "coverage": 0.9545903257650543,
+                  "coverage_ci": [
+                    0.9405120120976945,
+                    0.9675174472983668
+                  ]
+                },
+                {
+                  "group": 1,
+                  "context_range": [
+                    0.05,
+                    1.0
+                  ],
+                  "n_calibration": 109,
+                  "n_test": 285,
+                  "threshold": null,
+                  "achievable": false,
+                  "min_certifiable_alpha": 0.15454545454545454,
+                  "reason": "16/109 objects have no candidate at all; the smallest certifiable miss rate is 0.155",
+                  "coverage": 0.8596491228070176,
+                  "coverage_ci": [
+                    0.8191145957773224,
+                    0.894699928064947
+                  ]
+                }
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.9350961538461539,
+                  "coverage_ci": [
+                    0.9223194804479897,
+                    0.9476449491041133
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.8888888888888888,
+                  "coverage_ci": [
+                    0.7923491379310345,
+                    0.9710294117647058
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "system_recall": 0.9337442218798151,
+              "system_recall_ci": [
+                0.9197554352951717,
+                0.9468211610486892
+              ],
+              "system_by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.9350961538461539,
+                  "coverage_ci": [
+                    0.9223194804479897,
+                    0.9476449491041133
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.8888888888888888,
+                  "coverage_ci": [
+                    0.7923491379310345,
+                    0.9710294117647058
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "adds_flags": true,
+              "flagged_per_image": 9.803196803196803,
+              "flagged_false_per_image": 9.523476523476523,
+              "flagged_true_total": 280
+            },
+            "global_occlusion_aware": {
+              "alpha": 0.05,
+              "target_coverage": 0.95,
+              "score": "occlusion_aware",
+              "conditional": false,
+              "all_groups_achievable": false,
+              "coverage": 0.9491525423728814,
+              "coverage_ci": [
+                0.9369486658027909,
+                0.9602064324558011
+              ],
+              "by_context_group": [
+                {
+                  "group": 0,
+                  "context_range": [
+                    0.0,
+                    1.0
+                  ],
+                  "n_calibration": 636,
+                  "n_test": 1298,
+                  "threshold": null,
+                  "achievable": false,
+                  "min_certifiable_alpha": 0.05180533751962323,
+                  "reason": "32/636 objects have no candidate at all; the smallest certifiable miss rate is 0.052",
+                  "coverage": 0.9491525423728814,
+                  "coverage_ci": [
+                    0.9369486658027909,
+                    0.9602064324558011
+                  ]
+                }
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.9503205128205128,
+                  "coverage_ci": [
+                    0.9389340175874265,
+                    0.9609180708291942
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.9166666666666666,
+                  "coverage_ci": [
+                    0.8190454545454545,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "system_recall": 0.9491525423728814,
+              "system_recall_ci": [
+                0.9369486658027909,
+                0.9602064324558011
+              ],
+              "system_by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.9503205128205128,
+                  "coverage_ci": [
+                    0.9389340175874265,
+                    0.9609180708291942
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.9166666666666666,
+                  "coverage_ci": [
+                    0.8190454545454545,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "adds_flags": true,
+              "flagged_per_image": 38.61838161838162,
+              "flagged_false_per_image": 38.31868131868132,
+              "flagged_true_total": 300
+            }
+          }
+        },
+        "0.1": {
+          "frozen": {
+            "standard_threshold": {
+              "coverage": 0.7180277349768875,
+              "coverage_ci": [
+                0.6921579288925973,
+                0.7444641858127649
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.7227564102564102,
+                  "coverage_ci": [
+                    0.6962819066716799,
+                    0.7494952364390839
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.6111111111111112,
+                  "coverage_ci": [
+                    0.44556737588652484,
+                    0.7878787878787878
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.4,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 0.0,
+                  "coverage_ci": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "fp_per_image": 3.4505494505494507
+            },
+            "global_confidence": {
+              "alpha": 0.1,
+              "target_coverage": 0.9,
+              "score": "confidence",
+              "conditional": false,
+              "all_groups_achievable": true,
+              "coverage": 0.7819722650231125,
+              "coverage_ci": [
+                0.7593160697839446,
+                0.8039471882522427
+              ],
+              "by_context_group": [
+                {
+                  "group": 0,
+                  "context_range": [
+                    0.0,
+                    1.0
+                  ],
+                  "n_calibration": 8364,
+                  "n_test": 1298,
+                  "threshold": 0.3272155821323395,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.017334130304841603,
+                  "reason": "",
+                  "coverage": 0.7819722650231125,
+                  "coverage_ci": [
+                    0.7593160697839446,
+                    0.8039471882522427
+                  ]
+                }
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.7860576923076923,
+                  "coverage_ci": [
+                    0.7624393718457847,
+                    0.8079033493059329
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.6944444444444444,
+                  "coverage_ci": [
+                    0.5526315789473685,
+                    0.8378378378378378
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 0.0,
+                  "coverage_ci": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "system_recall": 0.7819722650231125,
+              "system_recall_ci": [
+                0.7593160697839446,
+                0.8039471882522427
+              ],
+              "system_by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.7860576923076923,
+                  "coverage_ci": [
+                    0.7624393718457847,
+                    0.8079033493059329
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.6944444444444444,
+                  "coverage_ci": [
+                    0.5526315789473685,
+                    0.8378378378378378
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 0.0,
+                  "coverage_ci": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "adds_flags": true,
+              "flagged_per_image": 0.5814185814185814,
+              "flagged_false_per_image": 0.4985014985014985,
+              "flagged_true_total": 83
+            },
+            "mondrian_confidence": {
+              "alpha": 0.1,
+              "target_coverage": 0.9,
+              "score": "confidence",
+              "conditional": true,
+              "all_groups_achievable": true,
+              "coverage": 0.7473035439137135,
+              "coverage_ci": [
+                0.7223542407650995,
+                0.7712784750927797
+              ],
+              "by_context_group": [
+                {
+                  "group": 0,
+                  "context_range": [
+                    0.0,
+                    0.05
+                  ],
+                  "n_calibration": 5014,
+                  "n_test": 1013,
+                  "threshold": 0.43352749943733215,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.014755732801595214,
+                  "reason": "",
+                  "coverage": 0.7512339585389931,
+                  "coverage_ci": [
+                    0.7245880242507422,
+                    0.7763974011152379
+                  ]
+                },
+                {
+                  "group": 1,
+                  "context_range": [
+                    0.05,
+                    0.3
+                  ],
+                  "n_calibration": 1786,
+                  "n_test": 165,
+                  "threshold": 0.31033748388290405,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.012311135982092894,
+                  "reason": "",
+                  "coverage": 0.8181818181818182,
+                  "coverage_ci": [
+                    0.7585189848895777,
+                    0.87619825708061
+                  ]
+                },
+                {
+                  "group": 2,
+                  "context_range": [
+                    0.3,
+                    1.0
+                  ],
+                  "n_calibration": 1564,
+                  "n_test": 120,
+                  "threshold": 0.08995924144983292,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.03258785942492013,
+                  "reason": "",
+                  "coverage": 0.6166666666666667,
+                  "coverage_ci": [
+                    0.5315384615384616,
+                    0.6968368080517611
+                  ]
+                }
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.750801282051282,
+                  "coverage_ci": [
+                    0.7244533118125299,
+                    0.7734099716745363
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.6666666666666666,
+                  "coverage_ci": [
+                    0.5,
+                    0.8378378378378378
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.4,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "system_recall": 0.7473035439137135,
+              "system_recall_ci": [
+                0.7223542407650995,
+                0.7712784750927797
+              ],
+              "system_by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.750801282051282,
+                  "coverage_ci": [
+                    0.7244533118125299,
+                    0.7734099716745363
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.6666666666666666,
+                  "coverage_ci": [
+                    0.5,
+                    0.8378378378378378
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.4,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "adds_flags": true,
+              "flagged_per_image": 0.7042957042957043,
+              "flagged_false_per_image": 0.6663336663336663,
+              "flagged_true_total": 38
+            },
+            "global_occlusion_aware": {
+              "alpha": 0.1,
+              "target_coverage": 0.9,
+              "score": "occlusion_aware",
+              "conditional": false,
+              "all_groups_achievable": true,
+              "coverage": 0.7927580893682589,
+              "coverage_ci": [
+                0.770432949877969,
+                0.8142267079027252
+              ],
+              "by_context_group": [
+                {
+                  "group": 0,
+                  "context_range": [
+                    0.0,
+                    1.0
+                  ],
+                  "n_calibration": 8364,
+                  "n_test": 1298,
+                  "threshold": 0.3509562524694618,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.017334130304841603,
+                  "reason": "",
+                  "coverage": 0.7927580893682589,
+                  "coverage_ci": [
+                    0.770432949877969,
+                    0.8142267079027252
+                  ]
+                }
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.7964743589743589,
+                  "coverage_ci": [
+                    0.7751585535625721,
+                    0.8174126591230552
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.6944444444444444,
+                  "coverage_ci": [
+                    0.5526315789473685,
+                    0.8378378378378378
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "system_recall": 0.7950693374422187,
+              "system_recall_ci": [
+                0.7720560743664231,
+                0.8174854477364069
+              ],
+              "system_by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.7988782051282052,
+                  "coverage_ci": [
+                    0.7773241917034927,
+                    0.8203013586161909
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.6944444444444444,
+                  "coverage_ci": [
+                    0.5526315789473685,
+                    0.8378378378378378
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "adds_flags": true,
+              "flagged_per_image": 0.5544455544455544,
+              "flagged_false_per_image": 0.45454545454545453,
+              "flagged_true_total": 100
+            }
+          },
+          "recalibrated": {
+            "standard_threshold": {
+              "coverage": 0.7180277349768875,
+              "coverage_ci": [
+                0.6921579288925973,
+                0.7444641858127649
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.7227564102564102,
+                  "coverage_ci": [
+                    0.6962819066716799,
+                    0.7494952364390839
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.6111111111111112,
+                  "coverage_ci": [
+                    0.44556737588652484,
+                    0.7878787878787878
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.4,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 0.0,
+                  "coverage_ci": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "fp_per_image": 3.4505494505494507
+            },
+            "global_confidence": {
+              "alpha": 0.1,
+              "target_coverage": 0.9,
+              "score": "confidence",
+              "conditional": false,
+              "all_groups_achievable": true,
+              "coverage": 0.9021571648690293,
+              "coverage_ci": [
+                0.8860546152752098,
+                0.9183923154674142
+              ],
+              "by_context_group": [
+                {
+                  "group": 0,
+                  "context_range": [
+                    0.0,
+                    1.0
+                  ],
+                  "n_calibration": 636,
+                  "n_test": 1298,
+                  "threshold": 0.031866688281297684,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.05180533751962323,
+                  "reason": "",
+                  "coverage": 0.9021571648690293,
+                  "coverage_ci": [
+                    0.8860546152752098,
+                    0.9183923154674142
+                  ]
+                }
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.90625,
+                  "coverage_ci": [
+                    0.889852466488103,
+                    0.9225183484652023
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.7777777777777778,
+                  "coverage_ci": [
+                    0.63,
+                    0.918918918918919
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "system_recall": 0.9021571648690293,
+              "system_recall_ci": [
+                0.8860546152752098,
+                0.9183923154674142
+              ],
+              "system_by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.90625,
+                  "coverage_ci": [
+                    0.889852466488103,
+                    0.9225183484652023
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.7777777777777778,
+                  "coverage_ci": [
+                    0.63,
+                    0.918918918918919
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "adds_flags": true,
+              "flagged_per_image": 3.5864135864135864,
+              "flagged_false_per_image": 3.347652347652348,
+              "flagged_true_total": 239
+            },
+            "mondrian_confidence": {
+              "alpha": 0.1,
+              "target_coverage": 0.9,
+              "score": "confidence",
+              "conditional": true,
+              "all_groups_achievable": false,
+              "coverage": 0.8983050847457628,
+              "coverage_ci": [
+                0.8821221313637563,
+                0.9129348313319927
+              ],
+              "by_context_group": [
+                {
+                  "group": 0,
+                  "context_range": [
+                    0.0,
+                    0.05
+                  ],
+                  "n_calibration": 527,
+                  "n_test": 1013,
+                  "threshold": 0.07252802699804306,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.032196969696969696,
+                  "reason": "",
+                  "coverage": 0.9091806515301086,
+                  "coverage_ci": [
+                    0.8924255569583494,
+                    0.9248928034102307
+                  ]
+                },
+                {
+                  "group": 1,
+                  "context_range": [
+                    0.05,
+                    1.0
+                  ],
+                  "n_calibration": 109,
+                  "n_test": 285,
+                  "threshold": null,
+                  "achievable": false,
+                  "min_certifiable_alpha": 0.15454545454545454,
+                  "reason": "16/109 objects have no candidate at all; the smallest certifiable miss rate is 0.155",
+                  "coverage": 0.8596491228070176,
+                  "coverage_ci": [
+                    0.8191145957773224,
+                    0.894699928064947
+                  ]
+                }
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.8990384615384616,
+                  "coverage_ci": [
+                    0.8832285642074575,
+                    0.9142649433077815
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.8611111111111112,
+                  "coverage_ci": [
+                    0.7246212121212122,
+                    0.9705882352941176
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "system_recall": 0.8983050847457628,
+              "system_recall_ci": [
+                0.8821221313637563,
+                0.9129348313319927
+              ],
+              "system_by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.8990384615384616,
+                  "coverage_ci": [
+                    0.8832285642074575,
+                    0.9142649433077815
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.8611111111111112,
+                  "coverage_ci": [
+                    0.7246212121212122,
+                    0.9705882352941176
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.75,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "adds_flags": true,
+              "flagged_per_image": 7.422577422577422,
+              "flagged_false_per_image": 7.188811188811189,
+              "flagged_true_total": 234
+            },
+            "global_occlusion_aware": {
+              "alpha": 0.1,
+              "target_coverage": 0.9,
+              "score": "occlusion_aware",
+              "conditional": false,
+              "all_groups_achievable": true,
+              "coverage": 0.8959938366718028,
+              "coverage_ci": [
+                0.8797997431820962,
+                0.9120482820807558
+              ],
+              "by_context_group": [
+                {
+                  "group": 0,
+                  "context_range": [
+                    0.0,
+                    1.0
+                  ],
+                  "n_calibration": 636,
+                  "n_test": 1298,
+                  "threshold": 0.013908022683061716,
+                  "achievable": true,
+                  "min_certifiable_alpha": 0.05180533751962323,
+                  "reason": "",
+                  "coverage": 0.8959938366718028,
+                  "coverage_ci": [
+                    0.8797997431820962,
+                    0.9120482820807558
+                  ]
+                }
+              ],
+              "by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.9006410256410257,
+                  "coverage_ci": [
+                    0.8848629731861198,
+                    0.9166680139790901
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.7777777777777778,
+                  "coverage_ci": [
+                    0.63,
+                    0.918918918918919
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "system_recall": 0.8959938366718028,
+              "system_recall_ci": [
+                0.8797997431820962,
+                0.9120482820807558
+              ],
+              "system_by_occlusion_bucket": [
+                {
+                  "bucket": 0,
+                  "lo": 0.0,
+                  "hi": 0.2,
+                  "n": 1248,
+                  "reliable": true,
+                  "coverage": 0.9006410256410257,
+                  "coverage_ci": [
+                    0.8848629731861198,
+                    0.9166680139790901
+                  ]
+                },
+                {
+                  "bucket": 1,
+                  "lo": 0.2,
+                  "hi": 0.4,
+                  "n": 36,
+                  "reliable": true,
+                  "coverage": 0.7777777777777778,
+                  "coverage_ci": [
+                    0.63,
+                    0.918918918918919
+                  ]
+                },
+                {
+                  "bucket": 2,
+                  "lo": 0.4,
+                  "hi": 0.6,
+                  "n": 8,
+                  "reliable": false,
+                  "coverage": 0.875,
+                  "coverage_ci": [
+                    0.5912500000000002,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 3,
+                  "lo": 0.6,
+                  "hi": 0.8,
+                  "n": 2,
+                  "reliable": false,
+                  "coverage": 1.0,
+                  "coverage_ci": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {
+                  "bucket": 4,
+                  "lo": 0.8,
+                  "hi": 1.0,
+                  "n": 4,
+                  "reliable": false,
+                  "coverage": 0.5,
+                  "coverage_ci": [
+                    0.0,
+                    1.0
+                  ]
+                }
+              ],
+              "adds_flags": true,
+              "flagged_per_image": 2.8591408591408594,
+              "flagged_false_per_image": 2.6283716283716285,
+              "flagged_true_total": 231
+            }
+          }
+        }
+      },
+      "conformal_recalibrated": {
+        "standard_threshold": {
+          "coverage": 0.7180277349768875,
+          "coverage_ci": [
+            0.6921579288925973,
+            0.7444641858127649
+          ],
+          "by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.7227564102564102,
+              "coverage_ci": [
+                0.6962819066716799,
+                0.7494952364390839
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.6111111111111112,
+              "coverage_ci": [
+                0.44556737588652484,
+                0.7878787878787878
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.4,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 0.0,
+              "coverage_ci": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.5,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "fp_per_image": 3.4505494505494507
+        },
+        "global_confidence": {
+          "alpha": 0.05,
+          "target_coverage": 0.95,
+          "score": "confidence",
+          "conditional": false,
+          "all_groups_achievable": false,
+          "coverage": 0.9491525423728814,
+          "coverage_ci": [
+            0.9369486658027909,
+            0.9602064324558011
+          ],
+          "by_context_group": [
+            {
+              "group": 0,
+              "context_range": [
+                0.0,
+                1.0
+              ],
+              "n_calibration": 636,
+              "n_test": 1298,
+              "threshold": null,
+              "achievable": false,
+              "min_certifiable_alpha": 0.05180533751962323,
+              "reason": "32/636 objects have no candidate at all; the smallest certifiable miss rate is 0.052",
+              "coverage": 0.9491525423728814,
+              "coverage_ci": [
+                0.9369486658027909,
+                0.9602064324558011
+              ]
+            }
+          ],
+          "by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.9503205128205128,
+              "coverage_ci": [
+                0.9389340175874265,
+                0.9609180708291942
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.9166666666666666,
+              "coverage_ci": [
+                0.8190454545454545,
+                1.0
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "system_recall": 0.9491525423728814,
+          "system_recall_ci": [
+            0.9369486658027909,
+            0.9602064324558011
+          ],
+          "system_by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.9503205128205128,
+              "coverage_ci": [
+                0.9389340175874265,
+                0.9609180708291942
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.9166666666666666,
+              "coverage_ci": [
+                0.8190454545454545,
+                1.0
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "adds_flags": true,
+          "flagged_per_image": 38.61838161838162,
+          "flagged_false_per_image": 38.31868131868132,
+          "flagged_true_total": 300
+        },
+        "mondrian_confidence": {
+          "alpha": 0.05,
+          "target_coverage": 0.95,
+          "score": "confidence",
+          "conditional": true,
+          "all_groups_achievable": false,
+          "coverage": 0.9337442218798151,
+          "coverage_ci": [
+            0.9197554352951717,
+            0.9468211610486892
+          ],
+          "by_context_group": [
+            {
+              "group": 0,
+              "context_range": [
+                0.0,
+                0.05
+              ],
+              "n_calibration": 527,
+              "n_test": 1013,
+              "threshold": 0.007054981309920549,
+              "achievable": true,
+              "min_certifiable_alpha": 0.032196969696969696,
+              "reason": "",
+              "coverage": 0.9545903257650543,
+              "coverage_ci": [
+                0.9405120120976945,
+                0.9675174472983668
+              ]
+            },
+            {
+              "group": 1,
+              "context_range": [
+                0.05,
+                1.0
+              ],
+              "n_calibration": 109,
+              "n_test": 285,
+              "threshold": null,
+              "achievable": false,
+              "min_certifiable_alpha": 0.15454545454545454,
+              "reason": "16/109 objects have no candidate at all; the smallest certifiable miss rate is 0.155",
+              "coverage": 0.8596491228070176,
+              "coverage_ci": [
+                0.8191145957773224,
+                0.894699928064947
+              ]
+            }
+          ],
+          "by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.9350961538461539,
+              "coverage_ci": [
+                0.9223194804479897,
+                0.9476449491041133
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.8888888888888888,
+              "coverage_ci": [
+                0.7923491379310345,
+                0.9710294117647058
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "system_recall": 0.9337442218798151,
+          "system_recall_ci": [
+            0.9197554352951717,
+            0.9468211610486892
+          ],
+          "system_by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.9350961538461539,
+              "coverage_ci": [
+                0.9223194804479897,
+                0.9476449491041133
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.8888888888888888,
+              "coverage_ci": [
+                0.7923491379310345,
+                0.9710294117647058
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "adds_flags": true,
+          "flagged_per_image": 9.803196803196803,
+          "flagged_false_per_image": 9.523476523476523,
+          "flagged_true_total": 280
+        },
+        "global_occlusion_aware": {
+          "alpha": 0.05,
+          "target_coverage": 0.95,
+          "score": "occlusion_aware",
+          "conditional": false,
+          "all_groups_achievable": false,
+          "coverage": 0.9491525423728814,
+          "coverage_ci": [
+            0.9369486658027909,
+            0.9602064324558011
+          ],
+          "by_context_group": [
+            {
+              "group": 0,
+              "context_range": [
+                0.0,
+                1.0
+              ],
+              "n_calibration": 636,
+              "n_test": 1298,
+              "threshold": null,
+              "achievable": false,
+              "min_certifiable_alpha": 0.05180533751962323,
+              "reason": "32/636 objects have no candidate at all; the smallest certifiable miss rate is 0.052",
+              "coverage": 0.9491525423728814,
+              "coverage_ci": [
+                0.9369486658027909,
+                0.9602064324558011
+              ]
+            }
+          ],
+          "by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.9503205128205128,
+              "coverage_ci": [
+                0.9389340175874265,
+                0.9609180708291942
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.9166666666666666,
+              "coverage_ci": [
+                0.8190454545454545,
+                1.0
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "system_recall": 0.9491525423728814,
+          "system_recall_ci": [
+            0.9369486658027909,
+            0.9602064324558011
+          ],
+          "system_by_occlusion_bucket": [
+            {
+              "bucket": 0,
+              "lo": 0.0,
+              "hi": 0.2,
+              "n": 1248,
+              "reliable": true,
+              "coverage": 0.9503205128205128,
+              "coverage_ci": [
+                0.9389340175874265,
+                0.9609180708291942
+              ]
+            },
+            {
+              "bucket": 1,
+              "lo": 0.2,
+              "hi": 0.4,
+              "n": 36,
+              "reliable": true,
+              "coverage": 0.9166666666666666,
+              "coverage_ci": [
+                0.8190454545454545,
+                1.0
+              ]
+            },
+            {
+              "bucket": 2,
+              "lo": 0.4,
+              "hi": 0.6,
+              "n": 8,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 3,
+              "lo": 0.6,
+              "hi": 0.8,
+              "n": 2,
+              "reliable": false,
+              "coverage": 1.0,
+              "coverage_ci": [
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "bucket": 4,
+              "lo": 0.8,
+              "hi": 1.0,
+              "n": 4,
+              "reliable": false,
+              "coverage": 0.75,
+              "coverage_ci": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "adds_flags": true,
+          "flagged_per_image": 38.61838161838162,
+          "flagged_false_per_image": 38.31868131868132,
+          "flagged_true_total": 300
+        }
+      },
+      "occlusion": {
+        "n": 1298,
+        "n_images": 1001,
+        "standard_threshold": 0.46,
+        "power": {
+          "n_objects": 1298,
+          "n_occluded": 50,
+          "occluded_threshold": 0.2,
+          "min_occluded_required": 200,
+          "adequate": false,
+          "message": "only 50 objects with occlusion >= 0.2 (need >= 200): occlusion-stratified results on this split are NOT interpretable"
+        },
+        "buckets": [
+          {
+            "bucket": 0,
+            "lo": 0.0,
+            "hi": 0.2,
+            "n": 1248,
+            "n_images": 880,
+            "reliable": true,
+            "miss_rate": 0.27724358974358976,
+            "miss_rate_ci": [
+              0.2505047635609161,
+              0.30371809332832017
+            ],
+            "unproposed_rate": 0.049679487179487176,
+            "mean_uncertainty": 0.3663710485375188,
+            "mean_uncertainty_ci": [
+              0.3481205222294768,
+              0.38484899007177886
+            ],
+            "mean_context": 0.06563839828158685
+          },
+          {
+            "bucket": 1,
+            "lo": 0.2,
+            "hi": 0.4,
+            "n": 36,
+            "n_images": 32,
+            "reliable": true,
+            "miss_rate": 0.3888888888888889,
+            "miss_rate_ci": [
+              0.21212121212121213,
+              0.5544326241134752
+            ],
+            "unproposed_rate": 0.08333333333333333,
+            "mean_uncertainty": 0.47451522817654124,
+            "mean_uncertainty_ci": [
+              0.337154632620381,
+              0.5911787877412686
+            ],
+            "mean_context": 0.28523199334870136
+          },
+          {
+            "bucket": 2,
+            "lo": 0.4,
+            "hi": 0.6,
+            "n": 8,
+            "n_images": 8,
+            "reliable": false,
+            "miss_rate": 0.25,
+            "miss_rate_ci": [
+              0.0,
+              0.6
+            ],
+            "unproposed_rate": 0.0,
+            "mean_uncertainty": 0.40900788016733713,
+            "mean_uncertainty_ci": [
+              0.22930582264414084,
+              0.6337318279089893
+            ],
+            "mean_context": 0.3147684554905645
+          },
+          {
+            "bucket": 3,
+            "lo": 0.6,
+            "hi": 0.8,
+            "n": 2,
+            "n_images": 2,
+            "reliable": false,
+            "miss_rate": 1.0,
+            "miss_rate_ci": [
+              1.0,
+              1.0
+            ],
+            "unproposed_rate": 0.0,
+            "mean_uncertainty": 0.7232036888599396,
+            "mean_uncertainty_ci": [
+              0.6800220012664795,
+              0.7663853764533997
+            ],
+            "mean_context": 0.4481799281666889
+          },
+          {
+            "bucket": 4,
+            "lo": 0.8,
+            "hi": 1.0,
+            "n": 4,
+            "n_images": 4,
+            "reliable": false,
+            "miss_rate": 0.5,
+            "miss_rate_ci": [
+              0.0,
+              1.0
+            ],
+            "unproposed_rate": 0.25,
+            "mean_uncertainty": 0.6326057873666286,
+            "mean_uncertainty_ci": [
+              0.1858084723353386,
+              1.0
+            ],
+            "mean_context": 0.2699633868269877
+          }
+        ],
+        "size_tertile_edges_log_rel_area": [
+          -4.132417996724446,
+          -2.9657615025838218
+        ],
+        "size_tertile_edges_rel_area": [
+          0.016044037452353256,
+          0.051521220760368885
+        ],
+        "by_size_tertile": [
+          {
+            "tertile": 0,
+            "size": "small",
+            "log_rel_area_range": [
+              null,
+              -4.132417996724446
+            ],
+            "rel_area_range": [
+              null,
+              0.016044037452353256
+            ],
+            "n": 433,
+            "reliable": true,
+            "miss_rate": 0.23325635103926096,
+            "miss_rate_ci": [
+              0.19259125021320145,
+              0.27059750262574395
+            ]
+          },
+          {
+            "tertile": 1,
+            "size": "medium",
+            "log_rel_area_range": [
+              -4.132417996724446,
+              -2.9657615025838218
+            ],
+            "rel_area_range": [
+              0.016044037452353256,
+              0.051521220760368885
+            ],
+            "n": 432,
+            "reliable": true,
+            "miss_rate": 0.14351851851851852,
+            "miss_rate_ci": [
+              0.11250804070441844,
+              0.17422908116735064
+            ]
+          },
+          {
+            "tertile": 2,
+            "size": "large",
+            "log_rel_area_range": [
+              -2.9657615025838218,
+              null
+            ],
+            "rel_area_range": [
+              0.051521220760368885,
+              null
+            ],
+            "n": 433,
+            "reliable": true,
+            "miss_rate": 0.46882217090069284,
+            "miss_rate_ci": [
+              0.4189217032967033,
+              0.5210184757505774
+            ]
+          }
+        ],
+        "by_occlusion_and_size": [
+          {
+            "bucket": 0,
+            "lo": 0.0,
+            "hi": 0.2,
+            "tertile": 0,
+            "size": "small",
+            "n": 417,
+            "reliable": true,
+            "miss_rate": 0.22062350119904076,
+            "miss_rate_ci": [
+              0.18181818181818182,
+              0.26112811524692486
+            ]
+          },
+          {
+            "bucket": 0,
+            "lo": 0.0,
+            "hi": 0.2,
+            "tertile": 1,
+            "size": "medium",
+            "n": 410,
+            "reliable": true,
+            "miss_rate": 0.14390243902439023,
+            "miss_rate_ci": [
+              0.11069151931872336,
+              0.17575363825363827
+            ]
+          },
+          {
+            "bucket": 0,
+            "lo": 0.0,
+            "hi": 0.2,
+            "tertile": 2,
+            "size": "large",
+            "n": 421,
+            "reliable": true,
+            "miss_rate": 0.46318289786223277,
+            "miss_rate_ci": [
+              0.4107787154061964,
+              0.5154174901185771
+            ]
+          },
+          {
+            "bucket": 1,
+            "lo": 0.2,
+            "hi": 0.4,
+            "tertile": 0,
+            "size": "small",
+            "n": 12,
+            "reliable": false,
+            "miss_rate": 0.5,
+            "miss_rate_ci": [
+              0.23541666666666694,
+              0.7777777777777778
+            ]
+          },
+          {
+            "bucket": 1,
+            "lo": 0.2,
+            "hi": 0.4,
+            "tertile": 1,
+            "size": "medium",
+            "n": 15,
+            "reliable": false,
+            "miss_rate": 0.13333333333333333,
+            "miss_rate_ci": [
+              0.0,
+              0.3
+            ]
+          },
+          {
+            "bucket": 1,
+            "lo": 0.2,
+            "hi": 0.4,
+            "tertile": 2,
+            "size": "large",
+            "n": 9,
+            "reliable": false,
+            "miss_rate": 0.6666666666666666,
+            "miss_rate_ci": [
+              0.15238095238095264,
+              1.0
+            ]
+          },
+          {
+            "bucket": 2,
+            "lo": 0.4,
+            "hi": 0.6,
+            "tertile": 0,
+            "size": "small",
+            "n": 2,
+            "reliable": false,
+            "miss_rate": 0.5,
+            "miss_rate_ci": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "bucket": 2,
+            "lo": 0.4,
+            "hi": 0.6,
+            "tertile": 1,
+            "size": "medium",
+            "n": 6,
+            "reliable": false,
+            "miss_rate": 0.16666666666666666,
+            "miss_rate_ci": [
+              0.0,
+              0.5
+            ]
+          },
+          {
+            "bucket": 2,
+            "lo": 0.4,
+            "hi": 0.6,
+            "tertile": 2,
+            "size": "large",
+            "n": 0,
+            "reliable": false,
+            "miss_rate": null,
+            "miss_rate_ci": null
+          },
+          {
+            "bucket": 3,
+            "lo": 0.6,
+            "hi": 0.8,
+            "tertile": 0,
+            "size": "small",
+            "n": 0,
+            "reliable": false,
+            "miss_rate": null,
+            "miss_rate_ci": null
+          },
+          {
+            "bucket": 3,
+            "lo": 0.6,
+            "hi": 0.8,
+            "tertile": 1,
+            "size": "medium",
+            "n": 0,
+            "reliable": false,
+            "miss_rate": null,
+            "miss_rate_ci": null
+          },
+          {
+            "bucket": 3,
+            "lo": 0.6,
+            "hi": 0.8,
+            "tertile": 2,
+            "size": "large",
+            "n": 2,
+            "reliable": false,
+            "miss_rate": 1.0,
+            "miss_rate_ci": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "bucket": 4,
+            "lo": 0.8,
+            "hi": 1.0,
+            "tertile": 0,
+            "size": "small",
+            "n": 2,
+            "reliable": false,
+            "miss_rate": 1.0,
+            "miss_rate_ci": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "bucket": 4,
+            "lo": 0.8,
+            "hi": 1.0,
+            "tertile": 1,
+            "size": "medium",
+            "n": 1,
+            "reliable": false,
+            "miss_rate": 0.0,
+            "miss_rate_ci": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "bucket": 4,
+            "lo": 0.8,
+            "hi": 1.0,
+            "tertile": 2,
+            "size": "large",
+            "n": 1,
+            "reliable": false,
+            "miss_rate": 0.0,
+            "miss_rate_ci": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "miss_rate_monotone_over_reliable_buckets": true,
+        "spearman_occlusion_uncertainty": 0.06128041840953307,
+        "spearman_ci": [
+          0.003341503916468945,
+          0.11320482707093725
+        ],
+        "partial_spearman_given_size_and_class": 0.09041177853231422,
+        "partial_spearman_ci": [
+          0.034906406636916326,
+          0.14858941767597558
+        ],
+        "spearman_occlusion_vs_deployable_context": 0.43418991382837335,
+        "spearman_context_ci": [
+          0.36126679505987297,
+          0.49572361278464855
+        ],
+        "logistic_miss_model": {
+          "fitted": true,
+          "log_odds_per_0.1_occlusion": 0.18681625154483483,
+          "odds_ratio_per_0.1_occlusion": 1.2054057732506405,
+          "odds_ratio_ci": [
+            1.0363658106777032,
+            1.4083476036755125
+          ],
+          "log_odds_per_sd_log_size": 0.7174878902809331,
+          "controls": "log relative box area, class"
+        }
+      },
+      "comparison": {
+        "metrics": {
+          "recall_at_standard": {
+            "development": 0.8687275703582447,
+            "transfer": 0.7180277349768875,
+            "change": -0.15069983538135712
+          },
+          "recall_at_floor": {
+            "development": 0.9806081974438079,
+            "transfer": 0.9491525423728814,
+            "change": -0.031455655070926514
+          },
+          "precision_at_standard": {
+            "development": 0.8627524541987119,
+            "transfer": 0.21249430004559963,
+            "change": -0.6502581541531123
+          },
+          "ap50": {
+            "development": 0.9149956924579103,
+            "transfer": 0.28635154446485056,
+            "change": -0.6286441479930598
+          },
+          "dece": {
+            "development": 0.0505323166833961,
+            "transfer": 0.5717569435778895,
+            "change": 0.5212246268944934
+          },
+          "ma_ece": {
+            "development": 0.16003779957503894,
+            "transfer": 0.6047403102972693,
+            "change": 0.4447025107222303
+          },
+          "miss_mass": {
+            "development": 0.11533355459674743,
+            "transfer": 0.07702020202020202,
+            "change": -0.03831335257654542
+          },
+          "oce_max": {
+            "development": 0.16166537294243072,
+            "transfer": 0.320722606169714,
+            "change": 0.15905723322728327
+          }
+        },
+        "conformal_coverage": {
+          "global_confidence": {
+            "target": 0.95,
+            "development": 0.9503872064471447,
+            "development_flags_per_image": 4.471122647631408,
+            "development_certifiable": true,
+            "transfer_frozen": 0.889060092449923,
+            "transfer_frozen_flags_per_image": 2.757242757242757,
+            "transfer_frozen_certifiable": true,
+            "transfer_recalibrated": 0.9491525423728814,
+            "transfer_recalibrated_flags_per_image": 38.61838161838162,
+            "transfer_recalibrated_certifiable": false,
+            "frozen_guarantee_holds": false,
+            "recalibration_restores": true
+          },
+          "mondrian_confidence": {
+            "target": 0.95,
+            "development": 0.9505131272429642,
+            "development_flags_per_image": 6.106424399740428,
+            "development_certifiable": true,
+            "transfer_frozen": 0.8651771956856703,
+            "transfer_frozen_flags_per_image": 3.4295704295704295,
+            "transfer_frozen_certifiable": true,
+            "transfer_recalibrated": 0.9337442218798151,
+            "transfer_recalibrated_flags_per_image": 9.803196803196803,
+            "transfer_recalibrated_certifiable": false,
+            "frozen_guarantee_holds": false,
+            "recalibration_restores": true
+          },
+          "global_occlusion_aware": {
+            "target": 0.95,
+            "development": 0.950324246049235,
+            "development_flags_per_image": 4.239454899415963,
+            "development_certifiable": true,
+            "transfer_frozen": 0.889060092449923,
+            "transfer_frozen_flags_per_image": 2.5794205794205793,
+            "transfer_frozen_certifiable": true,
+            "transfer_recalibrated": 0.9491525423728814,
+            "transfer_recalibrated_flags_per_image": 38.61838161838162,
+            "transfer_recalibrated_certifiable": false,
+            "frozen_guarantee_holds": false,
+            "recalibration_restores": true
+          }
+        },
+        "usable": true,
+        "gate_message": "",
+        "conformal_coverage_by_alpha": {
+          "0.05": {
+            "global_confidence": {
+              "target": 0.95,
+              "development": 0.9503872064471447,
+              "development_flags_per_image": 4.471122647631408,
+              "development_certifiable": true,
+              "transfer_frozen": 0.889060092449923,
+              "transfer_frozen_flags_per_image": 2.757242757242757,
+              "transfer_frozen_certifiable": true,
+              "transfer_recalibrated": 0.9491525423728814,
+              "transfer_recalibrated_flags_per_image": 38.61838161838162,
+              "transfer_recalibrated_certifiable": false,
+              "frozen_guarantee_holds": false,
+              "recalibration_restores": true
+            },
+            "mondrian_confidence": {
+              "target": 0.95,
+              "development": 0.9505131272429642,
+              "development_flags_per_image": 6.106424399740428,
+              "development_certifiable": true,
+              "transfer_frozen": 0.8651771956856703,
+              "transfer_frozen_flags_per_image": 3.4295704295704295,
+              "transfer_frozen_certifiable": true,
+              "transfer_recalibrated": 0.9337442218798151,
+              "transfer_recalibrated_flags_per_image": 9.803196803196803,
+              "transfer_recalibrated_certifiable": false,
+              "frozen_guarantee_holds": false,
+              "recalibration_restores": true
+            },
+            "global_occlusion_aware": {
+              "target": 0.95,
+              "development": 0.950324246049235,
+              "development_flags_per_image": 4.239454899415963,
+              "development_certifiable": true,
+              "transfer_frozen": 0.889060092449923,
+              "transfer_frozen_flags_per_image": 2.5794205794205793,
+              "transfer_frozen_certifiable": true,
+              "transfer_recalibrated": 0.9491525423728814,
+              "transfer_recalibrated_flags_per_image": 38.61838161838162,
+              "transfer_recalibrated_certifiable": false,
+              "frozen_guarantee_holds": false,
+              "recalibration_restores": true
+            }
+          },
+          "0.1": {
+            "global_confidence": {
+              "target": 0.9,
+              "development": 0.9009003336901089,
+              "development_flags_per_image": 0.981829980532122,
+              "development_certifiable": true,
+              "transfer_frozen": 0.7819722650231125,
+              "transfer_frozen_flags_per_image": 0.5814185814185814,
+              "transfer_frozen_certifiable": true,
+              "transfer_recalibrated": 0.9021571648690293,
+              "transfer_recalibrated_flags_per_image": 3.5864135864135864,
+              "transfer_recalibrated_certifiable": true,
+              "frozen_guarantee_holds": false,
+              "recalibration_restores": true
+            },
+            "mondrian_confidence": {
+              "target": 0.9,
+              "development": 0.9005225713026507,
+              "development_flags_per_image": 1.2861778066190785,
+              "development_certifiable": true,
+              "transfer_frozen": 0.7473035439137135,
+              "transfer_frozen_flags_per_image": 0.7042957042957043,
+              "transfer_frozen_certifiable": true,
+              "transfer_recalibrated": 0.8983050847457628,
+              "transfer_recalibrated_flags_per_image": 7.422577422577422,
+              "transfer_recalibrated_certifiable": false,
+              "frozen_guarantee_holds": false,
+              "recalibration_restores": true
+            },
+            "global_occlusion_aware": {
+              "target": 0.9,
+              "development": 0.9019706604545741,
+              "development_flags_per_image": 0.9565217391304348,
+              "development_certifiable": true,
+              "transfer_frozen": 0.7927580893682589,
+              "transfer_frozen_flags_per_image": 0.5544455544455544,
+              "transfer_frozen_certifiable": true,
+              "transfer_recalibrated": 0.8959938366718028,
+              "transfer_recalibrated_flags_per_image": 2.8591408591408594,
+              "transfer_recalibrated_certifiable": true,
+              "frozen_guarantee_holds": false,
+              "recalibration_restores": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "note": "coarse: detector and dataset classes mapped by name to evaluation.common_classes; class_agnostic: any vehicle box counts. Development reference numbers use the same mode and the same class maps. 'frozen' = detector and post-hoc layer exactly as fitted on the development dataset; 'recalibrated' = thresholds re-fitted on this dataset's calib role, detector untouched. If this dataset's annotations are incomplete, only recall-side quantities (recall, conformal coverage) are meaningful on it; precision, false alarms, D-ECE and MA-ECE are not."
+}

@@ -25,7 +25,7 @@ find outputs -type f \( -name '*.md' \
   -not -name 'calibration.json' -print0 | xargs -0 git add -f
 git add configs/experiment_v06_detrac.yaml scripts/19_evidential_pilot.py scripts/21_interim_report.py \
         scripts/beocat/submit_v06_completion.sh scripts/beocat/v06_finalize.sh
-git status --short | head -50
+git status --short | sed -n "1,50p" || true   # head would SIGPIPE git under pipefail
 if git diff --cached --quiet; then
   echo "nothing to commit"
 else

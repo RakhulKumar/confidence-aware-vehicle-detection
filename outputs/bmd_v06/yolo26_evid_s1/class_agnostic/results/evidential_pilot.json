@@ -1,0 +1,126 @@
+{
+  "detector": "yolo26_evid_s1",
+  "threshold_max_f1_calib": 0.43,
+  "ap50_class_agnostic": 0.9332595079766772,
+  "ap50_class_aware": 0.7453467079080351,
+  "recall_at_threshold": 0.8830547442987634,
+  "fp_per_image": 1.192083062946139,
+  "yolo26_family": {
+    "yolo26": {
+      "ap50_class_agnostic": 0.9358683303981234,
+      "ap50_class_aware": 0.7475848719471038
+    },
+    "yolo26_s1": {
+      "ap50_class_agnostic": 0.9354591504173615,
+      "ap50_class_aware": 0.74519411418711
+    },
+    "yolo26_s2": {
+      "ap50_class_agnostic": 0.9364537420747184,
+      "ap50_class_aware": 0.7463562482387492
+    }
+  },
+  "yolo26_family_ap50_class_agnostic_mean": 0.9359270742967345,
+  "ap50_gap_to_yolo26_family_mean": -0.0026675663200572686,
+  "n_vehicles_with_candidate": 15933,
+  "associations": {
+    "aleatoric_vs_annotated_occlusion": {
+      "spearman": 0.17816707442538507,
+      "spearman_ci": [
+        0.1623254577826935,
+        0.19355066126503012
+      ],
+      "partial_spearman_size": 0.16895100568028298,
+      "partial_ci": [
+        0.15344597673576962,
+        0.18367214202836168
+      ]
+    },
+    "aleatoric_vs_class_rarity": {
+      "spearman": 0.041738354012166856,
+      "spearman_ci": [
+        0.02339546537140272,
+        0.05896352982841499
+      ],
+      "partial_spearman_size": 0.21755355311963917,
+      "partial_ci": [
+        0.1976321071055269,
+        0.23636026516805736
+      ]
+    },
+    "epistemic_vs_annotated_occlusion": {
+      "spearman": 0.20655571341896545,
+      "spearman_ci": [
+        0.1897465263059526,
+        0.22067291679290274
+      ],
+      "partial_spearman_size": 0.19919152132532447,
+      "partial_ci": [
+        0.1829295509912437,
+        0.2126493077171645
+      ]
+    },
+    "epistemic_vs_class_rarity": {
+      "spearman": 0.3576462753784268,
+      "spearman_ci": [
+        0.33900678437150317,
+        0.376798246591413
+      ],
+      "partial_spearman_size": 0.4496819308699871,
+      "partial_ci": [
+        0.43184692651381257,
+        0.4671223348008437
+      ]
+    }
+  },
+  "uncertainty_split": {
+    "spearman_aleatoric_vs_epistemic": 0.8438811404550637,
+    "rarity_diff_epi_minus_alea": 0.31590792136625995,
+    "rarity_diff_ci": [
+      0.30633703842230353,
+      0.32420602151200467
+    ],
+    "occlusion_diff_alea_minus_epi": -0.02838863899358038,
+    "occlusion_diff_ci": [
+      -0.037279237418118644,
+      -0.019102116895027544
+    ]
+  },
+  "by_annotated_occlusion": [
+    {
+      "lo": 0.0,
+      "hi": 0.2,
+      "n": 11920,
+      "mean_aleatoric": 0.13555355798316693,
+      "mean_epistemic": 0.006293225596964375
+    },
+    {
+      "lo": 0.2,
+      "hi": 0.4,
+      "n": 2134,
+      "mean_aleatoric": 0.15390567639649266,
+      "mean_epistemic": 0.007460164695304042
+    },
+    {
+      "lo": 0.4,
+      "hi": 0.6,
+      "n": 1153,
+      "mean_aleatoric": 0.16106080173298415,
+      "mean_epistemic": 0.007717791804367632
+    },
+    {
+      "lo": 0.6,
+      "hi": 0.8,
+      "n": 431,
+      "mean_aleatoric": 0.1654115199312246,
+      "mean_epistemic": 0.007957634981500065
+    },
+    {
+      "lo": 0.8,
+      "hi": 1.0,
+      "n": 295,
+      "mean_aleatoric": 0.15714036397803022,
+      "mean_epistemic": 0.007232391000108715
+    }
+  ],
+  "note": "final v0.6 model, trained on Beocat (L40S) with the same batch and patience as the yolo26 family (configs/beocat_batch.yaml; patience 10)"
+}

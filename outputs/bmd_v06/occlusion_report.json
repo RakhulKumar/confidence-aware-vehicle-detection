@@ -1,0 +1,225 @@
+{
+  "per_role": {
+    "bmd45/fit": {
+      "n_images": 41880,
+      "n_objects": 436817,
+      "objects_per_image": 10.430205348615091,
+      "share_images_without_objects": 0.0002148997134670487,
+      "buckets": [
+        {
+          "lo": 0.0,
+          "hi": 0.2,
+          "n": 323065
+        },
+        {
+          "lo": 0.2,
+          "hi": 0.4,
+          "n": 59666
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.6,
+          "n": 33625
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.8,
+          "n": 12582
+        },
+        {
+          "lo": 0.8,
+          "hi": 1.0,
+          "n": 7879
+        }
+      ],
+      "n_occluded": 113752,
+      "adequate": true,
+      "message": ""
+    },
+    "bmd45/val": {
+      "n_images": 1026,
+      "n_objects": 10682,
+      "objects_per_image": 10.41130604288499,
+      "share_images_without_objects": 0.0,
+      "buckets": [
+        {
+          "lo": 0.0,
+          "hi": 0.2,
+          "n": 7949
+        },
+        {
+          "lo": 0.2,
+          "hi": 0.4,
+          "n": 1449
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.6,
+          "n": 796
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.8,
+          "n": 305
+        },
+        {
+          "lo": 0.8,
+          "hi": 1.0,
+          "n": 183
+        }
+      ],
+      "n_occluded": 2733,
+      "adequate": true,
+      "message": ""
+    },
+    "bmd45/calib": {
+      "n_images": 1539,
+      "n_objects": 15944,
+      "objects_per_image": 10.359974009096817,
+      "share_images_without_objects": 0.000649772579597141,
+      "buckets": [
+        {
+          "lo": 0.0,
+          "hi": 0.2,
+          "n": 11831
+        },
+        {
+          "lo": 0.2,
+          "hi": 0.4,
+          "n": 2227
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.6,
+          "n": 1188
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.8,
+          "n": 416
+        },
+        {
+          "lo": 0.8,
+          "hi": 1.0,
+          "n": 282
+        }
+      ],
+      "n_occluded": 4113,
+      "adequate": true,
+      "message": ""
+    },
+    "bmd45/test": {
+      "n_images": 1541,
+      "n_objects": 16093,
+      "objects_per_image": 10.443218689162881,
+      "share_images_without_objects": 0.0,
+      "buckets": [
+        {
+          "lo": 0.0,
+          "hi": 0.2,
+          "n": 12021
+        },
+        {
+          "lo": 0.2,
+          "hi": 0.4,
+          "n": 2152
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.6,
+          "n": 1169
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.8,
+          "n": 444
+        },
+        {
+          "lo": 0.8,
+          "hi": 1.0,
+          "n": 307
+        }
+      ],
+      "n_occluded": 4072,
+      "adequate": true,
+      "message": ""
+    },
+    "pals/calib": {
+      "n_images": 1006,
+      "n_objects": 1240,
+      "objects_per_image": 1.2326043737574552,
+      "share_images_without_objects": 0.17594433399602386,
+      "buckets": [
+        {
+          "lo": 0.0,
+          "hi": 0.2,
+          "n": 1187
+        },
+        {
+          "lo": 0.2,
+          "hi": 0.4,
+          "n": 34
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.6,
+          "n": 7
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.8,
+          "n": 5
+        },
+        {
+          "lo": 0.8,
+          "hi": 1.0,
+          "n": 7
+        }
+      ],
+      "n_occluded": 53,
+      "adequate": false,
+      "message": "only 53 objects with occlusion >= 0.2 (need >= 200): occlusion-stratified results on this split are NOT interpretable"
+    },
+    "pals/test": {
+      "n_images": 1001,
+      "n_objects": 1298,
+      "objects_per_image": 1.2967032967032968,
+      "share_images_without_objects": 0.12087912087912088,
+      "buckets": [
+        {
+          "lo": 0.0,
+          "hi": 0.2,
+          "n": 1248
+        },
+        {
+          "lo": 0.2,
+          "hi": 0.4,
+          "n": 36
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.6,
+          "n": 8
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.8,
+          "n": 2
+        },
+        {
+          "lo": 0.8,
+          "hi": 1.0,
+          "n": 4
+        }
+      ],
+      "n_occluded": 50,
+      "adequate": false,
+      "message": "only 50 objects with occlusion >= 0.2 (need >= 200): occlusion-stratified results on this split are NOT interpretable"
+    }
+  },
+  "verdict": {
+    "development_dataset": "bmd45",
+    "development_can_answer_occlusion_questions": true,
+    "rule": ">= 200 objects with occlusion severity >= 0.2 in each of calib and test"
+  }
+}
